@@ -12,6 +12,7 @@
 * set the themes
   solarized configuration
 #+BEGIN_SRC emacs-lisp
+  (require 'lenlen-theme)
 #+END_SRC
 * org-mode
 ** org-hook(truncate)
@@ -51,7 +52,7 @@
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
   (setq company-selection-wrap-around t)
-
+  (company-tng-configure-default)
 #+END_SRC
 ** racer
    #+BEGIN_SRC emacs-lisp
@@ -79,3 +80,4 @@
    
    
 
+   \acidfree 

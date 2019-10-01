@@ -25,7 +25,7 @@ Alpha should be a float between 0 and 1.
 
 ;;;***
 
-;;;### (autoloads nil "solarized-dark-theme" "solarized-dark-theme.el"
+;;### (autoloads nil "solarized-dark-theme" "solarized-dark-theme.el"
 ;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from solarized-dark-theme.el
 
