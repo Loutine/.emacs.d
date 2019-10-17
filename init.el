@@ -76,7 +76,7 @@
      ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))))
  '(package-selected-packages
    (quote
-    (ob-rust company-auctex company-math qsimpleq-theme lenlen-theme solarized-theme racer company htmlize ox-twbs auctex yasnippet color-theme-solarized ## helm org-bullets)))
+    (markdown-mode org-re-reveal ox-reveal ob-rust company-auctex company-math qsimpleq-theme lenlen-theme solarized-theme racer company htmlize ox-twbs auctex yasnippet color-theme-solarized ## helm org-bullets)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(scroll-bar-mode nil)

@@ -13,7 +13,7 @@
       [(1 8)
        nil "interface to ack-like tools" tar
        ((:url . "https://github.com/leoliu/ack-el")
-	(:maintainer "João Távora" . "joaotavora@gmail.com")
+	(:maintainer "Jo茫o T谩vora" . "joaotavora@gmail.com")
 	(:authors
 	 ("Leo Liu" . "sdl.web@gmail.com"))
 	(:keywords "tools" "processes" "convenience"))])
@@ -318,8 +318,8 @@
 		      nil "Shrink blank lines in docstrings and doc comments" single
 		      ((:keywords "convenience" "faces" "lisp" "maint" "c")
 		       (:authors
-			("Clément Pit-Claudel" . "clement.pitclaudel@live.com"))
-		       (:maintainer "Clément Pit-Claudel" . "clement.pitclaudel@live.com")
+			("Cl茅ment Pit-Claudel" . "clement.pitclaudel@live.com"))
+		       (:maintainer "Cl茅ment Pit-Claudel" . "clement.pitclaudel@live.com")
 		       (:url . "https://github.com/cpitclaudel/compact-docstrings"))])
  (company .
 	  [(0 9 10)
@@ -399,9 +399,9 @@
  (cycle-quotes .
 	       [(0 1)
 		nil "Cycle between quote styles" tar
-		((:maintainer "Simen Heggestøyl" . "simenheg@gmail.com")
+		((:maintainer "Simen Heggest酶yl" . "simenheg@gmail.com")
 		 (:authors
-		  ("Simen Heggestøyl" . "simenheg@gmail.com"))
+		  ("Simen Heggest酶yl" . "simenheg@gmail.com"))
 		 (:keywords "convenience")
 		 (:url . "http://elpa.gnu.org/packages/cycle-quotes.html"))])
  (darkroom .
@@ -412,8 +412,8 @@
 	    ((:url . "http://elpa.gnu.org/packages/darkroom.html")
 	     (:keywords "convenience" "emulations")
 	     (:authors
-	      ("João Távora" . "joaotavora@gmail.com"))
-	     (:maintainer "João Távora" . "joaotavora@gmail.com"))])
+	      ("Jo茫o T谩vora" . "joaotavora@gmail.com"))
+	     (:maintainer "Jo茫o T谩vora" . "joaotavora@gmail.com"))])
  (dash .
        [(2 12 0)
 	nil "A modern list library for Emacs" tar
@@ -634,9 +634,9 @@
 	   (1 0 2)))
 	 "Client for Language Server Protocol (LSP) servers" tar
 	 ((:url . "https://github.com/joaotavora/eglot")
-	  (:maintainer "João Távora" . "joaotavora@gmail.com")
+	  (:maintainer "Jo茫o T谩vora" . "joaotavora@gmail.com")
 	  (:authors
-	   ("João Távora" . "joaotavora@gmail.com"))
+	   ("Jo茫o T谩vora" . "joaotavora@gmail.com"))
 	  (:keywords "convenience" "languages"))])
  (el-search .
 	    [(1 12 6 1)
@@ -764,7 +764,7 @@
 	    (:keywords "c" "languages" "tools")
 	    (:authors
 	     ("Pavel Kobyakov" . "pk_at_work@yahoo.com"))
-	    (:maintainer "João Távora" . "joaotavora@gmail.com"))])
+	    (:maintainer "Jo茫o T谩vora" . "joaotavora@gmail.com"))])
  (fountain-mode .
 		[(2 7 3)
 		 ((emacs
@@ -903,7 +903,7 @@
 	  [(0 1)
 	   ((emacs
 	     (25)))
-	   "gnamù reader, a reader with espeak tts" tar
+	   "gnam霉 reader, a reader with espeak tts" tar
 	   ((:maintainer "Michelangelo Rodriguez" . "michelangelo.rodriguez@gmail.com")
 	    (:authors
 	     ("Michelangelo Rodriguez" . "michelangelo.rodriguez@gmail.com"))
@@ -968,7 +968,7 @@
 	   ("Oleh Krehel" . "ohwoeowho@gmail.com"))
 	  (:keywords "bindings"))])
  (hyperbole .
-	    [(7 0 3)
+	    [(7 0 6)
 	     ((emacs
 	       (24 4)))
 	     "GNU Hyperbole: The Everyday Hypertextual Information Manager" tar
@@ -1056,8 +1056,8 @@
 	     ((:url . "http://elpa.gnu.org/packages/json-mode.html")
 	      (:keywords "data")
 	      (:authors
-	       ("Simen Heggestøyl" . "simenheg@gmail.com"))
-	      (:maintainer "Simen Heggestøyl" . "simenheg@gmail.com"))])
+	       ("Simen Heggest酶yl" . "simenheg@gmail.com"))
+	      (:maintainer "Simen Heggest酶yl" . "simenheg@gmail.com"))])
  (jsonrpc .
 	  [(1 0 7)
 	   ((emacs
@@ -1066,8 +1066,8 @@
 	   ((:url . "http://elpa.gnu.org/packages/jsonrpc.html")
 	    (:keywords "processes" "languages" "extensions")
 	    (:authors
-	     ("João Távora" . "joaotavora@gmail.com"))
-	    (:maintainer "João Távora" . "joaotavora@gmail.com"))])
+	     ("Jo茫o T谩vora" . "joaotavora@gmail.com"))
+	    (:maintainer "Jo茫o T谩vora" . "joaotavora@gmail.com"))])
  (jumpc .
 	[(3 0)
 	 nil "jump to previous insertion points" single
@@ -1499,7 +1499,7 @@
 	     ("Phillip Lord" . "phillip.lord@russet.org.uk"))
 	    (:url . "http://elpa.gnu.org/packages/persist.html"))])
  (phps-mode .
-	    [(0 3 4)
+	    [(0 3 5)
 	     ((emacs
 	       (26)))
 	     "Major mode for PHP with Semantic integration" tar
@@ -1552,7 +1552,7 @@
 	  "Python's flying circus support for Emacs" single
 	  ((:keywords "languages")
 	   (:authors
-	    ("Fabián E. Gallina" . "fgallina@gnu.org"))
+	    ("Fabi谩n E. Gallina" . "fgallina@gnu.org"))
 	   (:maintainer nil . "emacs-devel@gnu.org")
 	   (:url . "https://github.com/fgallina/python.el"))])
  (quarter-plane .
@@ -1722,9 +1722,9 @@
 	    (1 13)))
 	  "Elisp regexp mistake finder" tar
 	  ((:url . "https://github.com/mattiase/relint")
-	   (:maintainer "Mattias Engdegård" . "mattiase@acm.org")
+	   (:maintainer "Mattias Engdeg氓rd" . "mattiase@acm.org")
 	   (:authors
-	    ("Mattias Engdegård" . "mattiase@acm.org"))
+	    ("Mattias Engdeg氓rd" . "mattiase@acm.org"))
 	   (:keywords "lisp" "maint" "regexps"))])
  (rich-minority .
 		[(1 0 1)
@@ -1999,7 +1999,7 @@
 	 ((:url . "https://savannah.gnu.org/projects/tramp")
 	  (:maintainer "Michael Albinus" . "michael.albinus@gmx.de")
 	  (:authors
-	   ("Kai Großjohann" . "kai.grossjohann@gmx.net")
+	   ("Kai Gro脽johann" . "kai.grossjohann@gmx.net")
 	   ("Michael Albinus" . "michael.albinus@gmx.de"))
 	  (:keywords "comm" "processes"))])
  (tramp-theme .
@@ -2280,9 +2280,9 @@
      [(1 13)
       nil "Convert string regexp to rx notation" tar
       ((:url . "https://github.com/mattiase/xr")
-       (:maintainer "Mattias Engdegård" . "mattiase@acm.org")
+       (:maintainer "Mattias Engdeg氓rd" . "mattiase@acm.org")
        (:authors
-	("Mattias Engdegård" . "mattiase@acm.org"))
+	("Mattias Engdeg氓rd" . "mattiase@acm.org"))
        (:keywords "lisp" "maint" "regexps"))])
  (yasnippet .
 	    [(0 13 0)

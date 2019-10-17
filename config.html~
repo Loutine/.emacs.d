@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/css/theme/moon.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<p class="date">Created: 2019-10-17 ÷‹Àƒ 13:44</p>
+</section>
+<section id="table-of-contents-section">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-1">1. math-live</a></li>
+<li><a href="#/slide-2">2. set the font</a></li>
+<li><a href="#/slide-3">3. set the file system</a></li>
+<li><a href="#/slide-4">4. org-mode</a>
+<ul>
+<li><a href="#/slide-4-1">4.1. org-hook(truncate)</a></li>
+<li><a href="#/slide-4-2">4.2. org-babel-function</a></li>
+<li><a href="#/slide-4-3">4.3. org-bullet</a></li>
+<li><a href="#/slide-4-4">4.4. ox-twbs</a></li>
+<li><a href="#/slide-4-5">4.5. org-re-reveal</a></li>
+</ul>
+</li>
+<li><a href="#/slide-5">5. company</a>
+<ul>
+<li><a href="#/slide-5-1">5.1. racer</a></li>
+</ul>
+</li>
+<li><a href="#/slide-6">6. AUCTex</a>
+<ul>
+<li><a href="#/slide-6-1">6.1. AUCTex config</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-1">
+<h2 id="1"><a id="orgdd04095"></a><span class="section-number-2">1</span> math-live</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(add-to-list 'load-path <span style="color: #e67128;">"C:/emacs26.2/.emacs.d/elpa/quick-mathlive"</span>)
+(<span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">quick-mathlive</span>)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><a id="orgd433a46"></a><span class="section-number-2">2</span> set the font</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(<span style="color: #ffad29; font-weight: bold;">defun</span> <span style="color: #00ede1; font-weight: bold;">set-font</span> (english chinese english-size chinese-size)
+   (set-face-attribute 'default nil <span style="color: #23d7d7;">:font</span>
+                       (format   <span style="color: #e67128;">"%s:pixelsize=%d"</span>  english english-size))
+   (<span style="color: #ffad29; font-weight: bold;">if</span> (display-graphic-p) (<span style="color: #ffad29; font-weight: bold;">dolist</span> (charset '(kana han symbol cjk-misc bopomofo))
+     (set-fontset-font (frame-parameter nil 'font) charset
+                       (font-spec <span style="color: #23d7d7;">:family</span> chinese <span style="color: #23d7d7;">:size</span> chinese-size)))))
+
+(set-font   <span style="color: #e67128;">"Hack NF"</span> <span style="color: #e67128;">"&#20223;&#23435;"</span> 35 42)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><a id="org9322c21"></a><span class="section-number-2">3</span> set the file system</h2>
+<p>
+solarized configuration
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(<span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">recentf</span>)
+(<span style="color: #ffad29; font-weight: bold;">setq</span> recentf-max-saved-items 100)
+(recentf-mode 1)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><a id="org91b544c"></a><span class="section-number-2">4</span> org-mode</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+</section>
+<section id="slide-4-1">
+<h3 id="4-1"><a id="org1807964"></a><span class="section-number-3">4.1</span> org-hook(truncate)</h3>
+<p>
+just like text mode auto change the line
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(add-hook 'org-mode-hook
+          (<span style="color: #ffad29; font-weight: bold;">lambda</span>()
+            (<span style="color: #ffad29; font-weight: bold;">setq</span> truncate-lines nil)))
+</pre>
+</div>
+</section>
+<section id="slide-4-2">
+<h3 id="4-2"><a id="org133ff25"></a><span class="section-number-3">4.2</span> org-babel-function</h3>
+<p>
+excutable file in org-mode
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(org-babel-do-load-languages
+ 'org-babel-load-languages '((C . t)
+                             (java . t)
+                             (python . t)
+                             (dot . t)
+                             (ditaa . t)
+                             (rust . t))
+ )
+</pre>
+</div>
+</section>
+<section id="slide-4-3">
+<h3 id="4-3"><a id="orgf93257a"></a><span class="section-number-3">4.3</span> org-bullet</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(<span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">org-bullets</span>)
+(add-hook 'org-mode-hook (<span style="color: #ffad29; font-weight: bold;">lambda</span> () (org-bullets-mode 1)))
+</pre>
+</div>
+</section>
+<section id="slide-4-4">
+<h3 id="4-4"><a id="orgdbc62e7"></a><span class="section-number-3">4.4</span> ox-twbs</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(<span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">ox-twbs</span>)
+</pre>
+</div>
+</section>
+<section id="slide-4-5">
+<h3 id="4-5"><a id="orgf6ef525"></a><span class="section-number-3">4.5</span> org-re-reveal</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(<span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">org-re-reveal</span>)
+(<span style="color: #ffad29; font-weight: bold;">setq</span> org-re-reveal-root <span style="color: #e67128;">"file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js"</span>)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><a id="org29f6920"></a><span class="section-number-2">5</span> company</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(global-company-mode 1)
+<span style="color: #74af68;">;;</span><span style="color: #74af68;">(require 'company-auctex)</span>
+(<span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">company-math</span>)
+<span style="color: #74af68;">;;</span><span style="color: #74af68;">(company-auctex-init)</span>
+(<span style="color: #ffad29; font-weight: bold;">setq</span> company-idle-delay 0)
+(<span style="color: #ffad29; font-weight: bold;">setq</span> company-minimum-prefix-length 1)
+(<span style="color: #ffad29; font-weight: bold;">setq</span> company-selection-wrap-around t)
+
+</pre>
+</div>
+</section>
+<section id="slide-5-1">
+<h3 id="5-1"><a id="orgce368c7"></a><span class="section-number-3">5.1</span> racer</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><a id="orgf5d40f9"></a><span class="section-number-2">6</span> AUCTex</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+</section>
+<section id="slide-6-1">
+<h3 id="6-1"><a id="orgfc48a9a"></a><span class="section-number-3">6.1</span> AUCTex config</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><span style="color: #74af68;">;</span><span style="color: #74af68;">AUCTex configuration</span>
+<span style="color: #74af68;">;</span><span style="color: #74af68;">set the path of latex</span>
+(<span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">tex-site</span>)
+<span style="color: #74af68;">;</span><span style="color: #74af68;">set preview mode</span>
+(load <span style="color: #e67128;">"auctex.el"</span> nil t t)
+(<span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">tex</span>)
+(add-to-list 'company-backends 'company-math-symbols-unicode)
+(<span style="color: #ffad29; font-weight: bold;">setq</span> org-format-latex-options (plist-put org-format-latex-options <span style="color: #23d7d7;">:scale</span> 4.0))
+(<span style="color: #ffad29; font-weight: bold;">setq</span> org-latex-create-formula-image-program 'dvipng)
+<span style="color: #74af68;">;</span><span style="color: #74af68;">set auto save</span>
+(<span style="color: #ffad29; font-weight: bold;">setq</span> TeX-auto-save t)
+(<span style="color: #ffad29; font-weight: bold;">setq</span> TeX-parse-self t)
+(<span style="color: #ffad29; font-weight: bold;">setq-default</span> Tex-master nil)
+</pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/lib/js/head.min.js"></script>
+<script src="file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file://C:/Users/loutine/AppData/Roaming/npm/node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>
