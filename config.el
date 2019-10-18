@@ -5,7 +5,7 @@
      (set-fontset-font (frame-parameter nil 'font) charset
 		       (font-spec :family chinese :size chinese-size)))))
 
-(set-font   "Hack Nerd Font Mono" "AR PL UKai CN" 35 42)
+(set-font   "Hack Nerd Font Mono" "STFangsong" 35 42)
 
 
 
