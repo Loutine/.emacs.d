@@ -24,7 +24,7 @@
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(ansi-term-color-vector
-   [unspecific "#586e75" "#dc322f" "#859900" "#b58900" "#268BD2" "#d33682" "#00877C" "#002b36"])
+   [unspecific "#586e75" "#dc322f" "#859900" "#b58900" "#268BD2" "#d33682" "#00877C" "#002b36"] t)
  '(company-backends
    (quote
     (company-bbdb company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
@@ -76,7 +76,7 @@
      ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))))
  '(package-selected-packages
    (quote
-    (ob-rust company-auctex company-math qsimpleq-theme lenlen-theme solarized-theme racer company htmlize ox-twbs auctex yasnippet color-theme-solarized ## helm org-bullets)))
+    (ox-twbs cider arduino-mode ob-rust company-auctex company-math qsimpleq-theme lenlen-theme solarized-theme racer company htmlize auctex yasnippet color-theme-solarized ## helm org-bullets)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(scroll-bar-mode nil)

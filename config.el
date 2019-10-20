@@ -5,7 +5,7 @@
      (set-fontset-font (frame-parameter nil 'font) charset
 		       (font-spec :family chinese :size chinese-size)))))
 
-(set-font   "Hack Nerd Font Mono" "AR PL UKai CN" 35 42)
+(set-font   "Hack Nerd Font Mono" "STFangsong" 35 42)
 
 
 
@@ -25,15 +25,15 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-(require 'ox-twbs)
+;;(require 'ox-twbs)
 
-(global-company-mode 1)
-(require 'company-auctex)
-(require 'company-math)
-(company-auctex-init)
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 1)
-(setq company-selection-wrap-around t)
+;;(global-company-mode 1)
+;;(require 'company-auctex)
+;;(require 'company-math)
+;;(company-auctex-init)
+;;(setq company-idle-delay 0)
+;;(setq company-minimum-prefix-length 1)
+;;(setq company-selection-wrap-around t)
 
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
@@ -42,12 +42,12 @@
 ;;set the path of latex
 ;;(require 'tex-site)
 ;;set preview mode
-(load "auctex.el" nil t t)
-(require 'tex)
-(add-to-list 'company-backends 'company-math-symbols-unicode)
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 4.0))
-(setq org-latex-create-formula-image-program 'dvipng)
+;;(load "auctex.el" nil t t)
+;;(require 'tex)
+;;(add-to-list 'company-backends 'company-math-symbols-unicode)
+;;(setq org-format-latex-options (plist-put org-format-latex-options :scale 4.0))
+;;(setq org-latex-create-formula-image-program 'dvipng)
 ;;set auto save
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default Tex-master nil)
+;;(setq TeX-auto-save t)
+;;(setq TeX-parse-self t)
+;;(setq-default Tex-master nil)
