@@ -1,3 +1,55 @@
+* require-package
+  #+begin_src emacs-lisp
+    (require 'package)
+    (setq package-archives
+      '(("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+	("marmalade" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/")
+	("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+	("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+	("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
+
+    (defun require-package (package &optional min-version no-refresh)
+      "Install given PACKAGE, optionally requiring MIN-VERSION.
+    If NO-REFRESH is non-nil, the available package lists will not be
+    re-downloaded in order to locate PACKAGE."
+      (if (package-installed-p package min-version)
+	t
+	(if (or (assoc package package-archive-contents) no-refresh)
+	  (if (boundp 'package-selected-packages)
+	    ;; Record this as a package the user installed explicitly
+	    (package-install package nil)
+	    (package-install package))
+	  (progn
+	    (package-refresh-contents)
+	    (require-package package min-version t)))))
+    (defun maybe-require-package (package &optional min-version no-refresh)
+      "Try to install PACKAGE, and return non-nil if successful.
+    In the event of failure, return nil and print a warning message.
+    Optionally require MIN-VERSION.  If NO-REFRESH is non-nil, the
+    available package lists will not be re-downloaded in order to
+    locate PACKAGE."
+      (condition-case err
+	(require-package package min-version no-refresh)
+	(error
+	  (message "Couldn't install optional package `%s': %S" package err)
+	  nil)))
+  #+end_src
+* about backup files
+  #+begin_src emacs-lisp
+    (setq
+	 backup-by-copying t ; 自动备份
+	 backup-directory-alist
+	 '(("." . "~/.em_backup")) ; 自动备份在目录"~/.em_backup"下
+	 delete-old-versions t ; 自动删除旧的备份文件
+	 kept-new-versions 3 ; 保留最近的3个备份文件
+	 kept-old-versions 1 ; 保留最早的1个备份文件
+	 version-control t) ; 多次备份
+  #+end_src
+* evil! yes!
+  #+begin_src emacs-lisp
+    (require 'evil)
+    (evil-mode 1)
+  #+end_src
 * set the font
 #+BEGIN_SRC emacs-lisp
   (defun set-font (english chinese english-size chinese-size)
@@ -10,8 +62,10 @@
   (set-font   "Hack Nerd Font Mono" "STFangsong" 35 42)
 #+END_SRC
 * set the themes
-  solarized configuration
+ configuration
 #+BEGIN_SRC emacs-lisp
+  (require 'monokai-pro-theme)
+  (require 'monokai-theme)
 #+END_SRC
 * org-mode
 ** org-hook(truncate)
@@ -30,7 +84,8 @@
 				  (python . t)
 				  (dot . t)
 				  (ditaa . t)
-				  (rust . t))
+				  (rust . t)
+				  (scheme . t))
       )
    #+END_SRC
 ** org-bullet
@@ -40,17 +95,33 @@
    #+END_SRC
 ** ox-twbs
    #+BEGIN_SRC emacs-lisp
-   ;;(require 'ox-twbs)
+     (require 'ox-twbs)
    #+END_SRC
+** org-drill
+   #+BEGIN_SRC emacs-lisp
+     (require 'org-drill)
+     (setq org-drill-hide-item-headings-p nil)
+     (setq org-drill-auto-pronounce t)
+     (setq org-drill-learn-fraction 0.25)
+     (setq org-drill-add-random-noise-to-intervals-p t)
+   #+END_SRC
+** org-tempo
+#+BEGIN_SRC emacs-lisp
+  (require 'org-tempo)
+  (tempo-define-template "new-words"
+		 '("* " p " :drill:\ntranslate the word\n" "** Chinese\n** example" >)
+		 "<n"
+		 "Insert a property tempate")
+#+END_SRC
 * company
 #+BEGIN_SRC emacs-lisp
-  ;;(global-company-mode 1)
+  (global-company-mode 1)
   ;;(require 'company-auctex)
-  ;;(require 'company-math)
+  (require 'company-math)
   ;;(company-auctex-init)
-  ;;(setq company-idle-delay 0)
-  ;;(setq company-minimum-prefix-length 1)
-  ;;(setq company-selection-wrap-around t)
+  (setq company-idle-delay 0.3)
+  (setq company-minimum-prefix-length 1)
+  (setq company-selection-wrap-around t)
 
 #+END_SRC
 ** racer
@@ -58,6 +129,45 @@
      (add-hook 'rust-mode-hook #'racer-mode)
      (add-hook 'racer-mode-hook #'eldoc-mode)
    #+END_SRC
+** python-jedi
+   #+begin_src emacs-lisp
+     (defun my/python-mode-hook ()
+       (add-to-list 'company-backends 'company-jedi))
+
+     (add-hook 'python-mode-hook 'my/python-mode-hook)
+   #+end_src
+* rainbow-mode
+  #+begin_src emacs-lisp
+    (require 'rainbow-mode)
+  #+end_src
+** for parentness
+  #+begin_src emacs-lisp
+    (require 'rainbow-delimiters)
+    (add-hook 'scheme-mode-hook #'rainbow-delimiters-mode)
+  #+end_src
+* learn-English
+  #+begin_src emacs-lisp
+    (require 'posframe)
+    (require 'subr-x)
+    (add-to-list 'load-path "~/.emacs.d/elpa/sdcv/")
+    (require 'sdcv)
+    (setq sdcv-say-word-p t)               ;say word after translation
+
+    (setq sdcv-dictionary-data-dir "/home/loutine/.stardict/dic") ;setup directory of stardict dictionary
+
+    (setq sdcv-dictionary-simple-list    ;setup dictionary list for simple search
+	  '("朗道英汉字典5.0"
+	    "懒虫简明汉英词典"))
+
+    (setq sdcv-dictionary-complete-list     ;setup dictionary list for complete search
+	  '(
+	"懒虫简明英汉词典"
+	"懒虫简明汉英词典"
+	"朗道英汉字典5.0"
+	"朗道汉英字典5.0"
+	"牛津英汉双解美化版"
+	))
+  #+end_src
 * AUCTex
 ** AUCTex config
    #+BEGIN_SRC emacs-lisp
