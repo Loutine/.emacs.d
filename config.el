@@ -1,10 +1,26 @@
 (require 'package)
+(require 'use-package)
 (setq package-archives
   '(("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
     ("marmalade" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/")
     ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
     ("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
+
+(defun toggle-frame-split ()
+  "If the frame is split vertically, split it horizontally or vice versa.
+Assumes that the frame is only split into two."
+  (interactive)
+  (unless (= (length (window-list)) 2) (error "Can only toggle a frame split in two"))
+  (let ((split-vertically-p (window-combined-p)))
+    (delete-window) ; closes current window
+    (if split-vertically-p
+	(split-window-horizontally)
+      (split-window-vertically)) ; gives us a split with the other window twice
+    (switch-to-buffer nil))) ; restore the original window in this part of the frame
+
+;; I don't use the default binding of 'C-x 5', so use toggle-frame-split instead
+(global-set-key (kbd "C-x 9") 'toggle-frame-split)
 
 (setq
      backup-by-copying t ; 自动备份
@@ -15,8 +31,9 @@
      kept-old-versions 1 ; 保留最早的1个备份文件
      version-control t) ; 多次备份
 
-(require 'evil)
-(evil-mode 1)
+(use-package evil
+  :ensure t
+  :config (evil-mode 1))
 
 (defun set-font (english chinese english-size chinese-size)
    (set-face-attribute 'default nil :font
@@ -27,8 +44,10 @@
 
 (set-font   "Hack Nerd Font Mono" "STFangsong" 35 42)
 
-(require 'monokai-pro-theme)
-(require 'monokai-theme)
+(use-package monokai-pro-theme
+  :ensure t)
+(use-package monokai-theme
+  :ensure t)
 
 (add-hook 'org-mode-hook
 	  (lambda()
@@ -47,7 +66,8 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-(require 'ox-twbs)
+(use-package ox-twbs
+  :ensure t)
 
 (require 'org-drill)
 (setq org-drill-hide-item-headings-p nil)
@@ -61,50 +81,67 @@
 	       "<n"
 	       "Insert a property tempate")
 
-(require 'lsp-mode)
-(add-hook 'python-mode-hook #'lsp)
-(add-hook 'c-mode-hook #'lsp)
-(add-hook 'c++-mode-hook #'lsp)
+(use-package lsp-mode
+  :ensure t
+  :hook
+  (c-mode . lsp)
+  (c++-mode . lsp)
+  (python-mode . lsp)
+  :commands lsp
+  )
 
-(global-company-mode 1)
-;;(require 'company-auctex)
-(require 'company-math)
-;;(company-auctex-init)
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 1)
-(setq company-selection-wrap-around t)
+(use-package company
+  :ensure t
+  :init
+  (global-company-mode 1)
+  (setq company-idle-delay 0
+	company-minimum-prefix-length 1
+	company-selection-wrap-around t))
 
 (defun set-org-src-buffer-name ()
   (interactive)
   (cond
-   ((equal major-mode 'c-mode)
-    (setq buffer-file-name "temp.c"))
-
-   ))
+   ((equal major-mode 'c-mode)(setq buffer-file-name "temp.c"))
+   ((equal major-mode 'c++-mode) (setq buffer-file-name "temp.cpp"))
+   ((equal major-mode 'python-mode) (setq buffer-file-name "temp.py"))))
 
 (add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
 
-(require 'company-lsp)
-(push 'company-lsp company-backends)
+(use-package company-lsp
+  :ensure t
+  :config
+  (push 'company-lsp company-backends))
 
-;(defun my/python-mode-hook ()(add-to-list 'company-backends 'company-jedi))
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
 
-;(add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 
-(require 'company-box)
-(add-hook 'company-mode-hook 'company-box-mode)
+(use-package company
+  :ensure t
+  :hook (company-mode . company-box-mode))
 
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-to-list 'load-path "~/.local/share/icons-in-terminal/")
+(add-to-list 'load-path "~/.emacs.d/orphan/")
+(require 'icons-in-terminal)
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(with-eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+(use-package flycheck
+   :ensure t
+   :init
+   ;(global-flycheck-mode)
+   )
+; (use-package flycheck-popup-tip
+  ; :ensure t
+  ; :config
+  ; (with-eval-after-load 'flycheck
+  ; '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)))
 
-(require 'rainbow-mode)
+(use-package rainbow-mode
+  :ensure t)
 
-(require 'rainbow-delimiters)
-(add-hook 'scheme-mode-hook #'rainbow-delimiters-mode)
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (scheme-mode . rainbow-delimiters-mode))
 
 (require 'posframe)
 (require 'subr-x)

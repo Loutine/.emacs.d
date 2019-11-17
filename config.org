@@ -1,6 +1,7 @@
 * package-archives
   #+begin_src emacs-lisp
     (require 'package)
+    (require 'use-package)
     (setq package-archives
       '(("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
 	("marmalade" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/")
@@ -8,6 +9,23 @@
 	("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 	("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
  #+end_src
+* misc
+  #+begin_src emacs-lisp
+    (defun toggle-frame-split ()
+      "If the frame is split vertically, split it horizontally or vice versa.
+    Assumes that the frame is only split into two."
+      (interactive)
+      (unless (= (length (window-list)) 2) (error "Can only toggle a frame split in two"))
+      (let ((split-vertically-p (window-combined-p)))
+	(delete-window) ; closes current window
+	(if split-vertically-p
+	    (split-window-horizontally)
+	  (split-window-vertically)) ; gives us a split with the other window twice
+	(switch-to-buffer nil))) ; restore the original window in this part of the frame
+
+    ;; I don't use the default binding of 'C-x 5', so use toggle-frame-split instead
+    (global-set-key (kbd "C-x 9") 'toggle-frame-split)
+  #+end_src
 * about backup files
   #+begin_src emacs-lisp
     (setq
@@ -21,8 +39,9 @@
   #+end_src
 * evil! yes!
   #+begin_src emacs-lisp
-    (require 'evil)
-    (evil-mode 1)
+    (use-package evil
+      :ensure t
+      :config (evil-mode 1))
   #+end_src
 * set the font
 #+BEGIN_SRC emacs-lisp
@@ -38,8 +57,10 @@
 * set the themes
  configuration
 #+BEGIN_SRC emacs-lisp
-  (require 'monokai-pro-theme)
-  (require 'monokai-theme)
+  (use-package monokai-pro-theme
+    :ensure t)
+  (use-package monokai-theme
+    :ensure t)
 #+END_SRC
 * org-mode
 ** org-hook(truncate)
@@ -69,7 +90,8 @@
    #+END_SRC
 ** ox-twbs
    #+BEGIN_SRC emacs-lisp
-     (require 'ox-twbs)
+     (use-package ox-twbs
+       :ensure t)
    #+END_SRC
 ** org-drill
    #+BEGIN_SRC emacs-lisp
@@ -89,67 +111,75 @@
 #+END_SRC
 * lsp-mode
   #+begin_src emacs-lisp
-    (require 'lsp-mode)
-    (add-hook 'python-mode-hook #'lsp)
-    (add-hook 'c-mode-hook #'lsp)
-    (add-hook 'c++-mode-hook #'lsp)
+    (use-package lsp-mode
+      :ensure t
+      :hook
+      (c-mode . lsp)
+      (c++-mode . lsp)
+      (python-mode . lsp)
+      :commands lsp
+      )
   #+end_src
 * company
 ** company-mode
 #+BEGIN_SRC emacs-lisp
-  (global-company-mode 1)
-  ;;(require 'company-auctex)
-  (require 'company-math)
-  ;;(company-auctex-init)
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 1)
-  (setq company-selection-wrap-around t)
-
-  (defun set-org-src-buffer-name ()
-    (interactive)
-    (cond
-     ((equal major-mode 'c-mode)
-      (setq buffer-file-name "temp.c"))
-
-     ))
-
-  (add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
+    (use-package company
+      :ensure t
+      :init
+      (global-company-mode 1)
+      (setq company-idle-delay 0
+	    company-minimum-prefix-length 1
+	    company-selection-wrap-around t))
 #+END_SRC
 ** company-lsp
    #+begin_src emacs-lisp
-     (require 'company-lsp)
-     (push 'company-lsp company-backends)
+     (use-package company-lsp
+       :ensure t
+       :config
+       (push 'company-lsp company-backends))
    #+end_src
 ** company-jedi
    #+begin_src emacs-lisp
-     ;(defun my/python-mode-hook ()(add-to-list 'company-backends 'company-jedi))
+     (defun my/python-mode-hook ()
+       (add-to-list 'company-backends 'company-jedi))
 
-     ;(add-hook 'python-mode-hook 'my/python-mode-hook)
+     (add-hook 'python-mode-hook 'my/python-mode-hook)
    #+end_src
 ** company-box
    #+begin_src emacs-lisp
-     (require 'company-box)
-     (add-hook 'company-mode-hook 'company-box-mode)
+     (use-package company
+       :ensure t
+       :hook (company-mode . company-box-mode))
    #+end_src
-** racer
-   #+BEGIN_SRC emacs-lisp
-     (add-hook 'rust-mode-hook #'racer-mode)
-     (add-hook 'racer-mode-hook #'eldoc-mode)
-   #+END_SRC 
+* icon-in-terminal
+  #+begin_src emacs-lisp
+    (add-to-list 'load-path "~/.local/share/icons-in-terminal/")
+    (add-to-list 'load-path "~/.emacs.d/orphan/")
+    (require 'icons-in-terminal)
+  #+end_src
 * flycheck
   #+begin_src emacs-lisp
-    (add-hook 'after-init-hook #'global-flycheck-mode)
-    (with-eval-after-load 'flycheck
-      '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+    (use-package flycheck
+      :ensure t
+      :init
+      ;(global-flycheck-mode)
+      )
+   ; (use-package flycheck-popup-tip
+     ; :ensure t
+     ; :config
+     ; (with-eval-after-load 'flycheck
+     ; '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)))
   #+end_src
 * rainbow-mode
   #+begin_src emacs-lisp
-    (require 'rainbow-mode)
+    (use-package rainbow-mode
+      :ensure t)
   #+end_src
 ** for parentness
   #+begin_src emacs-lisp
-    (require 'rainbow-delimiters)
-    (add-hook 'scheme-mode-hook #'rainbow-delimiters-mode)
+    (use-package rainbow-delimiters
+      :ensure t
+      :hook (scheme-mode . rainbow-delimiters-mode))
   #+end_src
 * learn-English
   #+begin_src emacs-lisp
@@ -196,5 +226,8 @@
    
    
    #+begin_src rust
+
+   #+end_src
+   #+begin_src C
 
    #+end_src

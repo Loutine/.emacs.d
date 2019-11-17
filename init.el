@@ -26,8 +26,8 @@
  '(company-backends
    (quote
     (company-lsp company-bbdb company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
-		  (company-dabbrev-code company-gtags company-etags company-keywords)
-		  company-oddmuse company-dabbrev company-math-symbols-unicode)))
+		 (company-dabbrev-code company-gtags company-etags company-keywords)
+		 company-oddmuse company-dabbrev company-math-symbols-unicode)))
  '(company-box-icons-alist (quote company-box-icons-icons-in-terminal))
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
@@ -76,7 +76,7 @@
      ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))))
  '(package-selected-packages
    (quote
-    (lsp-ui use-package company-lsp flymake-cppcheck flycheck-popup-tip flymake flycheck company-box company-quickhelp desktop company-jedi rainbow-delimiters evil monokai-theme monokai-pro-theme rainbow-mode posframe org-plus-contrib org cl-lib ox-twbs cider arduino-mode ob-rust company-auctex company-math qsimpleq-theme solarized-theme racer company htmlize auctex color-theme-solarized ## helm org-bullets)))
+    (lsp-ui use-package company-lsp flymake-cppcheck flycheck-popup-tip flymake flycheck company-box company-quickhelp desktop rainbow-delimiters evil monokai-theme monokai-pro-theme rainbow-mode posframe org-plus-contrib org cl-lib ox-twbs cider arduino-mode ob-rust company-auctex company-math qsimpleq-theme solarized-theme racer company htmlize auctex color-theme-solarized ## helm org-bullets)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(scroll-bar-mode nil)
@@ -126,8 +126,10 @@
   (cond
    ((equal major-mode 'c-mode)
     (setq buffer-file-name "temp.c"))
-
-   ))
+   ((equal major-mode 'c++-mode)
+    (setq buffer-file-name "temp.cpp"))
+   ((equal major-mode 'python-mode)
+    (setq buffer-file-name "temp.py"))))
 
 (add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
 
