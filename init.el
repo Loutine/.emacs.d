@@ -25,15 +25,16 @@
    [unspecific "#586e75" "#dc322f" "#859900" "#b58900" "#268BD2" "#d33682" "#00877C" "#002b36"] t)
  '(company-backends
    (quote
-    (company-bbdb company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
+    (company-lsp company-bbdb company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
 		  (company-dabbrev-code company-gtags company-etags company-keywords)
 		  company-oddmuse company-dabbrev company-math-symbols-unicode)))
+ '(company-box-icons-alist (quote company-box-icons-icons-in-terminal))
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (monokai)))
+ '(custom-enabled-themes nil)
  '(custom-safe-themes
    (quote
     ("a2cde79e4cc8dc9a03e7d9a42fabf8928720d420034b66aecc5b665bbf05d4e9" "930f7841c24772dda4f22291e510dac1d58813b59dcb9f54ad4f1943ea89cdcd" "dc539ea185a1862f9eda0fde96bbc2b8c8daa514e8007c51f6b5d91b39d879d0" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
@@ -62,6 +63,7 @@
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
  '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
+ '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    (quote
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
@@ -74,7 +76,7 @@
      ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))))
  '(package-selected-packages
    (quote
-    (rainbow-delimiters evil company-jedi monokai-theme monokai-pro-theme rainbow-mode posframe org-plus-contrib org cl-lib ox-twbs cider arduino-mode ob-rust company-auctex company-math qsimpleq-theme lenlen-theme solarized-theme racer company htmlize auctex yasnippet color-theme-solarized ## helm org-bullets)))
+    (lsp-ui use-package company-lsp flymake-cppcheck flycheck-popup-tip flymake flycheck company-box company-quickhelp desktop company-jedi rainbow-delimiters evil monokai-theme monokai-pro-theme rainbow-mode posframe org-plus-contrib org cl-lib ox-twbs cider arduino-mode ob-rust company-auctex company-math qsimpleq-theme solarized-theme racer company htmlize auctex color-theme-solarized ## helm org-bullets)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(scroll-bar-mode nil)
@@ -119,4 +121,13 @@
  ;; If there is more than one, they won't work right.
  '(company-preview-common ((t (:background "white" :foreground "#93a1a1")))))
 
+(defun set-org-src-buffer-name ()
+  (interactive)
+  (cond
+   ((equal major-mode 'c-mode)
+    (setq buffer-file-name "temp.c"))
+
+   ))
+
+(add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
 

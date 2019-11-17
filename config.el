@@ -32,6 +32,15 @@ locate PACKAGE."
       (message "Couldn't install optional package `%s': %S" package err)
       nil)))
 
+(setq
+     backup-by-copying t ; 自动备份
+     backup-directory-alist
+     '(("." . "~/.em_backup")) ; 自动备份在目录"~/.em_backup"下
+     delete-old-versions t ; 自动删除旧的备份文件
+     kept-new-versions 3 ; 保留最近的3个备份文件
+     kept-old-versions 1 ; 保留最早的1个备份文件
+     version-control t) ; 多次备份
+
 (require 'evil)
 (evil-mode 1)
 
@@ -78,21 +87,45 @@ locate PACKAGE."
 	       "<n"
 	       "Insert a property tempate")
 
+(require 'lsp-mode)
+(add-hook 'python-mode-hook #'lsp)
+(add-hook 'c-mode-hook #'lsp)
+(add-hook 'c++-mode-hook #'lsp)
+
 (global-company-mode 1)
 ;;(require 'company-auctex)
 (require 'company-math)
 ;;(company-auctex-init)
-(setq company-idle-delay 0.3)
+(setq company-idle-delay 0)
 (setq company-minimum-prefix-length 1)
 (setq company-selection-wrap-around t)
+
+(defun set-org-src-buffer-name ()
+  (interactive)
+  (cond
+   ((equal major-mode 'c-mode)
+    (setq buffer-file-name "temp.c"))
+
+   ))
+
+(add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
+
+(require 'company-lsp)
+(push 'company-lsp company-backends)
+
+;(defun my/python-mode-hook ()(add-to-list 'company-backends 'company-jedi))
+
+;(add-hook 'python-mode-hook 'my/python-mode-hook)
+
+(require 'company-box)
+(add-hook 'company-mode-hook 'company-box-mode)
 
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 
-(defun my/python-mode-hook ()
-  (add-to-list 'company-backends 'company-jedi))
-
-(add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(with-eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 
 (require 'rainbow-mode)
 

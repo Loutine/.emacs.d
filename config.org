@@ -1,4 +1,4 @@
-* require-package
+* package-archives
   #+begin_src emacs-lisp
     (require 'package)
     (setq package-archives
@@ -7,33 +7,7 @@
 	("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
 	("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 	("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
-
-    (defun require-package (package &optional min-version no-refresh)
-      "Install given PACKAGE, optionally requiring MIN-VERSION.
-    If NO-REFRESH is non-nil, the available package lists will not be
-    re-downloaded in order to locate PACKAGE."
-      (if (package-installed-p package min-version)
-	t
-	(if (or (assoc package package-archive-contents) no-refresh)
-	  (if (boundp 'package-selected-packages)
-	    ;; Record this as a package the user installed explicitly
-	    (package-install package nil)
-	    (package-install package))
-	  (progn
-	    (package-refresh-contents)
-	    (require-package package min-version t)))))
-    (defun maybe-require-package (package &optional min-version no-refresh)
-      "Try to install PACKAGE, and return non-nil if successful.
-    In the event of failure, return nil and print a warning message.
-    Optionally require MIN-VERSION.  If NO-REFRESH is non-nil, the
-    available package lists will not be re-downloaded in order to
-    locate PACKAGE."
-      (condition-case err
-	(require-package package min-version no-refresh)
-	(error
-	  (message "Couldn't install optional package `%s': %S" package err)
-	  nil)))
-  #+end_src
+ #+end_src
 * about backup files
   #+begin_src emacs-lisp
     (setq
@@ -113,29 +87,61 @@
 		 "<n"
 		 "Insert a property tempate")
 #+END_SRC
+* lsp-mode
+  #+begin_src emacs-lisp
+    (require 'lsp-mode)
+    (add-hook 'python-mode-hook #'lsp)
+    (add-hook 'c-mode-hook #'lsp)
+    (add-hook 'c++-mode-hook #'lsp)
+  #+end_src
 * company
+** company-mode
 #+BEGIN_SRC emacs-lisp
   (global-company-mode 1)
   ;;(require 'company-auctex)
   (require 'company-math)
   ;;(company-auctex-init)
-  (setq company-idle-delay 0.3)
+  (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
   (setq company-selection-wrap-around t)
 
+  (defun set-org-src-buffer-name ()
+    (interactive)
+    (cond
+     ((equal major-mode 'c-mode)
+      (setq buffer-file-name "temp.c"))
+
+     ))
+
+  (add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
 #+END_SRC
+** company-lsp
+   #+begin_src emacs-lisp
+     (require 'company-lsp)
+     (push 'company-lsp company-backends)
+   #+end_src
+** company-jedi
+   #+begin_src emacs-lisp
+     ;(defun my/python-mode-hook ()(add-to-list 'company-backends 'company-jedi))
+
+     ;(add-hook 'python-mode-hook 'my/python-mode-hook)
+   #+end_src
+** company-box
+   #+begin_src emacs-lisp
+     (require 'company-box)
+     (add-hook 'company-mode-hook 'company-box-mode)
+   #+end_src
 ** racer
    #+BEGIN_SRC emacs-lisp
      (add-hook 'rust-mode-hook #'racer-mode)
      (add-hook 'racer-mode-hook #'eldoc-mode)
-   #+END_SRC
-** python-jedi
-   #+begin_src emacs-lisp
-     (defun my/python-mode-hook ()
-       (add-to-list 'company-backends 'company-jedi))
-
-     (add-hook 'python-mode-hook 'my/python-mode-hook)
-   #+end_src
+   #+END_SRC 
+* flycheck
+  #+begin_src emacs-lisp
+    (add-hook 'after-init-hook #'global-flycheck-mode)
+    (with-eval-after-load 'flycheck
+      '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+  #+end_src
 * rainbow-mode
   #+begin_src emacs-lisp
     (require 'rainbow-mode)
@@ -189,3 +195,6 @@
    
    
    
+   #+begin_src rust
+
+   #+end_src
