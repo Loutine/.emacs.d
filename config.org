@@ -1,0 +1,227 @@
+* package-archives
+  #+begin_src emacs-lisp
+    (require 'package)
+    (require 'use-package)
+    (setq package-archives
+      '(("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+	("marmalade" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/")
+	("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+	("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+	("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
+ #+end_src
+* misc
+** spilt toggle
+   #+begin_src emacs-lisp
+     (defun toggle-frame-split ()
+       "If the frame is split vertically, split it horizontally or vice versa.
+     Assumes that the frame is only split into two."
+       (interactive)
+       (unless (= (length (window-list)) 2) (error "Can only toggle a frame split in two"))
+       (let ((split-vertically-p (window-combined-p)))
+	 (delete-window) ; closes current window
+	 (if split-vertically-p
+	     (split-window-horizontally)
+	   (split-window-vertically)) ; gives us a split with the other window twice
+	 (switch-to-buffer nil))) ; restore the original window in this part of the frame
+
+     ;; I don't use the default binding of 'C-x 5', so use toggle-frame-split instead
+     (global-set-key (kbd "C-x 9") 'toggle-frame-split)
+   #+end_src
+** deforg buffer name
+   #+begin_src emacs-lisp
+     (defun set-org-src-buffer-name ()
+       (interactive)
+       (cond
+	((equal major-mode 'c-mode)
+	 (setq buffer-file-name "temp.c"))
+	((equal major-mode 'c++-mode)
+	 (setq buffer-file-name "temp.cpp"))
+	((equal major-mode 'python-mode)
+	 (setq buffer-file-name "temp.py"))))
+
+     (add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
+   #+end_src
+* about backup files
+  #+begin_src emacs-lisp
+    (setq
+	 backup-by-copying t ; 自动备份
+	 backup-directory-alist
+	 '(("." . "~/.em_backup")) ; 自动备份在目录"~/.em_backup"下
+	 delete-old-versions t ; 自动删除旧的备份文件
+	 kept-new-versions 3 ; 保留最近的3个备份文件
+	 kept-old-versions 1 ; 保留最早的1个备份文件
+	 version-control t ;多次备份
+	 create-lockfiles nil) ;#文件
+  #+end_src
+* evil! yes!
+  #+begin_src emacs-lisp
+    (use-package evil
+      :ensure t
+      :config (evil-mode 1))
+  #+end_src
+* set the font
+#+BEGIN_SRC emacs-lisp
+  (defun set-font (english chinese english-size chinese-size)
+     (set-face-attribute 'default nil :font
+			 (format   "%s:pixelsize=%d"  english english-size))
+     (if (display-graphic-p) (dolist (charset '(kana han symbol cjk-misc bopomofo))
+       (set-fontset-font (frame-parameter nil 'font) charset
+			 (font-spec :family chinese :size chinese-size)))))
+
+  (set-font   "Hack Nerd Font Mono" "STFangsong" 35 42)
+#+END_SRC
+* set the themes
+ configuration
+#+BEGIN_SRC emacs-lisp
+  (use-package color-theme-sanityinc-solarized
+    :ensure t
+    :config
+    (load-theme 'sanityinc-solarized-dark t nil))
+#+END_SRC
+* org-mode
+** org-level-highlight 
+   #+begin_src emacs-lisp
+     (custom-theme-set-faces 'user
+			     `(org-level-1 ((t (:foreground "orange"))))
+			     `(org-level-2 ((t (:foreground "green"))))
+			     `(org-level-3 ((t (:foreground "blue"))))
+			     `(org-level-4 ((t (:foreground "yellow"))))
+			     `(org-level-5 ((t (:foreground "cyan"))))
+			     `(org-level-6 ((t (:foreground "green"))))
+			     `(org-level-7 ((t (:foreground "red"))))
+			     `(org-level-8 ((t (:foreground "blue")))))
+   #+end_src
+** org-hook(truncate)
+   just like text mode auto change the line
+   #+BEGIN_SRC emacs-lisp
+     (add-hook 'org-mode-hook
+	       (lambda()
+		 (setq truncate-lines nil)))
+   #+END_SRC
+** org-babel-function
+   excutable file in org-mode
+   #+BEGIN_SRC emacs-lisp
+     (org-babel-do-load-languages
+      'org-babel-load-languages '((C . t)
+				  (java . t)
+				  (python . t)
+				  (dot . t)
+				  (ditaa . t)
+				  (rust . t)
+				  (scheme . t))
+      )
+   #+END_SRC
+** org-bullet
+   #+BEGIN_SRC emacs-lisp
+     (require 'org-bullets)
+     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+   #+END_SRC
+** ox-twbs
+   #+BEGIN_SRC emacs-lisp
+     (use-package ox-twbs
+       :ensure t)
+   #+END_SRC
+** org-drill
+   #+BEGIN_SRC emacs-lisp
+     (require 'org-drill)
+     (setq org-drill-hide-item-headings-p nil)
+     (setq org-drill-auto-pronounce t)
+     (setq org-drill-learn-fraction 0.25)
+     (setq org-drill-add-random-noise-to-intervals-p t)
+   #+END_SRC
+** org-tempo
+#+BEGIN_SRC emacs-lisp
+  (require 'org-tempo)
+  (tempo-define-template "new-words"
+		 '("* " p " :drill:\ntranslate the word\n" "** Chinese\n** example" >)
+		 "<n"
+		 "Insert a property tempate")
+#+END_SRC
+* lsp-mode
+  #+begin_src emacs-lisp
+    (use-package lsp-mode
+      :ensure t
+      :hook
+      (c-mode . lsp)
+      (c++-mode . lsp)
+      (python-mode . lsp)
+      :commands lsp
+      )
+  #+end_src
+* company
+** company-mode
+#+BEGIN_SRC emacs-lisp
+    (use-package company
+      :ensure t
+      :init
+      (global-company-mode 1)
+      (setq company-idle-delay 0
+	    company-minimum-prefix-length 1
+	    company-selection-wrap-around t))
+#+END_SRC
+** company-lsp
+   #+begin_src emacs-lisp
+     (use-package company-lsp
+       :ensure t
+       :config
+       (push 'company-lsp company-backends))
+   #+end_src
+** company-box
+   #+begin_src emacs-lisp
+     (use-package company
+       :ensure t
+       :hook (company-mode . company-box-mode))
+   #+end_src
+* icon-in-terminal
+  #+begin_src emacs-lisp
+    (add-to-list 'load-path "~/.local/share/icons-in-terminal/")
+    (add-to-list 'load-path "~/.emacs.d/orphan/")
+    (require 'icons-in-terminal)
+  #+end_src
+* flycheck
+  #+begin_src emacs-lisp
+    (use-package flycheck
+      :ensure t
+      :init
+      ;(global-flycheck-mode)
+      )
+   ; (use-package flycheck-popup-tip
+     ; :ensure t
+     ; :config
+     ; (with-eval-after-load 'flycheck
+     ; '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)))
+  #+end_src
+* rainbow-mode
+  #+begin_src emacs-lisp
+    (use-package rainbow-mode
+      :ensure t)
+  #+end_src
+** for parentness
+  #+begin_src emacs-lisp
+    (use-package rainbow-delimiters
+      :ensure t
+      :hook (scheme-mode . rainbow-delimiters-mode))
+  #+end_src
+* learn-English
+  #+begin_src emacs-lisp
+    (require 'posframe)
+    (require 'subr-x)
+    (add-to-list 'load-path "~/.emacs.d/elpa/sdcv/")
+    (require 'sdcv)
+    (setq sdcv-say-word-p t)               ;say word after translation
+
+    (setq sdcv-dictionary-data-dir "/home/loutine/.stardict/dic") ;setup directory of stardict dictionary
+
+    (setq sdcv-dictionary-simple-list    ;setup dictionary list for simple search
+	  '("朗道英汉字典5.0"
+	    "懒虫简明汉英词典"))
+
+    (setq sdcv-dictionary-complete-list     ;setup dictionary list for complete search
+	  '(
+	"懒虫简明英汉词典"
+	"懒虫简明汉英词典"
+	"朗道英汉字典5.0"
+	"朗道汉英字典5.0"
+	"牛津英汉双解美化版"
+	))
+  #+end_src

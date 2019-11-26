@@ -1,0 +1,4 @@
+* nothing important here
+as you see I JUST want to keep my own emacs configuration here
+and if you like it just keep the rules of WTFPL and I'm too lazy to add a licence in it 
+that' all :)
