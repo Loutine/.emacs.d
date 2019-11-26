@@ -22,6 +22,18 @@ Assumes that the frame is only split into two."
 ;; I don't use the default binding of 'C-x 5', so use toggle-frame-split instead
 (global-set-key (kbd "C-x 9") 'toggle-frame-split)
 
+(defun set-org-src-buffer-name ()
+  (interactive)
+  (cond
+   ((equal major-mode 'c-mode)
+    (setq buffer-file-name "temp.c"))
+   ((equal major-mode 'c++-mode)
+    (setq buffer-file-name "temp.cpp"))
+   ((equal major-mode 'python-mode)
+    (setq buffer-file-name "temp.py"))))
+
+(add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
+
 (setq
      backup-by-copying t ; 自动备份
      backup-directory-alist
@@ -29,7 +41,8 @@ Assumes that the frame is only split into two."
      delete-old-versions t ; 自动删除旧的备份文件
      kept-new-versions 3 ; 保留最近的3个备份文件
      kept-old-versions 1 ; 保留最早的1个备份文件
-     version-control t) ; 多次备份
+     version-control t ;多次备份
+     create-lockfiles nil) ;#文件
 
 (use-package evil
   :ensure t
@@ -44,10 +57,20 @@ Assumes that the frame is only split into two."
 
 (set-font   "Hack Nerd Font Mono" "STFangsong" 35 42)
 
-(use-package monokai-pro-theme
-  :ensure t)
-(use-package monokai-theme
-  :ensure t)
+(use-package color-theme-sanityinc-solarized
+  :ensure t
+  :config
+  (load-theme 'sanityinc-solarized-dark t nil))
+
+(custom-theme-set-faces 'user
+			`(org-level-1 ((t (:foreground "orange"))))
+			`(org-level-2 ((t (:foreground "green"))))
+			`(org-level-3 ((t (:foreground "blue"))))
+			`(org-level-4 ((t (:foreground "yellow"))))
+			`(org-level-5 ((t (:foreground "cyan"))))
+			`(org-level-6 ((t (:foreground "green"))))
+			`(org-level-7 ((t (:foreground "red"))))
+			`(org-level-8 ((t (:foreground "blue")))))
 
 (add-hook 'org-mode-hook
 	  (lambda()
@@ -98,24 +121,10 @@ Assumes that the frame is only split into two."
 	company-minimum-prefix-length 1
 	company-selection-wrap-around t))
 
-(defun set-org-src-buffer-name ()
-  (interactive)
-  (cond
-   ((equal major-mode 'c-mode)(setq buffer-file-name "temp.c"))
-   ((equal major-mode 'c++-mode) (setq buffer-file-name "temp.cpp"))
-   ((equal major-mode 'python-mode) (setq buffer-file-name "temp.py"))))
-
-(add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
-
 (use-package company-lsp
   :ensure t
   :config
   (push 'company-lsp company-backends))
-
-(defun my/python-mode-hook ()
-  (add-to-list 'company-backends 'company-jedi))
-
-(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 (use-package company
   :ensure t
@@ -163,17 +172,3 @@ Assumes that the frame is only split into two."
     "朗道汉英字典5.0"
     "牛津英汉双解美化版"
     ))
-
-;;AUCTex configuration
-;;set the path of latex
-;;(require 'tex-site)
-;;set preview mode
-;;(load "auctex.el" nil t t)
-;;(require 'tex)
-;;(add-to-list 'company-backends 'company-math-symbols-unicode)
-;;(setq org-format-latex-options (plist-put org-format-latex-options :scale 4.0))
-;;(setq org-latex-create-formula-image-program 'dvipng)
-;;set auto save
-;;(setq TeX-auto-save t)
-;;(setq TeX-parse-self t)
-;;(setq-default Tex-master nil)
