@@ -34,6 +34,18 @@ Assumes that the frame is only split into two."
 
 (add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
 
+(tool-bar-mode 0);;工具栏
+(menu-bar-mode 0);;菜单栏
+(scroll-bar-mode 0);;滚动栏
+;;注意，nil已经被0代替
+(display-time-mode 1) ;; 常显
+(setq display-time-24hr-format t) ;;格式
+(setq display-time-day-and-date t) ;;显示时间、星期、日期
+;;当前行高亮
+(global-hl-line-mode 1)
+;;linum-mode
+(global-linum-mode 1)
+
 (setq
      backup-by-copying t ; 自动备份
      backup-directory-alist
