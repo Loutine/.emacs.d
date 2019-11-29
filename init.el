@@ -62,4 +62,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-level-1 ((t (:foreground "orange"))))
+ '(org-level-2 ((t (:foreground "green"))))
+ '(org-level-3 ((t (:foreground "blue"))))
+ '(org-level-4 ((t (:foreground "yellow"))))
+ '(org-level-5 ((t (:foreground "cyan"))))
+ '(org-level-6 ((t (:foreground "green"))))
+ '(org-level-7 ((t (:foreground "red"))))
+ '(org-level-8 ((t (:foreground "blue")))))

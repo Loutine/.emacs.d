@@ -1,11 +1,16 @@
 (require 'package)
-(require 'use-package)
 (setq package-archives
   '(("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
     ("marmalade" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/")
     ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
     ("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
+
+(use-package quelpa-use-package
+  :ensure t
+  :init
+  (setq quelpa-update-melpa-p nil);不要在启动的时候更新melpa
+  )
 
 (defun toggle-frame-split ()
   "If the frame is split vertically, split it horizontally or vice versa.
@@ -74,6 +79,10 @@ Assumes that the frame is only split into two."
   :config
   (load-theme 'sanityinc-solarized-dark t nil))
 
+(use-package org-plus-contrib
+  :ensure t
+  :disabled t)
+
 (custom-theme-set-faces 'user
 			`(org-level-1 ((t (:foreground "orange"))))
 			`(org-level-2 ((t (:foreground "green"))))
@@ -88,6 +97,8 @@ Assumes that the frame is only split into two."
 	  (lambda()
 	    (setq truncate-lines nil)))
 
+(use-package ob-rust
+  :ensure t)
 (org-babel-do-load-languages
  'org-babel-load-languages '((C . t)
 			     (java . t)
@@ -98,8 +109,11 @@ Assumes that the frame is only split into two."
 			     (scheme . t))
  )
 
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(use-package org-bullets
+  :ensure t
+  :init
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+)
 
 (use-package ox-twbs
   :ensure t)
@@ -138,7 +152,7 @@ Assumes that the frame is only split into two."
   :config
   (push 'company-lsp company-backends))
 
-(use-package company
+(use-package company-box
   :ensure t
   :hook (company-mode . company-box-mode))
 
@@ -164,10 +178,16 @@ Assumes that the frame is only split into two."
   :ensure t
   :hook (scheme-mode . rainbow-delimiters-mode))
 
-(require 'posframe)
+(use-package posframe
+  :ensure t)
 (require 'subr-x)
-(add-to-list 'load-path "~/.emacs.d/elpa/sdcv/")
-(require 'sdcv)
+;(add-to-list 'load-path "~/.emacs.d/elpa/sdcv/")
+(use-package sdcv
+  :quelpa
+  (sdcv
+   :fetcher github
+   :repo "manateelazycat/sdcv")
+  :ensure t)
 (setq sdcv-say-word-p t)               ;say word after translation
 
 (setq sdcv-dictionary-data-dir "/home/loutine/.stardict/dic") ;setup directory of stardict dictionary
