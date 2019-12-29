@@ -21,17 +21,3 @@
  (expand-file-name "~/.emacs.d/config.org")
  )
 )
-;(setq gc-cons-threshold (* 2 1000 1000))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(highlight-indent-guides ox-twbs sdcv rainbow-mode rainbow-delimiters quelpa-use-package proof-general posframe org-plus-contrib org-drill org-bullets ob-rust neotree monokai-theme lsp-ui lsp-treemacs go-mode flycheck evil doom-themes doom-modeline dashboard dap-mode company-lsp company-coq company-box benchmark-init)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
