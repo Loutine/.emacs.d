@@ -1,10 +1,8 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-;(setq gc-cons-threshold (* 100 1000 1000))
-(package-initialize)
+					;(setq gc-cons-threshold (* 100 1000 1000i))
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
       (gc-cons-threshold most-positive-fixnum)

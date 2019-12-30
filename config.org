@@ -65,10 +65,6 @@
      (menu-bar-mode 1);;菜单栏
      (scroll-bar-mode 0);;滚动栏
      ;;注意，nil已经被0代替
-     (display-time-mode 1) 
-     (setq display-time-24hr-format t)
-     (setq tab-width 1)
-     (setq display-time-day-and-date t) ;;显示时间、星期、日期
      (global-hl-line-mode 1) ;;当前行高亮
      (global-linum-mode 1)
      (fringe-mode '(10 . 1))
@@ -90,13 +86,6 @@
 	   :ensure t
 	   :defer 2
 	   :hook (after-init . doom-modeline-mode))
-     ;      :custom-face
-     ;      (mode-line ((t (:height 1))))
-     ;      (mode-line-inactive ((t (:height 1))))
-     ;      )
-     ;      :config
-     ;      (setq doom-modeline-height 10)
-     ;      (setq doom-modeline--font-height 10)
    #+end_src
 ** neotree 
    #+begin_src emacs-lisp
@@ -134,6 +123,7 @@
     (use-package evil
       :ensure t
       :demand t
+      :disabled
       :config (evil-mode 1))
   #+end_src
 * set the font
@@ -148,11 +138,10 @@
     (set-font   "Hack Nerd Font Mono" "STFangsong" 35 42)
 #+END_SRC
 * set the themes
- configuration
+  configuration
 #+BEGIN_SRC emacs-lisp
   (use-package doom-themes
     :ensure t
-    :demand
     :config
     (load-theme 'doom-nord t nil))
 #+END_SRC
@@ -181,30 +170,16 @@
    #+begin_src emacs-lisp
      (setq org-startup-with-inline-images t)
      (defun shk-fix-inline-images ()
-       (when org-inline-image-overlays
-	 (org-redisplay-inline-images)))
+     (when org-inline-image-overlays
+       (org-redisplay-inline-images)))
      (add-hook 'org-babel-after-execute-hook 'shk-fix-inline-images)
-   #+end_src
-** org-level-highlight-color 
+     #+end_src
+** org-truncated
    #+begin_src emacs-lisp
-     ;(custom-theme-set-faces 'user
-     ;			`(org-level-1 ((t (:foreground "orange"))))
-     ;			`(org-level-2 ((t (:foreground "green"))))
-     ;			`(org-level-3 ((t (:foreground "blue"))))
-     ;			`(org-level-4 ((t (:foreground "yellow"))))
-     ;			`(org-level-5 ((t (:foreground "cyan"))))
-     ;			`(org-level-6 ((t (:foreground "green"))))
-     ;			`(org-level-7 ((t (:foreground "red"))))
-     ;			`(org-level-8 ((t (:foreground "blue"))))
-     ;			`(company-box-candidate ((t (:foreground "DeepSkyBlue3")))))
-   #+end_src
-** org-hook(truncate)
-   just like text mode auto change the line
-   #+BEGIN_SRC emacs-lisp
      (add-hook 'org-mode-hook
 	       (lambda()
 		 (setq truncate-lines nil)))
-   #+END_SRC
+   #+end_src
 ** org-babel-function
    excutable file in org-mode
    #+BEGIN_SRC emacs-lisp
@@ -247,7 +222,6 @@
    #+begin_src emacs-lisp
      (use-package org-brain
        :ensure t)
-
    #+end_src
 ** org-tempo
 #+BEGIN_SRC emacs-lisp
@@ -348,26 +322,15 @@
        (with-eval-after-load 'company-coq
        (add-to-list 'company-coq-disabled-features 'coqdoc)))
    #+end_src
-* icon-in-terminal (optional)
-  #+begin_src emacs-lisp
-    ;(add-to-list 'load-path "~/.local/share/icons-in-terminal/")
-    ;(add-to-list 'load-path "~/.emacs.d/orphan/")
-    ;(require 'icons-in-terminal)
-  #+end_src
 * flycheck 
   #+begin_src emacs-lisp
-     (use-package flycheck
-       :ensure t
-       :init
-       (global-flycheck-mode)
-       )
-    ; (use-package flycheck-popup-tip
-      ; :ensure t
-      ; :config
-      ; (with-eval-after-load 'flycheck
-      ; '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)))
-  #+end_src
-* rainbow-mode RGB
+    (use-package flycheck
+      :ensure t
+      :init
+      (global-flycheck-mode)
+      )
+      #+end_src
+* rainbow-mode
   #+begin_src emacs-lisp
     (use-package rainbow-mode
       :defer t
@@ -384,28 +347,24 @@
     (use-package posframe
       :ensure t)
     (require 'subr-x)
-    ;(add-to-list 'load-path "~/.emacs.d/elpa/sdcv/")
     (use-package sdcv
       :demand t
       :quelpa
       (sdcv
        :fetcher github
        :repo "manateelazycat/sdcv")
-      )
-    (setq sdcv-say-word-p t)               ;say word after translation
-
-    (setq sdcv-dictionary-data-dir "/home/loutine/.stardict/dic") ;setup directory of stardict dictionary
-
-    (setq sdcv-dictionary-simple-list    ;setup dictionary list for simple search
+       :config
+       (setq sdcv-say-word-p t)               ;say word after translation
+       (setq sdcv-dictionary-data-dir "/home/loutine/.stardict/dic") ;setup directory of stardict dictionary
+       (setq sdcv-dictionary-simple-list    ;setup dictionary list for simple search
 	  '("朗道英汉字典5.0"
 	    "懒虫简明汉英词典"))
-
-    (setq sdcv-dictionary-complete-list     ;setup dictionary list for complete search
-	  '(
-	"懒虫简明英汉词典"
-	"懒虫简明汉英词典"
-	"朗道英汉字典5.0"
-	"朗道汉英字典5.0"
-	"牛津英汉双解美化版"
-	))
+       (setq sdcv-dictionary-complete-list     ;setup dictionary list for complete search
+	     '(
+	       "懒虫简明英汉词典"
+	       "懒虫简明汉英词典"
+	       "朗道英汉字典5.0"
+	       "朗道汉英字典5.0"
+	       "牛津英汉双解美化版"
+	       )))
   #+end_src
