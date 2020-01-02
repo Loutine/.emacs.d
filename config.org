@@ -1,8 +1,3 @@
-* benchmark-init
-  #+begin_src emacs-lisp
-    (use-package benchmark-init
-      :ensure t)
-  #+end_src
 * package-archives
   #+begin_src emacs-lisp
     (require 'package)
@@ -15,16 +10,9 @@
  #+end_src
 * use-package
   #+begin_src emacs-lisp 
-    (setq use-package-always-defer nil)
-  #+end_src
-* quelpai
-  #+begin_src emacs-lisp
-    (use-package quelpa-use-package
-      :ensure t
-      :demand t
-      :init
-      (setq quelpa-update-melpa-p nil);不要在启动的时候更新melpa
-      )
+    (setq use-package-always-defer t)
+    (use-package benchmark-init
+      :ensure t)
   #+end_src
 * misc
 ** spilt toggle 分区翻转
@@ -44,20 +32,6 @@
      ;; I don't use the default binding of 'C-x 5', so use toggle-frame-split instead
      (global-set-key (kbd "C-x 9") 'toggle-frame-split)
    #+end_src
-** deforg buffer name
-   #+begin_src emacs-lisp
-     (defun set-org-src-buffer-name ()
-       (interactive)
-       (cond
-	((equal major-mode 'c-mode)
-	 (setq buffer-file-name "temp.c"))
-	((equal major-mode 'c++-mode)
-	 (setq buffer-file-name "temp.cpp"))
-	((equal major-mode 'python-mode)
-	 (setq buffer-file-name "temp.py"))))
-
-     (add-hook 'org-src-mode-hook 'set-org-src-buffer-name)
-   #+end_src
 * preface
 ** windows 
    #+begin_src emacs-lisp
@@ -74,17 +48,19 @@
    #+begin_src emacs-lisp
      (use-package dashboard
        :ensure t
-       :demand t
-       :config
+       :init
        (dashboard-setup-startup-hook)
-       (setq dashboard-set-heading-icons t)
-       (setq dashboard-set-file-icons t))
+       (setq dashboard-set-heading-icons t
+	     dashboard-set-file-icons t
+	     dashboard-items '((recents . 5))
+	     dashboard-startup-banner 2
+	     dashboard-banner-logo-title "Anti-Bone-Chick"
+	     dashboard-set-navigator t))
    #+end_src
 ** doom-modeline
    #+begin_src emacs-lisp
      (use-package doom-modeline
 	   :ensure t
-	   :defer 2
 	   :hook (after-init . doom-modeline-mode))
    #+end_src
 ** neotree 
@@ -92,14 +68,13 @@
      (use-package neotree
        :ensure t
        :config
-       (setq inhibit-compacting-font-caches t)
-       (setq neo-theme 'icons))
+       (setq inhibit-compacting-font-caches t
+	     neo-theme 'icons))
    #+end_src
 ** indent-guides(Tab) 
    #+begin_src emacs-lisp
      (use-package highlight-indent-guides
        :ensure t
-       :demand t
        :config
        (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
        (setq highlight-indent-guides-method 'column)
@@ -107,24 +82,14 @@
    #+end_src
 * about backup files
   #+begin_src emacs-lisp
-    (setq
-	 backup-by-copying t ; 自动备份
-	 backup-directory-alist
-	 '(("." . "~/.em_backup")) ; 自动备份在目录"~/.em_backup"下
-	 delete-old-versions t ; 自动删除旧的备份文件
-	 kept-new-versions 3 ; 保留最近的3个备份文件
-	 kept-old-versions 1 ; 保留最早的1个备份文件
-	 version-control t ;多次备份
-	 create-lockfiles nil) ;#文件
-  #+end_src
-* evil! yes!
-  #+begin_src emacs-lisp
-    ;使用vim 键位
-    (use-package evil
-      :ensure t
-      :demand t
-      :disabled
-      :config (evil-mode 1))
+    (setq backup-by-copying t ; 自动备份
+	  backup-directory-alist
+	  '(("." . "~/.em_backup")) ; 自动备份在目录"~/.em_backup"下
+	  delete-old-versions t ; 自动删除旧的备份文件
+	  kept-new-versions 3 ; 保留最近的3个备份文件
+	  kept-old-versions 1 ; 保留最早的1个备份文件
+	  version-control t ;多次备份
+	  create-lockfiles nil) ;#文件
   #+end_src
 * set the font
 #+BEGIN_SRC emacs-lisp
@@ -135,24 +100,23 @@
 	 (set-fontset-font (frame-parameter nil 'font) charset
 			   (font-spec :family chinese :size chinese-size)))))
   ;;下面的内容需要替换成相关系统的字体，未设置系统检测
-    (set-font   "Hack Nerd Font Mono" "STFangsong" 35 42)
+  (set-font   "Hack Nerd Font Mono" "STFangsong" 30 37)
 #+END_SRC
 * set the themes
   configuration
 #+BEGIN_SRC emacs-lisp
   (use-package doom-themes
     :ensure t
-    :config
+    :init
     (load-theme 'doom-nord t nil))
 #+END_SRC
 * proof general (for coq) 
   #+begin_src emacs-lisp
     (use-package proof-general
-      :defer t
       :ensure t
       :config
-      (setq proof-three-window-mode-policy 'hybrid)
-      (setq coq-compile-before-require t)
+      (setq proof-three-window-mode-policy 'hybrid
+	    coq-compile-before-require t)
       )
   #+end_src
 * org-mode
@@ -170,8 +134,8 @@
    #+begin_src emacs-lisp
      (setq org-startup-with-inline-images t)
      (defun shk-fix-inline-images ()
-     (when org-inline-image-overlays
-       (org-redisplay-inline-images)))
+       (when org-inline-image-overlays
+	 (org-redisplay-inline-images)))
      (add-hook 'org-babel-after-execute-hook 'shk-fix-inline-images)
      #+end_src
 ** org-truncated
@@ -183,8 +147,6 @@
 ** org-babel-function
    excutable file in org-mode
    #+BEGIN_SRC emacs-lisp
-     (use-package ob-rust
-       :ensure t)
      (org-babel-do-load-languages
       'org-babel-load-languages '((C . t)
 				  (java . t)
@@ -199,23 +161,25 @@
    #+BEGIN_SRC emacs-lisp
      (use-package org-bullets
        :ensure t
-       :init
+       :config
        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
      )
    #+END_SRC
 ** ox-twbs
    #+BEGIN_SRC emacs-lisp
-     (use-package ox-twbs)
+     (use-package ox-twbs
+       :defer t
+       :disabled t)
    #+END_SRC
 ** org-drill
    #+BEGIN_SRC emacs-lisp
      (use-package org-drill
        :ensure t
        :config
-       (setq org-drill-hide-item-headings-p nil)
-       (setq org-drill-auto-pronounce t)
-       (setq org-drill-learn-fraction 0.25)
-       (setq org-drill-add-random-noise-to-intervals-p t)
+       (setq org-drill-hide-item-headings-p nil
+	     org-drill-auto-pronounce t
+	     org-drill-learn-fraction 0.25
+	     org-drill-add-random-noise-to-intervals-p t)
      )
    #+END_SRC
 ** org-brain (concept mapping)
@@ -243,10 +207,8 @@
       (python-mode . lsp)
       (go-mode . lsp)
       :commands lsp
-      :init
+      :config
       (setq lsp-prefer-flymake nil)
-      (setq lsp-enable-semantic-highlighting t)
-      (setq lsp-enable-snippet t)
       )
   #+end_src
 ** lsp-ui
@@ -277,15 +239,14 @@
    #+begin_src emacs-lisp
      (use-package yasnippet
        :ensure t
-       :config
-       (yas-global-mode 1)
+       :hook (after-init . yas-global-mode)
        )
    #+end_src
 ** company-mode
 #+BEGIN_SRC emacs-lisp
     (use-package company
       :ensure t
-      :init
+      :config
       (global-company-mode 1)
       (setq company-idle-delay 0
 	    company-minimum-prefix-length 1
@@ -302,7 +263,6 @@
    #+begin_src emacs-lisp
      (use-package company-box
        :ensure t
-       :disabled t
        :hook (company-mode . company-box-mode))
      (add-hook 'coq-mode-hook 'my-inhibit-global-company-box-mode)
 
@@ -317,7 +277,7 @@
      (use-package company-coq
        :ensure t
        :hook (coq-mode . company-coq-mode)
-       :init
+       :config
        (setq company-coq-live-on-the-edge t)
        (with-eval-after-load 'company-coq
        (add-to-list 'company-coq-disabled-features 'coqdoc)))
@@ -326,7 +286,7 @@
   #+begin_src emacs-lisp
     (use-package flycheck
       :ensure t
-      :init
+      :config
       (global-flycheck-mode)
       )
       #+end_src
@@ -340,31 +300,23 @@
   #+begin_src emacs-lisp
     (use-package rainbow-delimiters
       :ensure t
+      :defer t
       :hook (scheme-mode . rainbow-delimiters-mode))
   #+end_src
-* learn-English (sdcv)
+* youdao-dic
   #+begin_src emacs-lisp
-    (use-package posframe
-      :ensure t)
-    (require 'subr-x)
-    (use-package sdcv
-      :demand t
-      :quelpa
-      (sdcv
-       :fetcher github
-       :repo "manateelazycat/sdcv")
-       :config
-       (setq sdcv-say-word-p t)               ;say word after translation
-       (setq sdcv-dictionary-data-dir "/home/loutine/.stardict/dic") ;setup directory of stardict dictionary
-       (setq sdcv-dictionary-simple-list    ;setup dictionary list for simple search
-	  '("朗道英汉字典5.0"
-	    "懒虫简明汉英词典"))
-       (setq sdcv-dictionary-complete-list     ;setup dictionary list for complete search
-	     '(
-	       "懒虫简明英汉词典"
-	       "懒虫简明汉英词典"
-	       "朗道英汉字典5.0"
-	       "朗道汉英字典5.0"
-	       "牛津英汉双解美化版"
-	       )))
+    ;; Enable Cache
+    (setq url-automatic-caching t)
+
+    ;; Example Key binding
+    (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
+
+    ;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)
+    ;; (push "*Youdao Dictionary*" popwin:special-display-config)
+
+    ;; Set file path for saving search history
+    ;; (setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao")
+
+    ;; Enable Chinese word segmentation support (支持中文分词)
+    ;; (setq youdao-dictionary-use-chinese-word-segmentation t)
   #+end_src
