@@ -1,11 +1,12 @@
 (use-package yasnippet
   :ensure t
-  :hook (after-init . yas-global-mode)
+  :config
+  (yas-global-mode 1)
   )
-
+(use-package company-elisp)
 (use-package company
   :ensure t
-  :config
+  :init
   (global-company-mode 1)
   (setq company-idle-delay 0
 	company-minimum-prefix-length 1
@@ -19,13 +20,14 @@
 (use-package company-box
   :ensure t
   :hook (company-mode . company-box-mode))
+
 (add-hook 'coq-mode-hook 'my-inhibit-global-company-box-mode)
 
 (defun my-inhibit-global-company-box-mode ()
   "Counter-act `global-linum-mode'."
   (add-hook 'after-change-major-mode-hook
-	    (lambda () (company-box-mode 0))
-	    :append :local))
+ 	    (lambda () (company-box-mode 0))
+ 	    :append :local))
 
 (use-package company-coq
   :ensure t
@@ -37,8 +39,7 @@
 
 (use-package flycheck
   :ensure t
-  :config
+  :init
   (global-flycheck-mode)
   )
-
 (provide 'company_config)

@@ -1,39 +1,32 @@
+;;use org-cons to have newest org function
 (use-package org-plus-contrib
-  :ensure t
-  :disabled t)
-
-(setq org-pretty-entities 1)
-
-(setq org-startup-with-inline-images t)
+  :ensure t)
+;;for some pretty entities especial for math
+(use-package org
+  :config
+  (setq org-pretty-entities 1
+      org-startup-with-inline-images t)
 (defun shk-fix-inline-images ()
   (when org-inline-image-overlays
     (org-redisplay-inline-images)))
 (add-hook 'org-babel-after-execute-hook 'shk-fix-inline-images)
-
+;;org truncate
 (add-hook 'org-mode-hook
 	  (lambda()
 	    (setq truncate-lines nil)))
-
-(org-babel-do-load-languages
- 'org-babel-load-languages '((C . t)
-			     (java . t)
-			     (python . t)
-			     (dot . t)
-			     (ditaa . t)
-			     (rust . t)
-			     (scheme . t))
- )
+;;for org-src excute
+(setq org-babel-load-languages '((python . t)
+				 (dot . t)
+				 (ditaa . t)
+				 (scheme . t))
+      ))
 
 (use-package org-bullets
   :ensure t
-  :config
+  :init
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 )
-
-(use-package ox-twbs
-  :defer t
-  :disabled t)
-
+;;org-drill use for English-learning
 (use-package org-drill
   :ensure t
   :config
@@ -42,14 +35,13 @@
 	org-drill-learn-fraction 0.25
 	org-drill-add-random-noise-to-intervals-p t)
 )
-
+;;concept mapping
 (use-package org-brain
   :ensure t)
-
-(require 'org-tempo)
-(tempo-define-template "new-words"
-	       '("* " p " :drill:\ntranslate the word\n" "** Chinese\n** example" >)
-	       "<n"
-	       "Insert a property tempate")
-
+(use-package ox-twbs
+  :ensure t
+  :after org)
+;;set a snippet for new word
+(setq org-capture-templates
+      '("n" "* " p " :drill:\ntranslate the word\n" "** Chinese\n** example" ))
 (provide 'org_set)

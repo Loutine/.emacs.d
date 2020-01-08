@@ -8,6 +8,7 @@
   :commands lsp
   :config
   (setq lsp-prefer-flymake nil)
+  (setq lsp-enable-semantic-highlighting t)
   )
 
 (use-package lsp-ui
@@ -18,13 +19,11 @@
   )
 
 (use-package lsp-treemacs
-  :defer t
   :ensure
   )
 
 (use-package dap-mode
   :ensure t
-  :defer t
   )
 
 (provide 'lsp_config)
