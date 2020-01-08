@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (defun set-font (english chinese english-size chinese-size)
   (set-face-attribute 'default nil :font
 		      (format   "%s:pixelsize=%d"  english english-size))
@@ -8,3 +11,4 @@
 (set-font   "Hack Nerd Font Mono" "STFangsong" 30 37)
 
 (provide 'set_font)
+;;; set_font.el ends here

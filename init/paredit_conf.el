@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (use-package paredit
   :ensure t
   :init
@@ -11,3 +14,4 @@
 	 (racket-mode . enable-paredit-mode)))
 
 (provide 'paredit_conf)
+;;; paredit_conf.el ends here

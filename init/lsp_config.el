@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (use-package lsp-mode
   :ensure t
   :hook
@@ -27,3 +30,4 @@
   )
 
 (provide 'lsp_config)
+;;; lsp_config.el ends here

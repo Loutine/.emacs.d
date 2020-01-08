@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 ;;use org-cons to have newest org function
 (use-package org-plus-contrib
   :ensure t)
@@ -6,10 +9,6 @@
   :config
   (setq org-pretty-entities 1
       org-startup-with-inline-images t)
-(defun shk-fix-inline-images ()
-  (when org-inline-image-overlays
-    (org-redisplay-inline-images)))
-(add-hook 'org-babel-after-execute-hook 'shk-fix-inline-images)
 ;;org truncate
 (add-hook 'org-mode-hook
 	  (lambda()
@@ -31,7 +30,6 @@
   :ensure t
   :config
   (setq org-drill-hide-item-headings-p nil
-	org-drill-auto-pronounce t
 	org-drill-learn-fraction 0.25
 	org-drill-add-random-noise-to-intervals-p t)
 )
@@ -41,7 +39,5 @@
 (use-package ox-twbs
   :ensure t
   :after org)
-;;set a snippet for new word
-(setq org-capture-templates
-      '("n" "* " p " :drill:\ntranslate the word\n" "** Chinese\n** example" ))
 (provide 'org_set)
+;;; org_set.el ends here

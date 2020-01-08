@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (defun toggle-frame-split ()
   "If the frame is split vertically, split it horizontally or vice versa.
 Assumes that the frame is only split into two."
@@ -14,3 +17,4 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "C-x 9") 'toggle-frame-split)
 
 (provide 'misc)
+;;; misc.el ends here

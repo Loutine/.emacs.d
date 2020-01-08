@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (use-package ivy
   :ensure
   :init
@@ -7,9 +10,10 @@
   (setq enable-recursive-minibuffers t)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-re-builders-alist
-      '((swiper . ivy--regex-plus)
-	(t . ivy--regex-fuzzy))) ;; enable fuzzy searching everywhere except for Swiper
-)
-(provide 'ivy_config)
+	'((swiper . ivy--regex-plus)
+	  (t . ivy--regex-fuzzy))) ;; enable fuzzy searching everywhere except for Swiper
+  )
 
+(provide 'ivy_config)
+;;; ivy_config.el ends here
 

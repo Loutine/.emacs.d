@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (use-package proof-general
   :ensure t
   :config
@@ -6,3 +9,4 @@
   )
 
 (provide 'proof_general)
+;;; proof_general.el ends here

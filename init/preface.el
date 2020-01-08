@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (tool-bar-mode 0);;工具栏
 (menu-bar-mode 1);;菜单栏
 (scroll-bar-mode 0);;滚动栏

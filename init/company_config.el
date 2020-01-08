@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (use-package yasnippet
   :ensure t
   :config
@@ -23,12 +26,6 @@
 
 (add-hook 'coq-mode-hook 'my-inhibit-global-company-box-mode)
 
-(defun my-inhibit-global-company-box-mode ()
-  "Counter-act `global-linum-mode'."
-  (add-hook 'after-change-major-mode-hook
- 	    (lambda () (company-box-mode 0))
- 	    :append :local))
-
 (use-package company-coq
   :ensure t
   :hook (coq-mode . company-coq-mode)
@@ -42,4 +39,6 @@
   :init
   (global-flycheck-mode)
   )
+
 (provide 'company_config)
+;;; company_config.el ends here

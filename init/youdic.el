@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 ;; Enable Cache
 (setq url-automatic-caching t)
 
@@ -28,3 +31,4 @@
  )
 
 (provide 'youdic)
+;;; youdic.el ends here
