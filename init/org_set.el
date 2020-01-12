@@ -2,8 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 ;;use org-cons to have newest org function
+(require 'cl)
 (use-package org-plus-contrib
-  :ensure t)
+  :ensure t
+  :disabled t)
 ;;for some pretty entities especial for math
 (use-package org
   :config
@@ -28,6 +30,7 @@
 ;;org-drill use for English-learning
 (use-package org-drill
   :ensure t
+  :demand t
   :config
   (setq org-drill-hide-item-headings-p nil
 	org-drill-learn-fraction 0.25

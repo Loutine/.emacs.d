@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 (require 'package)
 (setq package-archives
   '(("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
@@ -6,4 +9,6 @@
     ("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
 (setq use-package-always-defer t)
+
 (provide 'package_archive)
+;;; package_archive.el ends here

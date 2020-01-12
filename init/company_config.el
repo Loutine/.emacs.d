@@ -22,17 +22,15 @@
 
 (use-package company-box
   :ensure t
-  :hook (company-mode . company-box-mode))
-
-(add-hook 'coq-mode-hook 'my-inhibit-global-company-box-mode)
-
+  :hook
+  (lsp-mode . company-box-mode)
+  (emacs-lisp-mode . company-box-mode))
 (use-package company-coq
   :ensure t
   :hook (coq-mode . company-coq-mode)
   :config
   (setq company-coq-live-on-the-edge t)
-  (with-eval-after-load 'company-coq
-  (add-to-list 'company-coq-disabled-features 'coqdoc)))
+  (with-eval-after-load 'company-coq))
 
 (use-package flycheck
   :ensure t

@@ -1,3 +1,4 @@
+
 (let
     (
      (gc-cons-threshold most-positive-fixnum)
@@ -16,7 +17,8 @@
 (require 'set_font)
 (require 'set_theme)
 (require 'proof_general)
-(require 'org_set)
+(use-package org_set
+  :after (org))
 (require 'lsp_config)
 (require 'company_config)
 (require 'ivy_config)
@@ -29,7 +31,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(paredit youdao-dictionary use-package sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg go-mode flycheck doom-themes doom-modeline dashboard dap-mode company-lsp company-coq company-box benchmark-init)))
+   '(youdao-dictionary use-package sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg go-mode flycheck doom-themes doom-modeline dashboard dap-mode company-lsp company-coq company-box benchmark-init)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
