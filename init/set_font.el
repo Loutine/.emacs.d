@@ -8,7 +8,7 @@
 			    (set-fontset-font (frame-parameter nil 'font) charset
 					      (font-spec :family chinese :size chinese-size)))))
 ;;下面的内容需要替换成相关系统的字体，未设置系统检测
-(set-font   "Hack Nerd Font Mono" "STFangsong" 30 37)
+(set-font   "Hack Nerd Font Mono" "WenQuanYi Micro Hei Mono" 35 42)
 
 (provide 'set_font)
 ;;; set_font.el ends here
