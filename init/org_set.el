@@ -26,6 +26,8 @@
     :ensure t
     :demand t
     :config
+    (require 'cl)
+    (require 'cl-lib)
     (setq org-drill-hide-item-headings-p nil
 	  org-drill-learn-fraction 0.25
 	  org-drill-add-random-noise-to-intervals-p t)

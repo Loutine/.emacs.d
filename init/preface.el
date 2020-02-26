@@ -1,12 +1,6 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(tool-bar-mode 0);;工具栏
-(menu-bar-mode 1);;菜单栏
-(scroll-bar-mode 0);;滚动栏
-(global-hl-line-mode 1) ;;当前行高亮
-(global-linum-mode 1);;行数显示
-(fringe-mode '(10 . 1));;修饰栏大小
 (setq inhibit-splash-screen t);;关闭默认欢迎页面
 
 (use-package dashboard

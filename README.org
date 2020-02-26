@@ -7,8 +7,18 @@
 *** company-coq
     A company backend for coq proof assistant.Not just give a AC backend but also gives a function's doc buffer,can turn most of math relatived keyword to a latex like icons.
 ** org-drill
-   use for learning English.
+   use for learning English.You can add snippets by using yasnippet
+** scheme
+   rather than using geiser for work, I KISS, using the built in scheme mode and configuration of yinwang, it's very old but still useful, and I added some function to help me run the script.
+   You can turn to ~/.emacs.d/init/lang/scheme-la.el for detail
+** EAF (&optional)
+   A great application framework for emacs!
+   You can use it for viewing pdf ,web browsing and mindmap,even receive file from your phone, or just expand it.
+   only LINUX
 ** TODO 
    1. add AUCtex configuration to both linux and windows.
    2. add the configuration for debug mode.
    3. complete the README file.
+   4. python virtualenv manager
+   5. magit config
+   6. RSS reader config

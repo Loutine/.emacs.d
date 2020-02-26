@@ -6,7 +6,6 @@
   :config
   (yas-global-mode 1)
   )
-(use-package company-elisp)
 (use-package company
   :ensure t
   :init
@@ -31,7 +30,6 @@
   :config
   (setq company-coq-live-on-the-edge t)
   (with-eval-after-load 'company-coq))
-
 (use-package flycheck
   :ensure t
   :init

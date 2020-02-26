@@ -11,5 +11,5 @@
   ;; (add-hook 'haskell-mode-hook 'flymake-mode)
   (add-hook 'haskell-mode-hook 'dante-mode)
   )
-(provide 'haskell)
-;;; haskell.el ends here
+(provide 'haskell-la)
+;;; haskell-la.el ends here

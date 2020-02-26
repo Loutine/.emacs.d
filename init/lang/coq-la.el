@@ -8,5 +8,5 @@
 	coq-compile-before-require t)
   )
 
-(provide 'proof_general)
-;;; proof_general.el ends here
+(provide 'coq-la)
+;;; coq-la.el ends here
