@@ -11,7 +11,6 @@
   :commands lsp
   :config
   (setq lsp-prefer-flymake nil)
-  (setq lsp-enable-semantic-highlighting t)
   )
 
 (use-package lsp-ui
@@ -20,14 +19,20 @@
   :config
   (setq lsp-prefer-flymake nil)
   )
-
+(use-package company-lsp :commands company-lsp)
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs
-  :ensure
+  :ensure t
   )
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1))
 
 (use-package dap-mode
   :ensure t
   )
-
 (provide 'lsp_config)
 ;;; lsp_config.el ends here

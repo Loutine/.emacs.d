@@ -1,11 +1,12 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(use-package yasnippet
-  :ensure t
-  :config
-  (yas-global-mode 1)
-  )
+;;
+;;(use-package yasnippet
+;;  :ensure t
+;;  :config
+;;  (yas-global-mode 1)
+;;  )
 (use-package company
   :ensure t
   :init
@@ -30,11 +31,11 @@
   :config
   (setq company-coq-live-on-the-edge t)
   (with-eval-after-load 'company-coq))
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode)
-  )
+;;use-package flycheck
+;; :ensure t
+;; :init
+;; (global-flycheck-mode)
+;; )
 
 (provide 'company_config)
 ;;; company_config.el ends here

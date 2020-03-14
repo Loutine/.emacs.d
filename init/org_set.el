@@ -38,8 +38,6 @@
 							   (ditaa . t)
 							   (scheme . t)))
 
-  (use-package org-brain
-    :ensure t)
   (use-package ox-twbs
     :ensure t)
   )

@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 (setq inhibit-splash-screen t);;关闭默认欢迎页面
-
 (use-package dashboard
   :ensure t
   :init
@@ -15,8 +14,16 @@
 	dashboard-set-navigator t))
 
 (use-package doom-modeline
-      :ensure t
-      :hook (after-init . doom-modeline-mode))
+  ;:disabled nil
+  :hook (after-init . doom-modeline-mode)
+;;:init
+;;(defun my-doom-modeline--font-height ()
+;;"Calculate the actual char height of the mode-line."
+;;(+ (frame-char-height) 2))
+;;(advice-add #'doom-modeline--font-height :override #'my-doom-modeline--font-height)
+;;(setq doom-modeline-icon nil)
+  :config
+  (setq doom-modeline-height 28))
 
 (use-package neotree
   :ensure t
