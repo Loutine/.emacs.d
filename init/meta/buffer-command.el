@@ -1,6 +1,15 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
+(defun my-buffer-predicate (buffer)
+  (if (and (string-match "^[\*\#].*[\*\#]$" (buffer-name buffer))
+	   (not (string-match "*dashboard*" (buffer-name buffer)))
+	   
+	   )
+      nil
+    t))
+(set-frame-parameter nil 'buffer-predicate 'my-buffer-predicate)
+
 (defun toggle-frame-split ()
   "If the frame is split vertically, split it horizontally or vice versa.
 Assumes that the frame is only split into two."
@@ -16,5 +25,5 @@ Assumes that the frame is only split into two."
 ;; I don't use the default binding of 'C-x 5', so use toggle-frame-split instead
 (global-set-key (kbd "C-x 9") 'toggle-frame-split)
 
-(provide 'misc)
+(provide 'buffer-command)
 ;;; misc.el ends here

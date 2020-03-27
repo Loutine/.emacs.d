@@ -26,8 +26,6 @@
     :ensure t
     :demand t
     :config
-    (require 'cl)
-    (require 'cl-lib)
     (setq org-drill-hide-item-headings-p nil
 	  org-drill-learn-fraction 0.25
 	  org-drill-add-random-noise-to-intervals-p t)
@@ -41,5 +39,5 @@
   (use-package ox-twbs
     :ensure t)
   )
-(provide 'org_set)
+(provide 'set_org)
 ;;; org_set.el ends here

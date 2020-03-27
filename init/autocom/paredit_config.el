@@ -12,5 +12,5 @@
 	 (lisp-interaction-mode . enable-paredit-mode)
 	 (scheme-mode . enable-paredit-mode)
 	 (racket-mode . enable-paredit-mode)))
-(provide 'paredit_conf)
-;;; paredit_conf.el ends here
+(provide 'paredit_config)
+;;; paredit_config.el ends here

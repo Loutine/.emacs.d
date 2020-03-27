@@ -1,6 +1,5 @@
 (use-package eaf
   :demand t
-  :load-path "~/.emacs.d/elpa/emacs-application-framework" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
   :custom
   (eaf-find-alternate-file-in-dired t)
   :config
