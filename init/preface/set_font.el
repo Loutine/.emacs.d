@@ -8,7 +8,7 @@
 			    (set-fontset-font (frame-parameter nil 'font) charset
 					      (font-spec :family chinese :size chinese-size)))))
 ;下面的内容需要替换成相关系统的字体，未设置系统检测
-(set-font   "Hack Nerd Font Mono" "WenQuanYi Micro Hei Mono" 42 42)
+(set-font   "Hack Nerd Font" "WenQuanYi Micro Hei Mono" 42 42)
 (set-face-attribute 'mode-line nil :font
 		    (format   "%s:pixelsize=%d"  "Hack Nerd Font Mono" 30))
 (set-face-attribute 'mode-line-inactive nil :font

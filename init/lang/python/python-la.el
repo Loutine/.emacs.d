@@ -1,6 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
+(use-package ein_conf)
 (defun run-python-file ()
   (interactive)
   (if (get-buffer "*compilation*")

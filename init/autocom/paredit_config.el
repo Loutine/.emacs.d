@@ -12,5 +12,15 @@
 	 (lisp-interaction-mode . enable-paredit-mode)
 	 (scheme-mode . enable-paredit-mode)
 	 (racket-mode . enable-paredit-mode)))
+(use-package elec-pair
+  :demand
+  :init
+  (setq electric-pair-pairs
+	'(
+	  (?\{ . ?\})  ;; 添加大括号补齐
+	  (?\' . ?\')
+	  (?\< . ?\>))) ;; 添加单引号补齐
+  (add-hook 'web-mode-hook (lambda () (electric-pair-local-mode)))
+  )
 (provide 'paredit_config)
 ;;; paredit_config.el ends here

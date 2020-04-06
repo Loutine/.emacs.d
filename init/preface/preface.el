@@ -9,34 +9,51 @@
   (setq dashboard-set-heading-icons t
 	dashboard-set-file-icons t
 	dashboard-items '((recents . 5))
-	dashboard-startup-banner (expand-file-name "~/blackhole_image/ue-light.png")
 	dashboard-banner-logo-title "Anti-Bone-Chick"
-	dashboard-set-navigator t))
-
+	dashboard-startup-banner 4
+	dashboard-set-navigator t)
+  (setq dashboard-items '(
+			  (agenda . 5)
+			  (recents  . 3)
+                          ))
+  (setq backup-by-copying 1
+	backup-directory-alist '(("." . "~/.em_backup"))
+	delete-old-versions 1
+	kept-new-versions 3
+	kept-old-versions 1
+	left-fringe-width 8)
+)
 (use-package doom-modeline
   ;:disabled nil
   :hook (after-init . doom-modeline-mode)
-;;:init
-;;(defun my-doom-modeline--font-height ()
-;;"Calculate the actual char height of the mode-line."
-;;(+ (frame-char-height) 2))
-;;(advice-add #'doom-modeline--font-height :override #'my-doom-modeline--font-height)
-;;(setq doom-modeline-icon nil)
   :config
-  (setq doom-modeline-height 28))
+  (setq doom-modeline-height 21))
 
-(use-package neotree
-  :ensure t
-  :config
-  (setq inhibit-compacting-font-caches t
-	neo-theme 'icons))
 ;;for-indent-guides
 (use-package highlight-indent-guides
   :ensure t
   :config
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (setq highlight-indent-guides-method 'column)
-  )
-
+  (highlight-indent-guides-method 'column))
+;;tabs
+(use-package centaur-tabs
+  :demand
+  :ensure t
+  :init
+  (centaur-tabs-mode t)
+  (setq centaur-tabs-set-icons t
+	centaur-tabs-style "bar"
+	centaur-tabs-set-bar 'left)
+  :bind
+  ("C-<prior>" . centaur-tabs-backward)
+  ("C-<next>" . centaur-tabs-forward))
+;;display-line-numbers
+(use-package display-line-numbers
+  :hook
+  (prog-mode . display-line-numbers-mode)
+  (org-mode . display-line-numbers-mode))
+(scroll-bar-mode 0)
+(tool-bar-mode 0)
+(menu-bar-mode 0) 
 (provide 'preface)
 ;;; preface.el ends here

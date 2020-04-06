@@ -17,7 +17,7 @@
   ("M-x" . counsel-M-x)                   ;; 代替emacs自带的M-x
   ("C-x C-f" . counsel-find-file)         ;; 代替emacs自带的搜索打开文件
   ("C-x C-j" . counsel-imenu)             ;; 代替emacs自带的imenu(代码大纲)
-  ("C-h b" . counsel-descbinds)           ;; 代替emacs自带的describe-bindings(显示所有已定义键的列表及其定义)
+  ("C-h C-b" . counsel-descbinds)           ;; 代替emacs自带的describe-bindings(显示所有已定义键的列表及其定义)
   ("C-h f" . counsel-describe-function)   ;; 代替emacs自带的describe-function(显示function(函数/方法)完整文档)
   ("C-h v" . counsel-describe-variable)   ;; 代替eamcs自带的describe-variable(显示variable(变量)的完整文档)
   ("C-h a" . counsel-apropos)             ;; 代替emacs自带的apropos-command(显示匹配的命令文档)
@@ -27,8 +27,8 @@
   ("C-c m r" . counsel-mark-ring)         ;; 代替emacs自带的pop-to0mark-command(快速跳转到以前光标位置)
   ("C-c f l" . counsel-find-library)      ;; 代替emacs自带的find-libray( co找到LIBRARYEmacs Lisp源代码)
   ("C-x r b" . counsel-bookmark)          ;; 代替emacs自带的bookmark-jump(跳转到书签)
-  ("C-x b" . counsel-ibuffer)             ;; 代替emacs自带的ido-swiper-buffer(跳转到缓冲区)
-  ("C-x C-b" . counsel-switch-buffer)     ;; 切换到选择的缓冲区(并提供预览)
+  ;("C-x b" . counsel-ibuffer)             ;; 代替emacs自带的ido-swiper-buffer(跳转到缓冲区)
+  ("C-x b" . counsel-switch-buffer)     ;; 切换到选择的缓冲区(并提供预览)
   :demand t)
 
 
