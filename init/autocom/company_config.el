@@ -23,6 +23,7 @@
   (push 'company-lsp company-backends))
 
 (use-package company-box
+  :disabled
   :ensure t
   :hook
   (lsp-mode . company-box-mode)
