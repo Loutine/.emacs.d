@@ -5,7 +5,7 @@
 (setq url-automatic-caching t)
 
 ;; Example Key binding
-(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point)
+(global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point-posframe)
 
 ;; Integrate with popwin-el (https://github.com/m2ym/popwin-el)
 ;; (push "*Youdao Dictionary*" popwin:special-display-config)

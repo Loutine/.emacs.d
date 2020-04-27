@@ -9,6 +9,7 @@
   (python-mode . lsp)
   (go-mode . lsp)
   (js-mode . lsp)
+  (css-mode . lsp)
   :commands lsp
   :config
   (setq lsp-prefer-flymake nil)
@@ -27,17 +28,16 @@
   )
 (use-package projectile
   :ensure t
+  :bind
+  ;("s-p" . projectile-command-map)
+  ("C-c p" . projectile-command-map)
   :config
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (projectile-mode +1))
+  (projectile-mode +1)
+  )
 (use-package counsel-projectile
   :ensure t
   :init
   (counsel-projectile-mode)
-  )
-(use-package dap-mode
-  :ensure t
   )
 (provide 'lsp_config)
 ;;; lsp_config.el ends here

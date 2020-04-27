@@ -23,48 +23,19 @@
 	web-mode-css-indent-offset 2
 	web-mode-code-indent-offset 2
 	web-mode-enable-current-element-highlight t
-	web-mode-enable-css-colorization t))
-
+	web-mode-enable-css-colorization nil))
 (use-package company-web
   :init
   (add-to-list 'company-backends  'company-web-html)) 
+(use-package css-mode
+  :config
+  (setq css-fontify-colors nil))
 (defun browser-sync()
   "init browser-sync in current dict,and detact all the files(.css,.html,.js)under the dict,make emacs become a live web develop ide"
   (interactive)
   (async-shell-command "browser-sync start --server --files \"**/*.css, **/*.html,**/*.js\""))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;;===============================================================================
+;;————————————————————————————————————————————————————————————————————————————————————————————
 (defcustom browse-url-firefox-dev-program
   (let ((candidates '("icecat" "iceweasel" "firefox-developer-edition")))
     (while (and candidates (not (executable-find (car candidates))))

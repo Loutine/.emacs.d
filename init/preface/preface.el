@@ -6,38 +6,34 @@
   :ensure t
   :init
   (dashboard-setup-startup-hook)
-  (setq dashboard-set-heading-icons t
+  (setq ;dashboard-set-heading-icons t
 	dashboard-set-file-icons t
-	dashboard-items '((recents . 5))
+	dashboard-items '((recents . 5)
+			  (bookmarks . 3))
 	dashboard-banner-logo-title "Anti-Bone-Chick"
 	dashboard-startup-banner 4
-	dashboard-set-navigator t)
-  (setq dashboard-items '(
-			  (agenda . 5)
-			  (recents  . 3)
-                          ))
+	;dashboard-set-navigator t
+	)
   (setq backup-by-copying 1
 	backup-directory-alist '(("." . "~/.em_backup"))
 	delete-old-versions 1
 	kept-new-versions 3
-	kept-old-versions 1
-	left-fringe-width 8)
-)
+	kept-old-versions 1))
 (use-package doom-modeline
   ;:disabled nil
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-height 21))
+  (setq doom-modeline-height 22))
 
 ;;for-indent-guides
 (use-package highlight-indent-guides
   :ensure t
+  :hook (prog-mode . highlight-indent-guides-mode)
   :config
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (highlight-indent-guides-method 'column))
+  (setq highlight-indent-guides-method 'fill))
 ;;tabs
 (use-package centaur-tabs
-  :demand
+  :disabled
   :ensure t
   :init
   (centaur-tabs-mode t)

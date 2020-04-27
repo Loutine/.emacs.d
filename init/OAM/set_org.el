@@ -1,9 +1,11 @@
+
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
 (use-package org
   :mode (("\\.org$" . org-mode))
   :custom (org-modules  '(org-habit))
+  :bind ("C-c a" . org-agenda-today)
   :config
   ;;prettify the org
   (setq org-startup-with-inline-images t);org inline images
@@ -22,11 +24,21 @@
 
   ;;org-agenda
   (use-package org-agenda
+    :demand
     :config
     ;;use time grid
-    (setq org-agenda-use-time-grid t)
-    (setq org-habit-show-habits-only-for-today nil)
-    (setq org-agenda-repeating-timestamp-show-all t))
+    (setq org-todo-keywords
+	  '((sequence "TODO(t)" "START(s)" "|" "DONE(d!)" "CANCLED(c@)")))
+    (setq org-agenda-use-time-grid t
+	  org-habit-show-habits-only-for-today nil
+	  org-agenda-repeating-timestamp-show-all t
+	  org-log-into-drawer t)
+    (defun org-agenda-today ()
+      (interactive)
+      (org-agenda nil "n" nil)
+      (org-agenda-day-view (cadddr (decode-time (current-time))))
+      )
+    )
 
 
   ;;org-drill use for English-learning
