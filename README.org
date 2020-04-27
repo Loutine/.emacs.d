@@ -1,24 +1,32 @@
 * Loutine's emacs configuration
-** completion
-   after the last update, I turn to LSP for a unversial code completeion ,before you use it ,ensure you have installed the particular Language server.
+** Introduction
+It's an easy and convient emacs configuration from a Emacs noob.
+evil is not included,because I think it's ridiculous to seperate editing and writing.
+Thanks for all the issues!
+** some points need attention
+   Using LSP for a unversial code completeion ,before you use it ,ensure you have installed the particular Language server.
 *** company-box
     To make a ide-like work space on emacs,I choose the company-box to present some pretty icons (terminal still not supported) and the function's doc.
     if you want to use the _icons-in-terminal_ in company-box  please install it first before you set it.
+    *Warning* company-box is still buggy and will make code-completeion laggy
 *** company-coq
     A company backend for coq proof assistant.Not just give a AC backend but also gives a function's doc buffer,can turn most of math relatived keyword to a latex like icons.
-** org-drill
-   use for learning English.You can add snippets by using yasnippet
-** scheme
-   rather than using geiser for work, I KISS, using the built in scheme mode and configuration of yinwang, it's very old but still useful, and I added some function to help me run the script.
-   You can turn to ~/.emacs.d/init/lang/scheme-la.el for detail
-** EAF (&optional)
-   A great application framework for emacs!
-   You can use it for viewing pdf ,web browsing and mindmap,even receive file from your phone, or just expand it.
-   only LINUX
-** TODO 
-   1. add AUCtex configuration to both linux and windows.
-   2. add the configuration for debug mode.
-   3. complete the README file.
-   4. python virtualenv manager
-   5. magit config
-   6. RSS reader config
+    Have some problem with company-box, so I use a function to disable company-box when using it.
+*** org-drill
+    use for learning English.You can add snippets by using yasnippet
+    org-plus-contrib packages always have some problems after byte-compiled ,suggest to remove all the .elc files.
+*** scheme
+    rather than using geiser for work, I KISS, using the built in scheme mode and configuration of yinwang, it's very old but still useful, and I added some function to help me run the script.
+    You can turn to ~/.emacs.d/init/lang/scheme-la.el for detail
+*** c++/c
+**** cmake-debug
+     if you use cmake to build project I have an easy function for you
+     first you should make sure there is a .lsp file at the root of your project with your cmakefile,you you can use "cmake-debug" to generate a debug binary.
+**** gdb-layout
+     the built in gud-mode is really usful while debuging C/C++ file ,I have changed the layout of the geb-many-windows.
+*** EAF (&optional)
+    A great application framework for emacs!
+    You can use it for viewing pdf ,web browsing and mindmap,even receive file from your phone, or just expand it.
+    It's really useful but will take much time to load.
+    so I just using a function to load it when I need to use it,you can turn to EAF.el for detail
+    only LINUX
