@@ -13,14 +13,16 @@
     (normal-top-level-add-subdirs-to-load-path))
     (let ((default-directory "~/.emacs.d/elpa/"))
     (normal-top-level-add-subdirs-to-load-path))
-    ;;meta module					;  (require 'auto-save)
-    ;(require 'cnfonts)
-    ;(cnfonts-enable)
+    ;;meta module
+    ;;(require 'auto-save)
+    ;;(require 'cnfonts)
+    ;;(cnfonts-enable)
     (require 'package_archive)
     (require 'buffer-command)
     (require 'which_key)
+    (require 'magit_conf)
     (require 'treemacs_conf)
-;    (require 'auto-save)
+    ;;(require 'auto-save)
     ;;preface module
     (require 'preface)
     (require 'set_theme)
@@ -35,7 +37,7 @@
     ;;lang module
     (require 'python-la)
     (require 'racket-la)
-    ;;(require 'haskell-la)
+    (require 'haskell-la)
     (require 'c_cpp-la)
     (require 'coq-la)
     (require 'web-la)
@@ -43,7 +45,7 @@
     (require 'set_org)
     (require 'set_md)
     (require 'adoc)
-    (require 'youdic)
+    (require 'sdcvdic)
     (require 'EAF))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -53,7 +55,7 @@
  '(org-agenda-files
    '("~/Dropbox/Agenda/Agenda.org" "~/Dropbox/Agenda/routine.org"))
  '(package-selected-packages
-   '(sudo-edit sr-speedbar youdao-dictionary use-package sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg go-mode flycheck doom-themes doom-modeline dashboard dap-mode company-lsp company-coq company-box benchmark-init)))
+   '(leetcode racket-mode sudo-edit youdao-dictionary use-package sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg flycheck doom-themes doom-modeline dashboard dap-mode company-lsp company-coq company-box benchmark-init)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

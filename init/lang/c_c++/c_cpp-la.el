@@ -1,8 +1,9 @@
 ;;using ccls for lsp server
 (use-package ccls
   :ensure t
-  :config
-  (setq ccls-sem-highlight-method 'font-lock)
+  :hook
+  (c++-mode . rainbow-delimiters-mode)
+  (c++-mode . electric-pair-local-mode)
   )
 ;;define some useful cmake command
 (defun cmake-debug-dir (workspace)
