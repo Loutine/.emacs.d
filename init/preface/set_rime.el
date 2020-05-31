@@ -7,4 +7,4 @@
   (rime-translate-keybindings
    '("C-f" "C-b" "C-n" "C-p" "C-g" "C-`"))
 )
-(provide 'rime_conf)
+(provide 'set_rime)
