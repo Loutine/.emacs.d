@@ -11,7 +11,7 @@
   :ensure t
   :bind
   ("M-/" . company-complete)
-  :init
+  :config
   (global-company-mode 1)
   (define-key company-active-map [tab] #'company-complete-common-or-cycle)
   (setq company-idle-delay 0

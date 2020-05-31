@@ -25,7 +25,7 @@
 	web-mode-enable-current-element-highlight t
 	web-mode-enable-css-colorization nil))
 (use-package company-web
-  :init
+  :config
   (add-to-list 'company-backends  'company-web-html)) 
 (use-package css-mode
   :config
