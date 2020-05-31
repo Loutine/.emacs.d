@@ -13,5 +13,5 @@
   (emacs-lisp-mode . rainbow-delimiters-mode)
   (racket-mode . rainbow-delimiters-mode))
 
-(provide 'rainbow)
+(provide 'set_rainbow)
 ;;; rainbow.el ends here

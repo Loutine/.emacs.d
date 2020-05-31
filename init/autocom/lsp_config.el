@@ -7,13 +7,14 @@
   (c-mode . lsp)
   (c++-mode . lsp)
   (python-mode . lsp)
-  (go-mode . lsp)
+  ;;(go-mode . lsp)
+  (elisp-mode . lsp)
   (js-mode . lsp)
   (css-mode . lsp)
   :commands lsp
   :config
-  (setq lsp-prefer-flymake nil)
-  )
+  (setq lsp-prefer-flymake nil))
+  
 
 (use-package lsp-ui
   :ensure t

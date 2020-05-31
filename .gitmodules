@@ -4,3 +4,9 @@
 [submodule "orphan/sdcv"]
 	path = orphan/sdcv
 	url = https://github.com/manateelazycat/sdcv.git
+[submodule "orphan/emacs-rime"]
+	path = orphan/emacs-rime
+	url = https://github.com/DogLooksGood/emacs-rime.git
+[submodule "orphan/use-package"]
+	path = orphan/use-package
+	url = https://github.com/jwiegley/use-package.git
