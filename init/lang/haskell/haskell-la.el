@@ -1,17 +1,6 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(use-package dante
-  :disabled
-  :ensure t
-  :after haskell-mode
-  :commands 'dante-mode
-  :init
-  (add-hook 'haskell-mode-hook 'flycheck-mode)
-  ;; OR:
-  ;; (add-hook 'haskell-mode-hook 'flymake-mode)
-  (add-hook 'haskell-mode-hook 'dante-mode)
-  )
 (use-package haskell-mode
   :ensure t
   :config
@@ -36,7 +25,7 @@
 )
 (use-package lsp-haskell
   :ensure t
-  :init
+  :config
   (setq lsp-haskell-process-path-hie "~/.local/bin/hie-8.8.3"))
 (provide 'haskell-la)
 ;;; haskell-la.el ends here

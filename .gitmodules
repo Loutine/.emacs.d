@@ -10,3 +10,6 @@
 [submodule "orphan/use-package"]
 	path = orphan/use-package
 	url = https://github.com/jwiegley/use-package.git
+[submodule "orphan/emacs-webkit-katex-render"]
+	path = orphan/emacs-webkit-katex-render
+	url = https://github.com/fuxialexander/emacs-webkit-katex-render.git

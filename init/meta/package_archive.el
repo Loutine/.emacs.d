@@ -8,7 +8,6 @@
     ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
     ("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
-(setq use-package-always-defer t)
-
+  (setq use-package-always-defer t)
 (provide 'package_archive)
 ;;; package_archive.el ends here

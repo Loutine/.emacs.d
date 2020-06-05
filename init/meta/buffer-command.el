@@ -1,6 +1,20 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
+(use-package phi-search
+  :ensure t
+  :config
+  (global-set-key (kbd "C-s") 'phi-search)
+  (global-set-key (kbd "C-r") 'phi-search-backward))
+(use-package multiple-cursors
+  :ensure t
+  :init
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  )
+
 (defun my-buffer-predicate (buffer)
   (if (and (string-match "^[\*\#].*[\*\#]$" (buffer-name buffer))
 	   (not (string-match "*dashboard*" (buffer-name buffer)))

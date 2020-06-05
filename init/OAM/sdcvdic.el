@@ -1,6 +1,5 @@
 (use-package sdcv
-  :demand
-  :init
+  :config
   (setq sdcv-say-word-p nil)               ;say word after translation
 
   (setq sdcv-dictionary-data-dir "/home/loutine/.stardict/dic/") ;setup directory of stardict dictionary

@@ -6,14 +6,14 @@
     (normal-top-level-add-subdirs-to-load-path))
   (let ((default-directory "~/.emacs.d/orphan/"))
     (normal-top-level-add-subdirs-to-load-path))
-  ;;meta module
   ;;(require 'auto-save)
   ;;(require 'cnfonts)
   ;;(cnfonts-enable)
   (require 'benchmark-init-modes)
   (require 'benchmark-init)
-  (require 'package_archive)
+  ;;meta module
   (require 'use-package)
+  (require 'package_archive)
   (require 'buffer-command)
   (require 'which_key)
   (require 'magit_conf)
@@ -27,7 +27,7 @@
   (require 'set_rainbow)  
   ;;autocom module
   (require 'lsp_config)
-  (require 'dap_config)
+  ;;(require 'dap_config)
   (require 'company_config)
   (require 'ivy_config)
   (require 'paredit_config)
@@ -53,10 +53,12 @@
  '(ein:output-area-inlined-images t)
  '(org-agenda-files
    '("~/Dropbox/Agenda/Agenda.org" "~/Dropbox/Agenda/routine.org"))
+ '(org-format-latex-options
+   '(:foreground default :background default :scale 4.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(leetcode racket-mode sudo-edit youdao-dictionary sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg flycheck doom-themes doom-modeline dashboard company-lsp company-coq company-box benchmark-init))
- '(rime-show-candidate 'posframe)
- '(rime-user-data-dir "~/.config/fcitx/rime"))
+   '(use-package leetcode racket-mode sudo-edit youdao-dictionary sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg flycheck doom-themes doom-modeline dashboard company-lsp company-coq company-box benchmark-init))
+ '(rime-show-candidate 'popup))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

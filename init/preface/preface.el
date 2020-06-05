@@ -50,6 +50,7 @@
   (org-mode . display-line-numbers-mode))
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
-(menu-bar-mode 0) 
+(menu-bar-mode 0)
+(fringe-mode '(16 . 1))
 (provide 'preface)
 ;;; preface.el ends here

@@ -8,7 +8,7 @@
   (c++-mode . lsp)
   (python-mode . lsp)
   ;;(go-mode . lsp)
-  (elisp-mode . lsp)
+  ;;(emacs-lisp-mode . lsp)
   (js-mode . lsp)
   (css-mode . lsp)
   :commands lsp
