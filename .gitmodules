@@ -13,3 +13,6 @@
 [submodule "orphan/emacs-webkit-katex-render"]
 	path = orphan/emacs-webkit-katex-render
 	url = https://github.com/fuxialexander/emacs-webkit-katex-render.git
+[submodule "orphan/org-latex-instant-preview"]
+	path = orphan/org-latex-instant-preview
+	url = https://github.com/yangsheng6810/org-latex-instant-preview.git

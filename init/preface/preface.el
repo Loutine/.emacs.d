@@ -13,12 +13,7 @@
 	dashboard-banner-logo-title "Anti-Bone-Chick"
 	dashboard-startup-banner 4
 	;dashboard-set-navigator t
-	)
-  (setq backup-by-copying 1
-	backup-directory-alist '(("." . "~/.em_backup"))
-	delete-old-versions 1
-	kept-new-versions 3
-	kept-old-versions 1))
+	))
 (use-package doom-modeline
   ;:disabled nil
   :hook (after-init . doom-modeline-mode)
@@ -32,25 +27,14 @@
   :config
   (setq highlight-indent-guides-method 'fill))
 ;;tabs
-(use-package centaur-tabs
-  :disabled
-  :ensure t
-  :init
-  (centaur-tabs-mode t)
-  (setq centaur-tabs-set-icons t
-	centaur-tabs-style "bar"
-	centaur-tabs-set-bar 'left)
-  :bind
-  ("C-<prior>" . centaur-tabs-backward)
-  ("C-<next>" . centaur-tabs-forward))
 ;;display-line-numbers
 (use-package display-line-numbers
   :hook
   (prog-mode . display-line-numbers-mode)
   (org-mode . display-line-numbers-mode))
-(scroll-bar-mode 0)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
-(fringe-mode '(16 . 1))
+(setq scroll-bar-mode nil
+      tool-bar-mode nil
+      menu-bar-mode nil
+      fringe-mode '(16 . 1))
 (provide 'preface)
 ;;; preface.el ends here

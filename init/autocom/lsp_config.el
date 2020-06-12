@@ -30,15 +30,16 @@
 (use-package projectile
   :ensure t
   :bind
-  ;("s-p" . projectile-command-map)
   ("C-c p" . projectile-command-map)
+  :init
   :config
-  (projectile-mode +1)
+   (setq projectile-keymap-prefix (kbd "C-c p"))
+  ;(setq projectile-completion-system 'ivy)
   )
 (use-package counsel-projectile
   :ensure t
   :init
-  (counsel-projectile-mode)
-  )
+  (counsel-projectile-mode +1))
+  
 (provide 'lsp_config)
 ;;; lsp_config.el ends here

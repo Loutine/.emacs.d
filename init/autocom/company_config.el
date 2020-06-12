@@ -11,12 +11,15 @@
   :ensure t
   :bind
   ("M-/" . company-complete)
+  :hook
+  ((prog-mode . company-mode)
+   (eshell-mode . company-mode))
   :config
-  (global-company-mode 1)
   (define-key company-active-map [tab] #'company-complete-common-or-cycle)
   (setq company-idle-delay 0
 	company-minimum-prefix-length 1
-	company-selection-wrap-around t))
+	company-selection-wrap-around t)
+  (push 'company-capf company-backends))
 (use-package company-lsp
   :ensure t
   :config

@@ -58,7 +58,9 @@
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
    '(use-package leetcode racket-mode sudo-edit youdao-dictionary sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg flycheck doom-themes doom-modeline dashboard company-lsp company-coq company-box benchmark-init))
- '(rime-show-candidate 'popup))
+ '(rime-show-candidate 'popup)
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
