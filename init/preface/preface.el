@@ -5,18 +5,23 @@
 (use-package dashboard
   :ensure t
   :init
+  ;; (if (display-graphic-p))
   (dashboard-setup-startup-hook)
   (setq ;dashboard-set-heading-icons t
-	dashboard-set-file-icons t
-	dashboard-items '((recents . 5)
-			  (bookmarks . 3))
-	dashboard-banner-logo-title "Anti-Bone-Chick"
-	dashboard-startup-banner 4
-	;dashboard-set-navigator t
-	))
+   dashboard-set-file-icons t
+   dashboard-items '((recents . 5)
+		     (bookmarks . 3))
+   dashboard-banner-logo-title "Anti-Bone-Chick"
+   dashboard-startup-banner 4
+   initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
+					;dashboard-set-navigator t
+   ))
 (use-package doom-modeline
   ;:disabled nil
-  :hook (after-init . doom-modeline-mode)
+  :hook
+  (after-init . doom-modeline-mode)
+  :init
+  (defvar doom-modeline-icon t)
   :config
   (setq doom-modeline-height 22))
 
@@ -32,9 +37,5 @@
   :hook
   (prog-mode . display-line-numbers-mode)
   (org-mode . display-line-numbers-mode))
-(setq scroll-bar-mode nil
-      tool-bar-mode nil
-      menu-bar-mode nil
-      fringe-mode '(16 . 1))
 (provide 'preface)
 ;;; preface.el ends here

@@ -3,7 +3,7 @@
 ;;; Code:
 (use-package phi-search
   :ensure t
-  :config
+  :init
   (global-set-key (kbd "C-s") 'phi-search)
   (global-set-key (kbd "C-r") 'phi-search-backward))
 (use-package multiple-cursors
