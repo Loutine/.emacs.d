@@ -50,6 +50,7 @@
   (require 'set_md)
   (require 'adoc)
   (require 'sdcvdic)
+  (require 'latex-preview-pane)
   (require 'EAF))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -69,7 +70,7 @@
    '(:foreground default :background default :scale 4.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(company-org-roam org-roam-server org-roam use-package leetcode racket-mode sudo-edit youdao-dictionary sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg flycheck doom-themes doom-modeline dashboard company-lsp company-coq company-box benchmark-init))
+   '(latex-preview-pane auctex company-org-roam org-roam-server org-roam use-package leetcode racket-mode sudo-edit youdao-dictionary sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg flycheck doom-themes doom-modeline dashboard company-lsp company-coq company-box benchmark-init))
  '(rime-show-candidate 'popup)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))

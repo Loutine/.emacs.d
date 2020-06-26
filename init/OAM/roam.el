@@ -10,7 +10,9 @@
                ("C-c n g" . org-roam-graph-show))
               :map org-mode-map
               (("C-c n i" . org-roam-insert))
-              (("C-c n I" . org-roam-insert-immediate))))
+              (("C-c n I" . org-roam-insert-immediate)))
+      :config
+      (setq org-roam-completion-system 'ivy))
 (use-package org-roam-server
   :ensure t
   ;;:hook

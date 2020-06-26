@@ -24,9 +24,11 @@
   (setq haskell-process-type 'ghci)
 )
 (use-package lsp-haskell
+  :demand
   :ensure t
-  :config
-  (setq lsp-haskell-process-path-hie "~/.local/bin/hie-8.8.3"))
+  ;; :config
+  ;; (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"
+  )
 (provide 'haskell-la)
 ;;; haskell-la.el ends here
   
