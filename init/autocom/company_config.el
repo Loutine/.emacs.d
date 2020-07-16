@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 ;;
+(require 'color-identifiers-mode)
+(add-hook 'after-init-hook 'global-color-identifiers-mode)
 (use-package yasnippet
   :ensure t
   :config

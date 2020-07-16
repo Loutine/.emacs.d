@@ -18,14 +18,16 @@
   (require 'which_key)
   (require 'magit_conf)
   (require 'treemacs_conf)
+  (require 'vterm_conf)
   ;;preface and im module
   (require 'preface)
   (require 'set_theme)
   (require 'set_font)
-  (add-hook 'after-make-frame-functions '(lambda (frame)
-					     (switch-to-buffer "*dashboard*")
-					     (goto-char (point-min))
-					     (redisplay)))
+  ;; (add-hook 'after-make-frame-functions
+  ;; 	    '(lambda (frame)
+  ;; 	       (switch-to-buffer "*dashboard*")
+  ;; 	       (goto-char (point-min))
+  ;; 	       (redisplay)))
   (add-hook 'after-make-frame-functions
 	    (lambda (frame)
 	      (load "~/.emacs.d/init/preface/set_font.el")))
@@ -37,13 +39,16 @@
   (require 'company_config)
   (require 'ivy_config)
   (require 'paredit_config)
+
   ;;lang module
   (require 'python-la)
   (require 'racket-la)
+  (require 'OCaml-la)
   (require 'haskell-la)
   (require 'c_cpp-la)
   (require 'coq-la)
   (require 'web-la)
+
   ;;org and mutimedia
   (require 'roam)
   (require 'set_org)
@@ -70,7 +75,7 @@
    '(:foreground default :background default :scale 4.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(latex-preview-pane auctex company-org-roam org-roam-server org-roam use-package leetcode racket-mode sudo-edit youdao-dictionary sdcv rainbow-mode rainbow-delimiters proof-general posframe ox-twbs org-plus-contrib org-drill org-bullets org-brain ob-rust neotree lsp-ui lsp-treemacs highlight-indent-guides goto-chg flycheck doom-themes doom-modeline dashboard company-lsp company-coq company-box benchmark-init))
+   '(rainbow-identifiers color-identifiers-mode vterm-toggle command-log-mode zmq youdao-dictionary which-key web-server web-mode use-package treemacs-projectile tree-mode tabbar-ruler sudo-edit rainbow-mode rainbow-delimiters racket-mode quickrun pyvenv python-environment pyenv-mode-auto proof-general posframe phi-search persist paredit ox-twbs org-roam-server org-ql org-bullets multiple-cursors lsp-ui lsp-treemacs lsp-ivy lsp-haskell leetcode latex-preview-pane kubernetes impatient-mode highlight-numbers highlight-indentation highlight-indent-guides goto-chg epc ein edit-indirect doom-themes doom-modeline dashboard dante counsel-projectile company-web company-org-roam company-lsp company-coq company-box color-theme-sanityinc-solarized cnfonts ccls bui benchmark-init avk-emacs-themes auto-complete auctex apropospriate-theme adoc-mode))
  '(rime-show-candidate 'popup)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
@@ -80,3 +85,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line

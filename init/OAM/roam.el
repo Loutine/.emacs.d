@@ -1,7 +1,7 @@
 (use-package org-roam
       :ensure t
-      :hook
-      (after-init . org-roam-mode)
+      ;; :hook
+      ;; (after-init . org-roam-mode)
       :custom
       (org-roam-directory "~/org-roam/")
       :bind (:map org-roam-mode-map

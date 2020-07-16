@@ -21,14 +21,17 @@
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
   (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-  (setq haskell-process-type 'ghci)
 )
-(use-package lsp-haskell
-  :demand
-  :ensure t
-  ;; :config
-  ;; (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"
-  )
+;; (use-package lsp-haskell
+;;   :ensure t
+;;   :config
+;;   (define-key haskell-mode-map (kbd "C-c C-f") 'restart-lsp-haskell)
+;;   (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+;;   )
+;; (defun restart-lsp-haskell ()
+;;   (interactive)
+;;   (save-buffer)
+;;   (lsp-restart-workspace))
 (provide 'haskell-la)
 ;;; haskell-la.el ends here
   

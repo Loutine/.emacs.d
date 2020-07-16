@@ -7,11 +7,12 @@
   (c-mode . lsp)
   (c++-mode . lsp)
   (python-mode . lsp)
-  (haskell-mode . lsp)
+  ;;(haskell-mode . lsp)
   ;;(go-mode . lsp)
   ;;(emacs-lisp-mode . lsp)
   (js-mode . lsp)
   (css-mode . lsp)
+  (tuareg-mode . lsp)
   :commands lsp
   :config
   (setq lsp-prefer-flymake nil))
@@ -20,9 +21,12 @@
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui
+  :bind
+  ("C-c Tab" . lsp-ui-doc-glance)
   :config
-  (setq lsp-prefer-flymake nil)
-  )
+  (setq lsp-ui-sideline-show-hover t
+	lsp-ui-doc-enable nil))
+       
 (use-package company-lsp :commands company-lsp)
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs
