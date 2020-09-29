@@ -1,8 +1,6 @@
 (use-package dap-mode
-  :disabled
   :config
   (dap-mode 1)
-  (dap-ui-mode 1)
   ;; enables mouse hover support
   (dap-tooltip-mode 1)
   ;; use tooltips for mouse hover
@@ -11,4 +9,5 @@
   ;; displays floating panel with debug buttons
   ;; requies emacs 26+
   (dap-ui-controls-mode 1))
+(require 'dap-gdb-lldb)
 (provide 'dap_config)

@@ -17,6 +17,12 @@
     (compile (concat "cmake -DCMAKE_BUILD_TYPE=Debug .."
 		     "&&make"))))
 ;;================================================================================================================
+(defun quick-compile-cpp ()
+  (interactive)
+  (compile (concat "g++ -Wall -g -o "
+		   (file-name-base (buffer-file-name))
+		   " "
+		   (buffer-file-name))))
 (setq gdb-many-windows t)
 (defadvice gdb-setup-windows (around setup-more-gdb-windows activate)
   ad-do-it

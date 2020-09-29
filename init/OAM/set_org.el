@@ -56,5 +56,8 @@
      (ditaa . t)
      (scheme . t)))
   )
+(require 'valign)
+(add-hook 'org-mode-hook #'valign-mode)
+(setq valign-fancy-bar 1)
 (provide 'set_org)
 ;;; org_set.el ends here

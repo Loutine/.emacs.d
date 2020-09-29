@@ -6,26 +6,27 @@
   :hook
   (c-mode . lsp)
   (c++-mode . lsp)
-  (python-mode . lsp)
+  ;;(python-mode . lsp)
   ;;(haskell-mode . lsp)
   ;;(go-mode . lsp)
   ;;(emacs-lisp-mode . lsp)
+  (julia-mode . lsp)
   (js-mode . lsp)
   (css-mode . lsp)
   (tuareg-mode . lsp)
+  (rustic-mode . lsp)
   :commands lsp
   :config
-  (setq lsp-prefer-flymake nil))
+  (setq lsp-prefer-flymake nil)
+  )
   
 
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui
-  :bind
-  ("C-c Tab" . lsp-ui-doc-glance)
   :config
   (setq lsp-ui-sideline-show-hover t
-	lsp-ui-doc-enable nil))
+	lsp-ui-doc-enable t))
        
 (use-package company-lsp :commands company-lsp)
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
