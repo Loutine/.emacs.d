@@ -14,7 +14,7 @@
   :demand
   :ensure t
   :init (setq lsp-python-ms-auto-install-server t
-	      lsp-python-ms-executable "~/.vscode-oss/extensions/ms-python.python-2020.8.105369/languageServer.0.5.51/Microsoft.Python.LanguageServer")
+	      lsp-python-ms-executable "~/.vscode-insiders/extensions/ms-python.python-2020.9.112786/languageServer.0.5.51/Microsoft.Python.LanguageServer")
   :hook (python-mode . (lambda ()
                           (require 'lsp-python-ms)
                           (lsp))))  ; or lsp-deferred
