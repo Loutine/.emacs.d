@@ -8,6 +8,7 @@
   (tooltip-mode 1)
   ;; displays floating panel with debug buttons
   ;; requies emacs 26+
-  (dap-ui-controls-mode 1))
-(require 'dap-gdb-lldb)
+  (dap-ui-controls-mode 1)
+  (require 'dap-gdb-lldb))
+
 (provide 'dap_config)

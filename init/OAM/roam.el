@@ -1,18 +1,18 @@
 (use-package org-roam
-      :ensure t
-      ;; :hook
-      ;; (after-init . org-roam-mode)
-      :custom
-      (org-roam-directory "~/org-roam/")
-      :bind (:map org-roam-mode-map
+  :ensure t
+  :hook
+  (after-init . org-roam-mode)
+  :custom
+  (org-roam-directory "~/org-roam/")
+  :bind (:map org-roam-mode-map
               (("C-c n l" . org-roam)
                ("C-c n f" . org-roam-find-file)
                ("C-c n g" . org-roam-graph-show))
               :map org-mode-map
               (("C-c n i" . org-roam-insert))
               (("C-c n I" . org-roam-insert-immediate)))
-      :config
-      (setq org-roam-completion-system 'ivy))
+  :config
+  (setq org-roam-completion-system 'ivy))
 (use-package org-roam-server
   :ensure t
   ;;:hook
@@ -29,10 +29,7 @@
 (use-package company-org-roam
   :ensure t
   :hook
-  (org-mode . company-mode)
-  :config
-  (push 'company-org-roam company-backends))
-(require 'org-roam-protocol)
+  (org-mode . company-org-roam))
 
 (provide 'roam)
       

@@ -9,11 +9,9 @@
 	(kill-buffer "*compilation*")))
   (compile (concat "python " buffer-file-name))
   )
-(require 'python-mode)
 (use-package lsp-python-ms
-  :demand
   :ensure t
-  :init (setq lsp-python-ms-auto-install-server t
+  :config (setq lsp-python-ms-auto-install-server t
 	      lsp-python-ms-executable "~/.vscode-insiders/extensions/ms-python.python-2020.9.112786/languageServer.0.5.51/Microsoft.Python.LanguageServer")
   :hook (python-mode . (lambda ()
                           (require 'lsp-python-ms)

@@ -6,8 +6,9 @@
 (add-hook 'after-init-hook 'global-color-identifiers-mode)
 (use-package yasnippet
   :ensure t
-  :config
-  (yas-global-mode 1)
+  :hook
+  ((prog-mode . yas-minor-mode)
+   (org-mode . yas-minor-mode))
   )
 (use-package company
   :ensure t

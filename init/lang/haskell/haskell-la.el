@@ -21,7 +21,27 @@
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
   (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-)
+  )
+(use-package align
+  :config
+  (add-to-list 'align-rules-list
+               '(haskell-types
+		 (regexp . "\\(\\s-+\\)\\(::\\|∷\\)\\s-+")
+		 (modes quote (haskell-mode haskell-literate-mode))))
+  (add-to-list 'align-rules-list
+               '(haskell-assignment
+		 (regexp . "\\(\\s-+\\)=\\s-+")
+		 (modes quote (haskell-mode haskell-literate-mode))))
+  (add-to-list 'align-rules-list
+               '(haskell-arrows
+		 (regexp . "\\(\\s-+\\)\\(->\\|→\\)\\s-+")
+		 (modes quote (haskell-mode haskell-literate-mode))))
+  (add-to-list 'align-rules-list
+               '(haskell-left-arrows
+		 (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
+		 (modes quote (haskell-mode haskell-literate-mode)))))
+
+
 ;; (use-package lsp-haskell
 ;;   :ensure t
 ;;   :config

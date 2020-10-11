@@ -65,6 +65,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(backup-by-copying t)
+ '(haskell-stylish-on-save t)
  '(create-lockfiles nil)
  '(default-input-method "rime")
  '(delete-old-versions t)
@@ -78,6 +79,8 @@
  '(org-format-latex-options
    '(:foreground default :background default :scale 4.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+ '(package-selected-packages
+   '(zmq youdao-dictionary which-key web-server web-mode vterm-toggle use-package treemacs-projectile tree-mode tabbar-ruler sudo-edit rustic realgud rainbow-mode rainbow-identifiers rainbow-delimiters racket-mode quickrun python-mode python-environment pyenv-mode-auto proof-general phi-search persist paredit ox-twbs org-roam-server org-ql org-present org-bullets multiple-cursors lsp-ui lsp-python-ms lsp-ivy lsp-haskell leetcode latex-preview-pane kubernetes julia-mode impatient-mode highlight-numbers highlight-indent-guides goto-chg ess epresent epc elpy ein edit-indirect doom-themes doom-modeline dashboard dap-mode dante counsel-projectile company-web company-org-roam company-lsp company-coq company-box command-log-mode color-theme-sanityinc-solarized color-identifiers-mode cnfonts ccls benchmark-init avk-emacs-themes auto-complete auctex apropospriate-theme adoc-mode))
  '(rime-show-candidate 'posframe)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
