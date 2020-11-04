@@ -12,7 +12,7 @@
    dashboard-items '((recents . 5)
 		     (bookmarks . 3))
    dashboard-banner-logo-title "Anti-Bone-Chick"
-   dashboard-startup-banner 4
+   dashboard-startup-banner 1;4
    initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
 					;dashboard-set-navigator t
    ))

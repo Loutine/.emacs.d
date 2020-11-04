@@ -1,4 +1,4 @@
-;; Copyright (C) 2010-2012, 2014-2017, 2019 Free Software Foundation, Inc
+;; Copyright (C) 2010-2012, 2014-2017, 2019, 2020 Free Software Foundation, Inc
 
 ;; Author: Rocky Bernstein <rocky@gnu.org>
 
@@ -62,9 +62,10 @@ realgud-loc-pat struct")
 ;; For example:
 ;; (trepan2)
 ;; ((trepan2))
+;; ((trepan2:Server Thread-11))
 (setf (gethash "prompt" realgud:trepan2-pat-hash)
       (make-realgud-loc-pat
-       :regexp   "^(+trepan2)+ "
+       :regexp   "^(+trepan2\\(?:[:].+\\)?)+ "
        ))
 
 ;; realgud-loc-pat that describes a trepan2 backtrace line.
@@ -137,6 +138,11 @@ realgud-loc-pat struct")
 (setf (gethash "info-breakpoints" realgud:trepan2-command-hash) "info break")
 (setf (gethash "shell"            realgud:trepan2-command-hash) "python")
 (setf (gethash "until"            realgud:trepan2-command-hash) "continue %l")
+
+;; Stuff to suport locals window
+;; (setf (gethash "info-locals-names-list" realgud:trepan2-command-hash) "eval('\\n'.join(locals().keys()))")
+;; (setf (gethash "info-value" realgud:trepan2-command-hash) "pp %s")
+;; (setf (gethash "info-type" realgud:trepan2-command-hash) "eval type(%s)")
 
 ;; If your version of trepan2 doesn't support "quit!",
 ;; get a more recent version of trepan2

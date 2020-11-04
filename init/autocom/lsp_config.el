@@ -14,10 +14,11 @@
   (js-mode . lsp)
   (css-mode . lsp)
   (tuareg-mode . lsp)
-  (rustic-mode . lsp)
+  ;(rustic-mode . lsp)
   :commands lsp
   :config
-  (setq lsp-prefer-flymake nil)
+  (setq lsp-prefer-flymake nil
+	lsp-auto-guess-root t)
   )
   
 
@@ -25,10 +26,13 @@
   :ensure t
   :commands lsp-ui
   :config
-  (setq lsp-ui-sideline-show-hover t
-	lsp-ui-doc-enable t))
-       
-(use-package company-lsp :commands company-lsp)
+  (setq ;; lsp-signature-auto-activate t
+	;; lsp-signature-doc-lines 40
+   ;; lsp-signature-render-documentation t
+   lsp-ui-doc-enable t
+   lsp-ui-sideline-show-hover t
+   lsp-ui-doc-position 'bottom))
+
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs
   :ensure t

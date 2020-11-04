@@ -18,6 +18,7 @@
   ;;:hook
   ;;(after-init . org-roam-mode)
   :config
+  (require 'org-roam-protocol)
   (setq org-roam-server-host "127.0.0.1"
         org-roam-server-port 8080
         org-roam-server-export-inline-images t
@@ -28,8 +29,9 @@
         org-roam-server-network-label-wrap-length 20))
 (use-package company-org-roam
   :ensure t
-  :hook
-  (org-mode . company-org-roam))
+  :config
+  (push 'company-org-roam company-backends)
+)
 
 (provide 'roam)
       

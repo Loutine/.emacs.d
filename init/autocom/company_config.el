@@ -16,7 +16,8 @@
   ("M-/" . company-complete)
   :hook
   ((prog-mode . company-mode)
-   (eshell-mode . company-mode))
+   (eshell-mode . company-mode)
+   (org-mode . company-mode))
   :config
   (define-key company-active-map [tab] #'company-complete-common-or-cycle)
   (setq company-idle-delay 0
