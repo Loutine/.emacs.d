@@ -1,10 +1,15 @@
 ;;using ccls for lsp server
+(use-package cmake-mode
+  :ensure t
+  :mode "CMakeLists.txt")
 (use-package ccls
   :ensure t
   :hook
   (c++-mode . rainbow-delimiters-mode)
   (c++-mode . electric-pair-local-mode)
   )
+(use-package cmake-build
+  :ensure t)
 ;;define some useful cmake command
 (defun cmake-debug-dir (workspace)
   (interactive)
@@ -23,6 +28,9 @@
 		   (file-name-base (buffer-file-name))
 		   " "
 		   (buffer-file-name))))
+
+
+;;================================================================================================================
 (setq gdb-many-windows t)
 (defadvice gdb-setup-windows (around setup-more-gdb-windows activate)
   ad-do-it
@@ -66,6 +74,6 @@
     (gdb-set-window-buffer (gdb-breakpoints-buffer-name))
     ;; set focus on gdb buffer
     (select-window win2)
-  )
-)
+    
+    ))
 (provide 'c_cpp-la)

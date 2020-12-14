@@ -4,8 +4,8 @@
 (use-package lsp-mode
   :ensure t
   :hook
-  (c-mode . lsp)
-  (c++-mode . lsp)
+  ;;(c-mode . lsp)
+  ;;(c++-mode . lsp)
   ;;(python-mode . lsp)
   ;;(haskell-mode . lsp)
   ;;(go-mode . lsp)
@@ -36,6 +36,8 @@
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs
   :ensure t
+  :config
+  (lsp-treemacs-sync-mode 1)
   )
 (use-package projectile
   :ensure t

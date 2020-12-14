@@ -10,5 +10,6 @@
 	([(control return)] . vterm-toggle-insert-cd)
 	("s-n" . vterm-toggle-forward)
 	("s-p" . vterm-toggle-backward)))
+
 (provide 'vterm_conf)
 	 

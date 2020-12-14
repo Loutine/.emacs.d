@@ -18,7 +18,6 @@
 (defun my-buffer-predicate (buffer)
   (if (and (string-match "^[\*\#].*[\*\#]$" (buffer-name buffer))
 	   (not (string-match "*dashboard*" (buffer-name buffer)))
-	   
 	   )
       nil
     t))

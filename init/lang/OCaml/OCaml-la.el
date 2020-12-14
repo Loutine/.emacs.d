@@ -1,8 +1,8 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(setq OCaml-v "4.09.1")
-(let ((default-directory "~/.opam/4.09.1/share/emacs/"))
+(setq OCaml-v "4.10.0")
+(let ((default-directory (concat "~/.opam/" OCaml-v "/share/emacs/")))
   (normal-top-level-add-subdirs-to-load-path))
 (use-package utop
   :hook
@@ -20,4 +20,5 @@
 (use-package ocp-index
   :hook
   (tuareg-mode . ocp-index-mode))
+
 (provide 'OCaml-la)
