@@ -19,3 +19,6 @@
 [submodule "orphan/cmake-build"]
 	path = orphan/cmake-build
 	url = https://github.com/rpav/cmake-build.el.git
+[submodule "orphan/pdf-tools"]
+	path = orphan/pdf-tools
+	url = https://github.com/politza/pdf-tools.git

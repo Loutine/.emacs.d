@@ -20,6 +20,7 @@
     
   ;;org-agenda
 (use-package org-agenda
+  :after org
   :config
   ;;use time grid
   (setq org-todo-keywords
@@ -66,11 +67,15 @@
   ;; (setq org-mind-map-engine "circo")
   )
 
-;; (use-package org-noter
-;;   :ensure t)
+(use-package org-pdftools
+  :ensure t
+  :hook (org-mode . org-pdftools-setup-link))
+
+(use-package org-noter-pdftools
+  :after org-noter
+  :config
+  (with-eval-after-load 'pdf-annot
+    (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
 (pdf-tools-install)
-;; (require 'valign)
-;; (add-hook 'org-mode-hook #'valign-mode)
-;; (setq valign-fancy-bar 1)
 (provide 'set_org)
 ;;; org_set.el ends here

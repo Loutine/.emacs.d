@@ -1,27 +1,28 @@
 ;;using ccls for lsp server
+(use-package ccls
+  :ensure t)
 (use-package cmake-mode
   :ensure t
-  :mode "CMakeLists.txt")
-(use-package ccls
-  :ensure t
+  :mode "CMakeLists.txt"
   :hook
   (c++-mode . rainbow-delimiters-mode)
-  (c++-mode . electric-pair-local-mode)
-  )
-(use-package cmake-build
-  :ensure t)
-;;define some useful cmake command
+  (c++-mode . electric-pair-local-mode))
+  
+(use-package cmake-build)
+ ;;define some useful cmake command
+
 (defun cmake-debug-dir (workspace)
-  (interactive)
   (concat workspace "/debug"))
 (defun cmake-debug ()
   (interactive)
   (if (not (file-directory-p (cmake-debug-dir (lsp-workspace-root))))
       (make-directory (cmake-debug-dir (lsp-workspace-root))))
   (let ((default-directory (cmake-debug-dir (lsp-workspace-root)) ))
-    (compile (concat "cmake -DCMAKE_BUILD_TYPE=Debug .."
-		     "&&make"))))
-;;================================================================================================================
+    (compile (concat "cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .."
+		     "&&make"
+		     "&&cp compile_commands.json ../"))))
+ ;;================================================================================================================
+
 (defun quick-compile-cpp ()
   (interactive)
   (compile (concat "g++ -Wall -g -o "
@@ -30,7 +31,8 @@
 		   (buffer-file-name))))
 
 
-;;================================================================================================================
+ ;;================================================================================================================
+
 (setq gdb-many-windows t)
 (defadvice gdb-setup-windows (around setup-more-gdb-windows activate)
   ad-do-it
@@ -41,12 +43,12 @@
   (switch-to-buffer gud-comint-buffer)
   (delete-other-windows)
   (let
-    ((win0 (selected-window))             ; source
-     (win1 (split-window-horizontally
-             (floor (* 0.5 (window-width)))))   ; gdb
-     (win2 (split-window-vertically
-             (floor (* 0.7 (window-body-height))))) ; bp
-    )
+      ((win0 (selected-window))	; source
+       (win1 (split-window-horizontally
+              (floor (* 0.5 (window-width)))))	; gdb
+       (win2 (split-window-vertically
+              (floor (* 0.7 (window-body-height))))) ; bp
+       )
     ;; set source buffer
     (set-window-buffer
      win0

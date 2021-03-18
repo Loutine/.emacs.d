@@ -5,7 +5,9 @@
 (use-package dashboard
   :ensure t
   :init
-  ;; (if (display-graphic-p))
+  (if (display-graphic-p)
+      (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+    )
   (dashboard-setup-startup-hook)
   (setq ;dashboard-set-heading-icons t
    dashboard-set-file-icons t

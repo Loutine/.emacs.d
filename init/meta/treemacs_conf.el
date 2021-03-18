@@ -42,7 +42,7 @@
           treemacs-tag-follow-cleanup            t
           treemacs-tag-follow-delay              1.5
           treemacs-user-mode-line-format         nil
-          treemacs-width                         22)
+          treemacs-width                         17)
 
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
@@ -50,7 +50,7 @@
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t)
+    (treemacs-fringe-indicator-mode t)    
     (pcase (cons (not (null (executable-find "git")))
                  (not (null treemacs-python-executable)))
       (`(t . t)
@@ -66,25 +66,32 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
+  (setq doom-themes-treemacs-theme "doom-colors")
 ;;(use-package treemacs-evil
 ;;  :after treemacs evil
 ;;  :ensure t)
-
 (use-package treemacs-projectile
   :after treemacs projectile
   :ensure t)
 
-;;(use-package treemacs-icons-dired
-;;  :after treemacs dired
-;;  :ensure t
-;;  :config (treemacs-icons-dired-mode))
-;;
-;;(use-package treemacs-magit
-;;  :after treemacs magit
-;;  :ensure t)
-;;
-;;(use-package treemacs-persp
-;;  :after treemacs persp-mode
-;;  :ensure t
-;;  :config (treemacs-set-scope-type 'Perspectives))
+(use-package treemacs-icons-dired
+ :after treemacs dired
+ :ensure t
+ :config (treemacs-icons-dired-mode))
+
+(use-package treemacs-magit
+ :after treemacs magit
+ :ensure t)
+
+(use-package treemacs-persp
+ :after treemacs persp-mode
+ :ensure t
+ :config (treemacs-set-scope-type 'Perspectives))
+
+(use-package treemacs-all-the-icons
+  :disabled
+  :ensure t
+  :init
+  (require 'treemacs-all-the-icons))
 (provide 'treemacs_conf)
+

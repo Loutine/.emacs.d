@@ -1,11 +1,6 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(use-package phi-search
-  :ensure t
-  :init
-  (global-set-key (kbd "C-s") 'phi-search)
-  (global-set-key (kbd "C-r") 'phi-search-backward))
 (use-package multiple-cursors
   :ensure t
   :init

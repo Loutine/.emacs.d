@@ -14,5 +14,16 @@
   (setq sdcv-dictionary-complete-list     ;setup dictionary list for complete search
 	'(
 	  "牛津英汉双解美化版")))
-  
-(provide 'sdcvdic)
+(use-package youdao-dictionary
+  :ensure t
+  :bind
+  ("<f5>" . search-at-point-and-play-voice)
+  )
+
+(defun search-at-point-and-play-voice ()
+  (interactive)
+  (youdao-dictionary-play-voice-at-point)
+  (youdao-dictionary-search-at-point+)
+  )
+
+(provide 'dict)
