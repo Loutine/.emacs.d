@@ -1,4 +1,9 @@
 ;;(setq browse-url-browser-function 'browse-url-chromium)
+(use-package skewer-mode
+  :config
+  (add-hook 'js2-mode-hook 'skewer-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (add-hook 'html-mode-hook 'skewer-html-mode))
 (use-package web-mode
   :demand
   :ensure t

@@ -1,29 +1,9 @@
-(use-package sdcv
-  :config
-  (setq sdcv-say-word-p nil)               ;say word after translation
-
-  (setq sdcv-dictionary-data-dir "/home/loutine/.stardict/dic/") ;setup directory of stardict dictionary
-
-
-  (setq sdcv-dictionary-simple-list    ;setup dictionary list for simple search
-	'("朗道英汉字典5.0"
-	  "stardict1.3英汉辞典"
-	  "懒虫简明英汉词典"
-	  "懒虫简明汉英词典"))
-
-  (setq sdcv-dictionary-complete-list     ;setup dictionary list for complete search
-	'(
-	  "牛津英汉双解美化版")))
-(use-package youdao-dictionary
-  :ensure t
+(use-package bing-dict
   :bind
-  ("<f5>" . search-at-point-and-play-voice)
+  ("C-c d" . bing-dict-brief)
+  :config
+  (setq bing-dict-show-thesaurus 'both
+	bing-dict-pronunciation-style 'uk
+	bing-dict-vocabulary-save t)
   )
-
-(defun search-at-point-and-play-voice ()
-  (interactive)
-  (youdao-dictionary-play-voice-at-point)
-  (youdao-dictionary-search-at-point-posframe)
-  )
-
 (provide 'dict)

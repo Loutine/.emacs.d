@@ -10,10 +10,13 @@
   ;;(haskell-mode . lsp)
   ;;(go-mode . lsp)
   ;;(emacs-lisp-mode . lsp)
-  (julia-mode . lsp)
+  (scala-mode . lsp)
+  ;;(julia-mode . lsp)
   (js-mode . lsp)
   (css-mode . lsp)
   (tuareg-mode . lsp)
+  ;;(reason-mode . lsp)
+  (web-mode . lsp)
   ;(rustic-mode . lsp)
   :commands lsp
   :config

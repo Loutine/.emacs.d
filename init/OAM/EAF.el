@@ -1,29 +1,27 @@
-(defun load-eaf ()
-  (interactive)
-  (let ((inhibit-message t))
-    (require 'eaf nil nil)
-    )
-  (message "eaf init!"))
+(use-package epc :ensure t)
+(use-package ctable :ensure t)
+(use-package deferred :ensure t)
+(use-package s :ensure t)
+
 (use-package eaf
-  :ensure nil
-  :custom
-  (eaf-find-alternate-file-in-dired t)
-  :diminish eaf-mode
-  :bind (:map eaf-interleave-mode-map
-              ("M-." . 'eaf-interleave-sync-current-note)
-              ("M-p" . 'eaf-interleave-sync-previous-note)
-              ("M-n" . 'eaf-interleave-sync-next-note)
-              :map eaf-interleave-app-mode-map
-              ("C-c M-i" . 'eaf-interleave-add-note)
-              ("C-c M-o" . 'eaf-interleave-open-notes-file)
-              ("C-c M-q" . 'eaf-interleave-quit))
+  :demand
+  :load-path "/home/loutine/.emacs.d/orphan/emacs-application-framework/"
+  ;; :init
+  ;; (use-package epc :defer t :ensure t)
+  ;; (use-package ctable :defer t :ensure t)
+  ;; (use-package deferred :defer t :ensure t)
+  ;; (use-package s :defer t :ensure t)
   :config
-  (add-hook 'eaf-pdf-viewer-hook 'eaf-interleave-app-mode)
-  (add-hook 'eaf-browser-hook 'eaf-interleave-app-mode)
-  (add-hook 'org-mode-hook 'eaf-interleave-mode)
-  (setq eaf-interleave-org-notes-dir-list '("~/org/interleave/"))
-  (setq eaf-interleave-split-direction 'vertical)
-  (setq eaf-interleave-disable-narrowing t)
-  (setq eaf-interleave-split-lines 20)
-  (eaf-setq eaf-pdf-dark-mode "false"))
+  (eaf-setq eaf-pdf-dark-mode "false")
+  (eaf-setq eaf-browser-enable-adblocker "true")
+  (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
+  (eaf-bind-key nil "M-q" eaf-browser-keybinding)
+  (setq eaf-proxy-type "http")
+  (setq eaf-proxy-host "127.0.0.1")
+  (setq eaf-proxy-port "8889")
+  :custom
+  (eaf-browser-continue-where-left-off t))
+  
 (provide 'EAF)

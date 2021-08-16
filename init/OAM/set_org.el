@@ -58,6 +58,8 @@
 
 (use-package org-mind-map
   :after org
+  :init
+  (require 'ox-org)
   :config
   (setq org-mind-map-engine "dot")
   ;; (setq org-mind-map-engine "neato")
@@ -77,5 +79,9 @@
   (with-eval-after-load 'pdf-annot
     (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
 (pdf-tools-install)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t)))
 (provide 'set_org)
 ;;; org_set.el ends here

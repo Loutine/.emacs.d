@@ -33,7 +33,7 @@
 
  ;;================================================================================================================
 
-(setq gdb-many-windows t)
+(setq gdb-many-windows nil)
 (defadvice gdb-setup-windows (around setup-more-gdb-windows activate)
   ad-do-it
   (gdb-setup-my-windows)

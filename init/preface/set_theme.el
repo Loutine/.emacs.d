@@ -3,7 +3,7 @@
 ;;; Code:
 (use-package doom-themes
   :init
-; Global settings (defaults)
+					; Global settings (defaults)
   (setq doom-themes-enable-bold t ; if nil, bold is universally disabled
 	doom-themes-enable-italic t) ; if nil, italics is universally disabled
   ;; Enable flashing mode-line on errors
@@ -13,7 +13,7 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-treemacs-config)
   (doom-themes-org-config)
-  (load-theme 'doom-monokai-classic t nil)
+  (load-theme 'doom-ir-black t nil)
 					; )
   )
 (provide 'set_theme)
