@@ -11,6 +11,8 @@
     (normal-top-level-add-subdirs-to-load-path))
   (let ((default-directory "~/.local/share/"))
     (normal-top-level-add-subdirs-to-load-path))
+  (let ((default-directory "~/.opam/default/share/emacs/site-lisp"))
+    (normal-top-level-add-subdirs-to-load-path))
   (setq custom--inhibit-theme-enable nil)
   ;;(require 'auto-save)
   ;;(require 'cnfonts)
@@ -52,6 +54,7 @@
   ;;lang module
 
   (require 'julia-la)
+  (require 'lua-la)
   (require 'python-la)
   (require 'rust_la)
   (require 'racket-la)
@@ -77,7 +80,6 @@
   
   ;;other application
   (require 'telega_conf))
-(setq default-frame-alist '((cursor-color . "DeepPink")))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -89,15 +91,12 @@
  '(custom-raised-buttons t)
  '(default-input-method "rime")
  '(delete-old-versions t)
- '(ein:output-area-inlined-images t)
  '(eldoc-idle-delay 0)
  '(fringe-mode 20 nil (fringe))
  '(global-auto-revert-mode t)
- '(haskell-stylish-on-save t)
  '(highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line)
  '(highlight-indent-guides-responsive 'top)
  '(initial-buffer-choice nil)
- '(ivy-posframe-border-width 2)
  '(kept-old-versions 1)
  '(max-mini-window-height 0.7)
  '(org-agenda-file (list ("~/agenda/agenda.org")))
@@ -113,12 +112,11 @@
  '(rime-show-candidate 'posframe)
  '(scroll-bar-mode nil)
  '(tool-bar-mode t)
- '(truncate-lines nil))
+ '(truncate-lines nil)
+ '(warning-suppress-types '((lsp-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(fringe ((t (:width extra-expanded :foreground "#565761" :inherit default))))
- '(ivy-posframe-border ((t (:background "white"))))
- )
+ '(fringe ((t (:width extra-expanded :foreground "#565761" :inherit default)))))

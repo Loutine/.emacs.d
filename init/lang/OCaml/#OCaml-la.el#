@@ -18,7 +18,13 @@
   ("\\.mly\\'" . tuareg-menhir-mode)
   :config
   (setq tuareg-match-patterns-aligned t
-	tuareg-indent-align-with-first-arg nil))
+	tuareg-indent-align-with-first-arg nil
+	tuareg-prettify-symbols-full t)
+  (add-hook 'tuareg-mode-hook
+            (lambda()
+              (when (functionp 'prettify-symbols-mode)
+                (prettify-symbols-mode)))))
+
 
 
 (use-package dune
@@ -33,10 +39,10 @@
 
 (load-file"~/.opam/default/share/emacs/site-lisp/ocp-indent.el")
 
-;; (use-package merlin
-;;   :hook
-;;   (tuareg-mode . merlin-mode)
-;;   :config
-;;   (setq merlin-command "~/.opam/default/bin/ocamlmerlin"))
+(use-package merlin
+  :hook
+  (tuareg-mode . merlin-mode)
+  :config
+  (setq merlin-command "~/.opam/default/bin/ocamlmerlin"))
 
 (provide 'OCaml-la)

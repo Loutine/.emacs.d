@@ -3,7 +3,7 @@
 ;;; Code:
 (use-package ivy
   :config
-  ;(ivy-mode t)                                     ;; 启用ivy-mode
+  (ivy-mode t)                                     ;; 启用ivy-mode
   (setq ivy-use-virtual-buffers t                 ;; 当非零时,将最近的文件和/或书签添加到'ivy-switch-buffer'
 	enable-recursive-minibuffers t            ;; 非零意味着在迷你缓冲区中允许迷你缓冲区命令
 	search-default-mode #'char-fold-to-regexp)
@@ -37,19 +37,6 @@
   ("C-c s w" . swiper)
   :demand t
   )
-(use-package ivy-posframe
-  :ensure t
-  :init
-  ;; display at `ivy-posframe-style'
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display)))
-  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-window-center)))
-  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-bottom-left)))
-  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-window-bottom-left)))
-  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
-  (ivy-posframe-mode 1)
-  )
-
 (use-package all-the-icons-ivy-rich
   :ensure t
   :init (all-the-icons-ivy-rich-mode 1))
@@ -57,6 +44,7 @@
 (use-package ivy-rich
   :ensure t
   :init (ivy-rich-mode 1))
-(provide 'setup-ivy-omni-org)
+
+
 (provide 'ivy_config)
 ;;; ivy_config.el ends here

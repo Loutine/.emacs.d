@@ -32,8 +32,7 @@
   (after-init . doom-modeline-mode)
   :init
   (defvar doom-modeline-icon t)
-  :config
-  (setq doom-modeline-height 22))
+  )
 
 ;;for-indent-guides
 (use-package highlight-indent-guides

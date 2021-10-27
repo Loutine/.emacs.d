@@ -9,15 +9,14 @@
   ;;(python-mode . lsp)
   ;;(haskell-mode . lsp)
   ;;(go-mode . lsp)
-  ;;(emacs-lisp-mode . lsp)
   (scala-mode . lsp)
   ;;(julia-mode . lsp)
   (js-mode . lsp)
   (css-mode . lsp)
   (tuareg-mode . lsp)
+  (lua-mode . lsp)
   ;;(reason-mode . lsp)
   (web-mode . lsp)
-  ;(rustic-mode . lsp)
   :commands lsp
   :config
   (setq gc-cons-threshold 100000000
@@ -31,8 +30,7 @@
   :commands lsp-ui
   :config
   (setq lsp-ui-doc-enable t
-	lsp-ui-sideline-show-hover t
-	lsp-ui-doc-position 'bottom))
+	lsp-ui-sideline-show-hover t))
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs
@@ -40,6 +38,16 @@
   :config
   (lsp-treemacs-sync-mode 1)
   )
-  
+
+(use-package tree-sitter
+  :ensure t
+  :init
+  (global-tree-sitter-mode 1)
+)
+(use-package tree-sitter-langs
+  :ensure t)
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+
 (provide 'lsp_config)
 ;;; lsp_config.el ends here
