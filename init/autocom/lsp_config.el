@@ -7,7 +7,7 @@
   (c-mode . lsp)
   (c++-mode . lsp)
   ;;(python-mode . lsp)
-  ;;(haskell-mode . lsp)
+  (haskell-mode . lsp)
   ;;(go-mode . lsp)
   (scala-mode . lsp)
   ;;(julia-mode . lsp)

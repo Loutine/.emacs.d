@@ -13,7 +13,7 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-treemacs-config)
   (doom-themes-org-config)
-  (load-theme 'doom-ir-black t nil)
+  (load-theme 'doom-horizon t nil)
 					; )
   )
 (provide 'set_theme)
