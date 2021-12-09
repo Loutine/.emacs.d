@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
+<html>
+  <head>
+    <link rel="stylesheet" rel="stylesheet" href="INDEX_DIR/katex.min.css">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script type="text/javascript" src="INDEX_DIR/katex.min.js"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script type="text/javascript" src="INDEX_DIR/auto-render.min.js"></script>
+
+    <style>
+     html, body, #xterm, .xterm-screen, canvas {
+       width: 100%;
+       height: 100%;
+       padding: 0;
+       margin: 0;
+       overflow: hidden;
+
+       background: BACKGROUND;
+
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+     }
+
+     #katex-preview {
+       display: table;
+       padding: 8px;
+       margin: 0;
+     }
+    </style>
+
+    <script>
+     function katex_render() {
+       var latex = "LATEX";
+
+       katex.render(latex, document.getElementById("katex-preview"), {
+         throwOnError: false,
+         displayMode: true
+       });
+     }
+    </script>
+  </head>
+  <body onload="katex_render()">
+    <div id="katex-preview"/>
+  </body>
+</html>
