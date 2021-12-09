@@ -1,8 +1,6 @@
 (let ((gc-cons-threshold most-positive-fixnum)
       (file-name-handler-alist nil))
-  (when (daemonp)
-    (require 'exec-path-from-shell))
-  (exec-path-from-shell-initialize)
+  
   (setq read-process-output-max (* 2048 2048)
 	comp-deferred-compilation t)
   (let ((default-directory "~/.emacs.d/init/"))
@@ -13,20 +11,18 @@
     (normal-top-level-add-subdirs-to-load-path))
   (let ((default-directory "~/.opam/default/share/emacs/site-lisp"))
     (normal-top-level-add-subdirs-to-load-path))
+  (require 'straight_boot)
+  (when (daemonp)
+    (exec-path-from-shell-initialize))
+  
   (setq custom--inhibit-theme-enable nil)
-  ;;(require 'auto-save)
   ;;(require 'cnfonts)
   ;;(cnfonts-enable)
   (load-file "~/.emacs.d/Loutine-splash/Loutine-splash.el")
-  ;; (require 'nano-splash)
-  ;; (nano-splash)
-  (require 'all-the-icons)
-  (require 'ligature_conf)
   ;;(require 'benchmark-init-modes)
   ;;(require 'benchmark-init)
   ;;meta module
-  (require 'straight_boot)
-  (require 'package_archive)
+  
   (require 'buffer-command)
   (require 'which_key)
   (require 'magit_conf)
@@ -37,11 +33,12 @@
 
   (require 'preface)
   (require 'set_font)
+  (require 'ligature_conf)
   (require 'set_rime)
   (require 'set_rainbow)
   ;;autocom module
   (require 'lsp_config)
-  ;;(require 'dap_config) must be the worst coding environment i've ever used.
+  ;;(require 'dap_config) must be the worst debuging environment i've ever used.
   (require 'company_config)
   (require 'ivy_config)
   (require 'paredit_config)
@@ -52,7 +49,6 @@
   (require 'perspective-config)
   
   ;;lang module
-
   (require 'julia-la)
   (require 'lua-la)
   (require 'python-la)
@@ -61,25 +57,25 @@
   (require 'scala-la)
   (require 'OCaml-la)
   (require 'haskell-la)
-  ;(require 'flutter-la)
+  ;(require 'flutter-la) must be the worst language i have used 
   (require 'c_cpp-la)
   ;;(require 'rescript_la)
-  ;;(cmake-ide-setup)
   (require 'coq-la)
   (require 'web-la)
 
   ;;org and mutimedia
-  (require 'roam)
+  (require 'roam) ;it would be fun to use another alternative
   (require 'transclusion)
   (require 'set_org)
   (require 'set_md)
-  (require 'adoc)
+  (require 'set_adoc)
   (require 'dict)
   ;;(require 'EAF)
   (Loutine-splash)
   
   ;;other application
-  (require 'telega_conf))
+  (require 'telega_conf)
+  )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

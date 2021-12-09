@@ -1,6 +1,0 @@
-(use-package lua-mode
-  :config
-  (setq lsp-clients-lua-language-server-bin "/usr/bin/lua-language-server"))
-
-(provide 'lua-la)
-  
