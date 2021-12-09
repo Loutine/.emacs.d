@@ -1,0 +1,15 @@
+[submodule "orphan/EAF"]
+	path = orphan/EAF
+	url = https://github.com/emacs-eaf/emacs-application-framework.git
+[submodule "orphan/ligature"]
+	path = orphan/ligature
+	url = https://github.com/mickeynp/ligature.el.git
+[submodule "orphan/popweb"]
+	path = orphan/popweb
+	url = https://github.com/manateelazycat/popweb.git
+[submodule "orphan/loutine-splash"]
+	path = orphan/loutine-splash
+	url = https://github.com/Loutine/loutine-splash.git
+[submodule "orphan/emacs-rime"]
+	path = orphan/emacs-rime
+	url = https://github.com/DogLooksGood/emacs-rime.git

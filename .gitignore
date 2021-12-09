@@ -1,0 +1,10 @@
+*
+!orphan/
+!orphan/**
+!init/
+!init/**
+!init.el
+!Makefile
+!README.org
+!.gitmodules
+!.gitignore
