@@ -1,42 +1,56 @@
-* Loutine's emacs configuration
-** Introduction
-   It's an easy and convient emacs configuration from a Emacs noob.
-   evil is not included,because I think it's ridiculous to seperate editing and writing.
-   This document is still in process 
-   Thanks for all the issues!
-** some points need attention
-*** set-font
-    before all the things start, please change the fonts settings in set_font.el
-    including the modeline's fonts settings
-*** LSP-server
-   Using LSP for a unversial code completeion ,before you use it ,ensure you have installed the particular Language server.
-*** company-box
-    To make a ide-like work space on emacs,I choose the company-box to present some pretty icons (terminal still not supported) and the function's doc.
-    if you want to use the _icons-in-terminal_ in company-box  please install it first before you set it.
-    *Warning* company-box is still buggy and will make code-completeion laggy
-*** company-coq
-    A company backend for coq proof assistant.Not just give a AC backend but also gives a function's doc buffer,can turn most of math relatived keyword to a latex like icons.
-    Have some problem with company-box, so I use a function to disable company-box when using it.
-*** org-drill
-    use for learning English.You can add snippets by using yasnippet
-    org-plus-contrib packages always have some problems after byte-compiled ,suggest to remove all the .elc files.
-*** scheme
-    rather than using geiser for work, I KISS, using the built in scheme mode and configuration of yinwang, it's very old but still useful, and I added some function to help me run the script.
-    You can turn to ~/.emacs.d/init/lang/scheme-la.el for detail
-*** c++/c
-    you need to install ccls before you use the C/C++ module
-**** cmake-debug
-     if you use cmake to build project I have an easy function for you
-     first you should make sure there is a .lsp file at the root of your project with your cmakefile,you you can use "cmake-debug" to generate a debug binary.
-**** gdb-layout
-     the built in gud-mode is really usful while debuging C/C++ file ,I have changed the layout of the geb-many-windows.
-*** EAF (&optional)
-    A great application framework for emacs!
-    You can use it for viewing pdf ,web browsing and mindmap,even receive file from your phone, or just expand it.
-    It's really useful but will take much time to load.
-    so I just using a function to load it when I need to use it,you can turn to EAF.el for detail
-    only LINUX
-** next-step
-   - I'm interested about the nim-lang, I will add some supports for it
-   - magit is usful but I'm too lazy to use it......
-   - Racket-mode still buggy and hard to debug, I wonder if I should make a fork and add it to my configuration
+* Anti Bone Chick's emacs configuration
+  An easy, clean, emacs configuration,with 7 main modules
+** Meta
+   includes some necessary components
+   - meta-buffer.el -- buffer and windows command for fast switch and multi-cursor support
+   - meta-magit.el -- amazing git client for emacs
+   - meta-rime.el -- emacs input method engine, mainly for chinese input
+   - meta-vterm.el -- better term in emacs, with toggle command
+** Preface
+   prettify emacs
+   - preface.el -- modeline, line number, indent guide
+   - preface-ligature.el -- ligature support for emacs,need ligature support font
+   - preface-font.el -- font setting
+   - preface-rainbow -- rainbow mode
+   - preface-theme.el -- theme setting
+** Application
+   daily use application in emacs
+   - app-telega.el -- a telegram client in emacs
+   - app-EAF.el -- emacs-application-framework
+     *WARNING*:EAF will take much resources, recommmand disable by default and manually require it when needed
+** Autocomplete
+   core modules for editing source file and calling command
+   - company.el -- auto-complete framework and yasnippet
+   - avy.el -- fast switch in source code
+   - ivy.el -- command autocomplete and some basic command replacement
+   - lsp.el -- language server protocol support
+   - which_key.el -- short cut complete
+   - paredit.el -- for lisp and functional programming language editing
+   - dap.el -- *WARNING*:disable by default
+** Workspace And Project
+   - perspective
+   - projectile
+   - treemacs
+** Lang
+   for language support, please install the language server for language you wanna use
+   - C/C++
+   - Coq
+   - Julia
+   - Haskell
+   - Lua
+   - OCaml
+   - Racket (not use language server)
+   - Rescript
+   - Rust
+   - Scala
+   - Scheme (not use language server)
+   - web -- html,css,javascript
+** Texting
+   for texting and note taking
+*** file type
+    - Markdown
+    - Org 
+    - Adoc
+*** Note Taking
+    - note-roam -- use org-roam, a zettelkasten method note taking plugin but heavy
+    - note-transclusion -- add double link support for org,alternative to org-roam

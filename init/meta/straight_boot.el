@@ -15,4 +15,9 @@
 (setq straight-use-package-by-default t
       use-package-always-defer nil)
 (use-package exec-path-from-shell :demand)
+
+;; add path to emacs
+(when (daemonp)
+    (exec-path-from-shell-initialize))
+  
 (provide 'straight_boot)

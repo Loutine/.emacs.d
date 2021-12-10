@@ -13,3 +13,6 @@
 [submodule "orphan/emacs-rime"]
 	path = orphan/emacs-rime
 	url = https://github.com/DogLooksGood/emacs-rime.git
+[submodule "orphan/markdown-bullets"]
+	path = orphan/markdown-bullets
+	url = https://github.com/xuchunyang/markdown-bullets.git

@@ -3,7 +3,7 @@
 !orphan/**
 !init/
 !init/**
-!init.el
+!*.el
 !Makefile
 !README.org
 !.gitmodules
