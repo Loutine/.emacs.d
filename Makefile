@@ -1,4 +1,5 @@
 clean:
 	find -iregex ".*~" -exec rm '{}' \;
 	find -iregex ".*#" -exec rm '{}' \;
-	find -iregex ".*[old|cache]" '{}' \;
+	find -iregex ".*eld" -exec rm '{}' \;
+	find -iregex ".*cache" -exec rm '{}' \;
