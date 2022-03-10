@@ -10,25 +10,32 @@
   :mode "\\.[px]?html?\\'"
   :mode "\\.\\(?:tpl\\|blade\\)\\(?:\\.php\\)?\\'"
   :mode "\\.erb\\'"
-  :mode "\\.eex\\'"
+  :mode "\\.[lh]?eex\\'"
+  :mode "\\.sface\\'"
   :mode "\\.jsp\\'"
   :mode "\\.as[cp]x\\'"
+  :mode "\\.ejs\\'"
   :mode "\\.hbs\\'"
   :mode "\\.mustache\\'"
   :mode "\\.svelte\\'"
-  :mode "\\.vue\\'"
   :mode "\\.twig\\'"
-  :mode "\\.jinja\\'"
+  :mode "\\.jinja2?\\'"
+  :mode "\\.eco\\'"
   :mode "wp-content/themes/.+/.+\\.php\\'"
   :mode "templates/.+\\.php\\'"
-  :mode "\\.tsx\\'"
-  :mode "\\.swig\\'"
   :config
   (setq web-mode-markup-indent-offset 2
 	web-mode-css-indent-offset 2
 	web-mode-code-indent-offset 2
 	web-mode-enable-current-element-highlight t
 	web-mode-enable-css-colorization nil))
+(use-package emmet-mode
+  :after (html-mode ,css-mode ,js2-mode)
+  :hook
+  (emmet-mode . html-mode)
+  (emmet-mode . css-mode)
+  (emmet-mode . js2-mode)
+  )
 (use-package company-web
   :config
   (add-to-list 'company-backends  'company-web-html)) 

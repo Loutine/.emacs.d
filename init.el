@@ -1,6 +1,4 @@
-(load custom-file)
 (require 'straight_boot)
-
 ;;module: Meta -- for some necessary component
 (require 'meta-buffer)
 (require 'meta-magit)
@@ -13,7 +11,7 @@
 (require 'preface-rainbow)
 (require 'preface-font)
 (require 'preface-theme)
-
+;(require 'preface-tab) actually no use
 
 ;;module: Auto-Complete
 (require 'init-lsp)
@@ -23,7 +21,6 @@
 (require 'init-avy)
 (require 'init-which_key)
 ;;(require 'init-dap) must be the worst debuging environment i've ever used.
-
 ;;module: Workspace And Project -- for project managment and workspace manage
 (require 'init-projectile)
 (require 'init-perspective)
@@ -42,6 +39,7 @@
 (require 'lang-c_c++)
 (require 'lang-coq)
 (require 'lang-web)
+(require 'lang-tex)
 ;;(require 'lang-flutter) must be the worst language i have ever used 
 ;;(require 'lang-rescript)
 
@@ -60,10 +58,13 @@
 (require 'dict)
 
 ;;module: Application
+(require 'app-gnus)
 (require 'app-telega)
 ;;(require 'app-EAF)
 ;;EAF will take much resource ,so I suggest comment it and use a function to start it when you need it
 
 ;;Load the welcome page
 (require 'Loutine-splash)
+(load custom-file)
 (Loutine-splash)
+

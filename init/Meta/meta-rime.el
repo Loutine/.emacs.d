@@ -6,7 +6,7 @@
   (rime-translate-keybindings
    '("C-f" "C-b" "C-n" "C-p" "C-g" "C-`"))
   :init
-  (setq rime-user-data-dir "~/.config/ibus/rime/"))
+  (setq rime-user-data-dir "~/.local/share/fcitx5/rime"))
 
 (provide 'meta-rime)
   

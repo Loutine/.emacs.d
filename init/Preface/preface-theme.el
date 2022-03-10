@@ -14,7 +14,7 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-treemacs-config)
   (doom-themes-org-config)
-  (load-theme 'doom-horizon t nil)
+  (load-theme 'doom-acario-dark t nil)
   )
 (provide 'preface-theme)
 ;;; preface-theme.el ends here

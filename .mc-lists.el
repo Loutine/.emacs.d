@@ -3,6 +3,11 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	TeX-insert-backslash
+	default-indent-new-line
+	ignore
+	keyboard-escape-quit
+	kill-region
 	markdown-outdent-or-delete
 	org-self-insert-command
 	paredit-forward-slurp-sexp
@@ -10,4 +15,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+	lsp-ui-doc--handle-mouse-movement
+	markdown-insert-list-item
+	toggle-input-method
 	))

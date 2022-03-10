@@ -2,11 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 (use-package ivy
-  :config
+  :init
   (ivy-mode t)
   (setq ivy-use-virtual-buffers t
-	enable-recursive-minibuffers t
-	search-default-mode #'char-fold-to-regexp)
+	enable-recursive-minibuffers t)
 )
 
 

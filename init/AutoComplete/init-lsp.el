@@ -14,12 +14,13 @@
 	 (scala-mode . lsp)
 	 ;;(julia-mode . lsp)
 	 (js-mode . lsp)
-	 (css-mode . lsp)
 	 (tuareg-mode . lsp)
 	 (lua-mode . lsp)
 	 ;;(reason-mode . lsp)
-	 (web-mode . lsp)
-  
+	 ;;(web-mode . lsp)
+	 ;;for latex
+	 (TeX-mode . lsp)
+	 (LaTeX-mode . lsp)
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp
