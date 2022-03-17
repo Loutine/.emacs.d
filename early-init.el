@@ -25,12 +25,17 @@
     ;;    "~/.opam/default/share/emacs/site-lisp"
     )
   "list of path need to add to before require pacakge")
-
+(defvar debug-list
+       '("~/.emacs.d/straight/build/")
+       )
 (defun add-subdirs-to-load-path (list)
   (dolist (path list)
     (let ((default-directory path))
       (normal-top-level-add-subdirs-to-load-path))))
-
+(defun add-subdirs-to-load-path-debug ()
+  (dolist (path debug-list)
+    (let ((default-directory path))
+      (normal-top-level-add-subdirs-to-load-path))))
 
 
 (add-subdirs-to-load-path add-subdirs-to-load-path-list)

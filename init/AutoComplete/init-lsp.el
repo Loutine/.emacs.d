@@ -13,7 +13,7 @@
 	 ;;(go-mode . lsp)
 	 (scala-mode . lsp)
 	 ;;(julia-mode . lsp)
-	 (js-mode . lsp)
+	 (js2-mode . lsp)
 	 (tuareg-mode . lsp)
 	 (lua-mode . lsp)
 	 ;;(reason-mode . lsp)

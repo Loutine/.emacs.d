@@ -16,7 +16,8 @@
   ;;org truncate
   (setq truncate-lines nil)
   )
-    
+(use-package org-protocol
+  :straight nil)    
   ;;org-agenda
 (use-package org-agenda
   :straight nil

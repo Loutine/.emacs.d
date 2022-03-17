@@ -4,18 +4,24 @@
 (setq mc/cmds-to-run-for-all
       '(
 	TeX-insert-backslash
-	default-indent-new-line
 	ignore
 	keyboard-escape-quit
 	kill-region
 	markdown-outdent-or-delete
 	org-self-insert-command
+	paredit-backward-kill-word
 	paredit-forward-slurp-sexp
+	paredit-open-round
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	emmet-expand-line
+	ivy-immediate-done
 	lsp-ui-doc--handle-mouse-movement
 	markdown-insert-list-item
+	paredit-forward-barf-sexp
+	paredit-splice-sexp-killing-forward
 	toggle-input-method
+	web-mode-buffer-indent
 	))

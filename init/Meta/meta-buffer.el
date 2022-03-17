@@ -35,7 +35,12 @@ Assumes that the frame is only split into two."
 (use-package ace-window
   :bind ("M-o" . ace-window)
   :config (ace-window-display-mode 1))
-
+(use-package golden-ratio
+  :config
+  (golden-ratio-mode 1)
+  (define-advice select-window (:after (window &optional no-record) golden-ratio-resize-window)
+    (golden-ratio)
+    nil))
 (use-package sudo-edit)
 (provide 'meta-buffer)
 ;;; meta-buffer.el ends here

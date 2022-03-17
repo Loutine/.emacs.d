@@ -1,14 +1,14 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(add-to-list 'default-frame-alist '(alpha-background . 0.7))
+;;(add-to-list 'default-frame-alist '(alpha-background . 0.7))
 (use-package page-break-lines
-  :demand
   :config
   (set-fontset-font "fontset-default"
                     page-break-lines-char
                     (font-spec :family "Monacob"
 			       :size 17.1))
+  (global-page-break-lines-mode)
 )
 
 (use-package doom-modeline

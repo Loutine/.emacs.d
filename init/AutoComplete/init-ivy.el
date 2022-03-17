@@ -2,14 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 (use-package ivy
+  :demand
+  :bind
+  ("C-M-j" . ivy-immediate-done)
   :init
-  (ivy-mode t)
+  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t
-	enable-recursive-minibuffers t)
+	enable-recursive-minibuffers nil)  
 )
 
-
 (use-package counsel
+  :after perspective
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-f" . counsel-find-file)
@@ -24,7 +27,7 @@
   ("C-c m r" . counsel-mark-ring)
   ("C-c f l" . counsel-find-library)
   ("C-x r b" . counsel-bookmark)
-  ("C-x b" . counsel-switch-buffer)
+  ("C-x b" . persp-counsel-switch-buffer)
   :demand t)
 
 
@@ -33,11 +36,11 @@
   ("C-c s w" . swiper)
   :demand t
   )
-(use-package all-the-icons-ivy-rich
-  :init (all-the-icons-ivy-rich-mode 1))
+;; (use-package all-the-icons-ivy-rich
+;;   :init (all-the-icons-ivy-rich-mode 1))
 
-(use-package ivy-rich
-  :init (ivy-rich-mode 1))
+;; (use-package ivy-rich
+;;   :init (ivy-rich-mode 1))
 
 
 (provide 'init-ivy)
