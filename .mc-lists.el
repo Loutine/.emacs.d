@@ -8,6 +8,7 @@
 	keyboard-escape-quit
 	kill-region
 	markdown-outdent-or-delete
+	multiple-cursors-mode
 	org-self-insert-command
 	paredit-backward-kill-word
 	paredit-forward-slurp-sexp
