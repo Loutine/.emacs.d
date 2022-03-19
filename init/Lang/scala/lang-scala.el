@@ -40,7 +40,7 @@
    (setq sbt:program-options '("-Dsbt.supershell=false"))
 )
 
-(use-package lsp-metals)
+;;(use-package lsp-metals)
 
 
 (provide 'lang-scala)

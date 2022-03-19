@@ -13,12 +13,7 @@
 (require 'preface-theme)
 (require 'preface-font)
 ;(require 'preface-tab) actually no use
-
-;;module: Workspace And Project -- for project managment and workspace manage
-(require 'init-file_template)
-(require 'init-perspective)
-(require 'init-projectile)
-(require 'init-treemacs)
+
 
 ;;module: Auto-Complete -- for basic auto-completing setting and lsp setting
 (require 'init-lsp)
@@ -30,6 +25,12 @@
 (require 'init-avy)
 (require 'init-which_key)
 ;(require 'init-dap) must be the worst debuging environment i've ever used.
+
+;;module: Workspace And Project -- for project managment and workspace manage
+(require 'init-file_template)
+(require 'init-perspective)
+(require 'init-projectile)
+(require 'init-treemacs)
 
 ;;module: Lang -- for programming language
 (require 'lang-julia)
@@ -48,15 +49,15 @@
 ;(require 'lang-rescript)
 
 ;;module: Texting -- for text editing and note taking and dictionary
-;;Notetaking
-(require 'note-roam) ;it would be fun to use another alternative transclusion
-(require 'note-transclusion)
-  
 ;;Text file type
 (require 'set_org)
 (require 'set_md)
 (require 'set_adoc)
 
+;;Notetaking
+(require 'note-roam) ;it would be fun to use another alternative transclusion
+(require 'note-transclusion)
+  
 ;;Dictionary
 (require 'dict)
 
@@ -64,6 +65,7 @@
 (require 'app-gnus)
 (require 'app-telega)
 (require 'app-matrix)
+(require 'app-calibre)
 ;(require 'app-EAF) EAF will take much resource ,so I suggest comment it and use a function to start it when you need it
 
 

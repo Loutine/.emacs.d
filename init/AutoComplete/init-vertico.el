@@ -23,6 +23,8 @@
 ;;; Code:
 ;; Enable vertico
 (use-package vertico
+  :bind
+  ("C-RET" . vertico-exit-input)
   :init
   (vertico-mode)
 
