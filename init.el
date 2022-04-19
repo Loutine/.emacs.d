@@ -12,25 +12,24 @@
 (require 'preface-rainbow)
 (require 'preface-theme)
 (require 'preface-font)
-;(require 'preface-tab) actually no use
+;; (require 'preface-tab) actually no use
 
 
 ;;module: Auto-Complete -- for basic auto-completing setting and lsp setting
-(require 'init-lsp)
+;(require 'init-lsp) too heavy and too slow
+(require 'init-eglot)
 (require 'init-company)
 (require 'init-vertico)
 (require 'init-consult)
-;(require 'init-corfu)
+;; (require 'init-corfu)
 (require 'init-paredit)
 (require 'init-avy)
 (require 'init-which_key)
-;(require 'init-dap) must be the worst debuging environment i've ever used.
+
 
 ;;module: Workspace And Project -- for project managment and workspace manage
 (require 'init-file_template)
-(require 'init-perspective)
-(require 'init-projectile)
-(require 'init-treemacs)
+(require 'init-project)
 
 ;;module: Lang -- for programming language
 (require 'lang-julia)
@@ -45,8 +44,9 @@
 (require 'lang-coq)
 (require 'lang-web)
 (require 'lang-tex)
-;(require 'lang-flutter) must be the worst language i have ever used 
-;(require 'lang-rescript)
+(require 'lang-go)
+;; (require 'lang-flutter)
+;; (require 'lang-rescript)
 
 ;;module: Texting -- for text editing and note taking and dictionary
 ;;Text file type

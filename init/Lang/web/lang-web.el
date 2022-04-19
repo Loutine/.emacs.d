@@ -25,9 +25,10 @@
   :config
   (setq css-fontify-colors t))
 
-
 (defun browser-sync()
   "init browser-sync in current dict,and detact all the files(.css,.html,.js)under the dict,make emacs become a live web develop ide"
   (interactive)
   (async-shell-command "browser-sync start --server --files \"**/*.css, **/*.html,**/*.js\""))
+
+
 (provide 'lang-web)

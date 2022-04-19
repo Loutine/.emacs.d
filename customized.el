@@ -12,7 +12,13 @@
      (output-pdf "Zathura")
      (output-html "xdg-open")))
  '(backup-by-copying t)
- '(browse-url-browser-function 'browse-url-xdg-open)
+ '(browse-url-browser-function 'browse-url-vivaldi)
+ '(c-default-style
+   '((c-mode . "linux")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu")))
+ '(comment-style 'extra-line)
  '(company-backends
    '(company-capf company-files company-bbdb company-semantic company-cmake company-capf company-clang
 		  (company-dabbrev-code company-gtags company-etags company-keywords company-files)
@@ -22,7 +28,11 @@
  '(custom-raised-buttons t)
  '(default-input-method "rime" nil nil "Customized with use-package rime")
  '(delete-old-versions t)
+ '(ede-project-directories '("/home/uhuru/tmp/myproject"))
  '(eldoc-idle-delay 0)
+ '(flymake-error-bitmap '(hi-res-rectangle compilation-error))
+ '(flymake-note-bitmap '(hi-res-rectangle compilation-info))
+ '(flymake-warning-bitmap '(hi-res-rectangle compilation-warning))
  '(fringe-mode 20 nil (fringe))
  '(global-auto-revert-mode t)
  '(highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line)

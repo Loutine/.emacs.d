@@ -1,8 +1,8 @@
-;;; app-calibre.el --- calibre emacs client configure  -*- lexical-binding: t; -*-
+;;; lang-go.el --- for gopl                          -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  uhuru
+;; Copyright (C) 2022  
 
-;; Author: uhuru <Uhuru-loutine@outlook.com>
+;; Author:  <uhuru@archlinux>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,10 +24,7 @@
 
 ;;; Code:
 
-(use-package calibredb
-  :custom
-  (calibredb-root-dir . "~/Calibre Library")
-  (calibre-db-dir . (expand-file-name "metadata.db" calibredb-dir-root))
-)
-(provide 'app-calibre)
-;;; app-calibre.el ends here
+(use-package go-mode)
+
+(provide 'lang-go)
+;;; lang-go.el ends here

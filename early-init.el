@@ -1,7 +1,6 @@
-(setq gc-cons-threshold most-positive-fixnum
-      file-name-handler-alist nil
-      read-process-output-max (* 2048 2048)
-      comp-deferred-compilation t
+(setq ;; gc-cons-threshold most-positive-fixnum
+      ;; file-name-handler-alist nil
+      ;; read-process-output-max (* 2048 2048)
       custom-file "~/.emacs.d/customized.el"
 )
 ;; (setq socks-override-functions 1)
