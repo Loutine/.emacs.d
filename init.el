@@ -2,6 +2,7 @@
 
 ;;module: Meta -- for some necessary component
 (require 'meta-buffer)
+(require 'meta-nolitter)
 (require 'meta-magit)
 (require 'meta-vterm)
 (require 'meta-rime)
@@ -30,6 +31,7 @@
 ;;module: Workspace And Project -- for project managment and workspace manage
 (require 'init-file_template)
 (require 'init-project)
+(require 'init-realgud)
 
 ;;module: Lang -- for programming language
 (require 'lang-julia)

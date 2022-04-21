@@ -46,36 +46,35 @@
          ("M-y" . consult-yank-pop)                ;; orig. yank-pop
          ("<help> a" . consult-apropos)            ;; orig. apropos-command
          ;; M-g bindings (goto-map)
-         ("M-g e" . consult-compile-error)
-         ("M-g f" . consult-flycheck)               ;; Alternative: consult-flycheck
-         ("M-g g" . consult-goto-line)             ;; orig. goto-line
-         ;;("M-g M-g" . consult-goto-line)           ;; orig. goto-line
+         ;; ("M-g e" . consult-compile-error)
+         ;; ("M-g f" . consult-flycheck)               ;; Alternative: consult-flycheck
+         ;; ("M-g g" . consult-goto-line)             ;; orig. goto-line
+         ;; ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
          ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
          ("M-g m" . consult-mark)
          ("M-g k" . consult-global-mark)
          ("M-g i" . consult-imenu)
          ("M-g I" . consult-imenu-multi)
          ;; M-s bindings (search-map)
-         ("M-s d" . consult-find)
-         ("M-s D" . consult-locate)
-         ("M-s g" . consult-grep)
-         ("M-s G" . consult-git-grep)
-         ("M-s r" . consult-ripgrep)
-         ("M-s l" . consult-line)
-         ("M-s L" . consult-line-multi)
-         ("M-s m" . consult-multi-occur)
-         ("M-s k" . consult-keep-lines)
-         ("M-s u" . consult-focus-lines)
+         ("C-c p d" . consult-find)
+         ("C-c p D" . consult-locate)
+         ("C-c p g" . consult-grep)
+         ("C-c p G" . consult-git-grep)
+         ("C-c p r" . consult-ripgrep)
+         ("C-c p l" . consult-line)
+         ("C-c p L" . consult-line-multi)
+         ("C-c p m" . consult-multi-occur)
+         ("C-c p k" . consult-keep-lines)
+         ("C-c p u" . consult-focus-lines)
          ;; Isearch integration
-         ("M-s e" . consult-isearch-history)
+         ("C-c p e" . consult-isearch-history)
          :map isearch-mode-map
          ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
-         ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
-         ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
-         ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
+         ("C-c p e" . consult-isearch-history)       ;; orig. isearch-edit-string
+         ("C-c p l" . consult-line)                  ;; needed by consult-line to detect isearch
+         ("C-c p L" . consult-line-multi)            ;; needed by consult-line to detect isearch
          ;; Minibuffer history
          :map minibuffer-local-map
-         ("M-s" . consult-history)                 ;; orig. next-matching-history-element
          ("M-r" . consult-history))                ;; orig. previous-matching-history-element
 
   ;; Enable automatic preview at point in the *Completions* buffer. This is
@@ -142,4 +141,10 @@
   ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
   )
 (provide 'init-consult)
+
+(use-package consult-project-extra
+  :after (init-project)
+  :bind
+  (("C-c p f" . consult-project-extra-find)
+   ("C-c p o" . consult-project-extra-find-other-window)))
 ;;; init-consult.el ends here

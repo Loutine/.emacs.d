@@ -1,8 +1,8 @@
-;;; init-eglot.el --- eglot configuration            -*- lexical-binding: t; -*-
+;;; init-realgud.el --- realgud configuration        -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  uhuru
+;; Copyright (C) 2022  
 
-;; Author: uhuru <Uhuru-loutine@outlook.com>
+;; Author:  <uhuru@archlinux>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,16 +23,8 @@
 ;; 
 
 ;;; Code:
+(use-package realgud)
 
-(use-package eglot
-  :hook (
-	 (c-mode . eglot-ensure)
-	 (tuareg-mode . eglot-ensure)
-	 ))
-(use-package tree-sitter)
-(use-package tree-sitter-langs
-  :hook ((c-mode c++-mode) . tree-sitter-hl-mode)
-)
 
-(provide 'init-eglot)
-;;; init-eglot.el ends here
+(provide 'init-realgud)
+;;; init-realgud.el ends here

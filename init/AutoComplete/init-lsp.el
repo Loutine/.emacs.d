@@ -29,7 +29,7 @@
 
 ;; optionally
 ;(use-package lsp-ui :commands lsp-ui-mode)
-;(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+;(use-package lsp-tremacs :commands lsp-treemacs-errors-list)
 ;; (use-package tree-sitter)
 ;; (use-package tree-sitter-langs)
 (provide 'init-lsp)

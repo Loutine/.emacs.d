@@ -30,7 +30,7 @@
   (unicode-fonts-setup))
 
 (defun font-config ()
-  (my-font-list 12.0 15.0 24))
+  (my-font-list 11.0 14.0 24))
 
 (add-to-list 'after-make-frame-functions
 	     (lambda (frame)

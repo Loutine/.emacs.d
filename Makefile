@@ -1,5 +1,6 @@
+configdir = init/
 clean:
-	find -iregex ".*~" -exec rm '{}' \;
-	find -iregex ".*#" -exec rm '{}' \;
-	find -iregex ".*eld" -exec rm '{}' \;
-	find -iregex ".*cache" -exec rm '{}' \;
+	find $(configdir) -iregex ".*~" -exec rm '{}' \;
+	find $(configdir) -iregex ".*#" -exec rm '{}' \;
+	find $(configdir) -iregex ".*eld" -exec rm '{}' \;
+	find $(configdir) -iregex ".*cache" -exec rm '{}' \;

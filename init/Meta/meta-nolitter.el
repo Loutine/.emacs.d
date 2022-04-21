@@ -1,4 +1,4 @@
-;;; init-eglot.el --- eglot configuration            -*- lexical-binding: t; -*-
+;;; meta-nolitter.el --- no-litter configure         -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2022  uhuru
 
@@ -23,16 +23,16 @@
 ;; 
 
 ;;; Code:
-
-(use-package eglot
-  :hook (
-	 (c-mode . eglot-ensure)
-	 (tuareg-mode . eglot-ensure)
-	 ))
-(use-package tree-sitter)
-(use-package tree-sitter-langs
-  :hook ((c-mode c++-mode) . tree-sitter-hl-mode)
+(use-package no-littering
+  :config
+  (setq auto-save-file-name-transforms
+	`((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
+(use-package recentf
+  :after (no-littering)
+  :config
+    (add-to-list 'recentf-exclude no-littering-var-directory)
+    (add-to-list 'recentf-exclude no-littering-etc-directory)
 )
 
-(provide 'init-eglot)
-;;; init-eglot.el ends here
+(provide 'meta-nolitter)
+;;; meta-nolitter.el ends here
