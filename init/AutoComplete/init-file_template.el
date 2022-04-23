@@ -1,5 +1,4 @@
-(use-package yatemplate
-  :init
-  (yatemplate-fill-alist)
-  (auto-insert-mode))
+(use-package autoinsert
+  :hook
+  (prog-mode . auto-insert-mode))
 (provide 'init-file_template)

@@ -1,4 +1,4 @@
-;;; init-eglot.el --- eglot configuration            -*- lexical-binding: t; -*-
+;;; rewrite-bitmap.el --- rewrite builtin bitmaps    -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2022  uhuru
 
@@ -23,21 +23,9 @@
 ;; 
 
 ;;; Code:
-(use-package emacs
-  :config
-  (electric-pair-mode 1)
-  (electric-quote-mode 1)
-  (electric-indent-mode 1)
-  (electric-layout-mode 1))
-(use-package eglot
-  :hook (
-	 (c-mode . eglot-ensure)
-	 (tuareg-mode . eglot-ensure)
-	 ))
-(use-package tree-sitter)
-(use-package tree-sitter-langs
-  :hook ((c-mode c++-mode) . tree-sitter-hl-mode)
-)
 
-(provide 'init-eglot)
-;;; init-eglot.el ends here
+(defconst question-mark
+  [#x3c #x7e #xc3 #xc3 #x0c #x18 #x18 #x00 #x18 #x18])
+
+(provide 'rewrite-bitmap)
+;;; rewrite-bitmap.el ends here

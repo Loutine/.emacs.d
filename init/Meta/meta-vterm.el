@@ -1,5 +1,6 @@
 (use-package vterm)
 (use-package vterm-toggle
+  :after (vterm)
   :bind
   ("C-<f2>" . vterm-toggle-cd)
   ("C-<f1>" . vterm-toggle)

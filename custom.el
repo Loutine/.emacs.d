@@ -22,14 +22,17 @@
    '(company-capf company-files company-bbdb company-semantic company-cmake company-capf company-clang
 		  (company-dabbrev-code company-gtags company-etags company-keywords company-files)
 		  company-oddmuse company-dabbrev))
+ '(company-box-icons-alist 'company-box-icons-icons-in-terminal)
  '(create-lockfiles nil)
  '(custom-raised-buttons t)
  '(default-input-method "rime" nil nil "Customized with use-package rime")
+ '(delete-old-versions t)
  '(eldoc-idle-delay 0)
  '(global-auto-revert-mode t)
  '(highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line)
  '(highlight-indent-guides-method 'bitmap)
  '(initial-buffer-choice nil)
+ '(kept-old-versions 1)
  '(latex-preview-pane-multifile-mode 'auctex)
  '(marginalia-annotator-registry
    '((command marginalia-annotate-command marginalia-annotate-binding builtin none)
@@ -55,15 +58,21 @@
      (library marginalia-annotate-library builtin none)
      (tab marginalia-annotate-tab builtin none)
      (multi-category marginalia-annotate-multi-category builtin none)))
- '(max-mini-window-height 0.3)
+ '(max-mini-window-height 0.7)
+ '(menu-bar-mode nil)
  '(org-agenda-file (list ("~/agenda/agenda.org")))
  '(org-agenda-files nil)
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.8 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+ '(org-hide-emphasis-markers t)
  '(pdf-latex-command "xelatex")
  '(posframe-mouse-banish t t)
+ '(reb-re-syntax 'string)
+ '(rime-show-candidate 'posframe)
  '(truncate-lines nil)
+ '(warning-suppress-log-types '((comp) (lsp-mode)))
+ '(warning-suppress-types '((lsp-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

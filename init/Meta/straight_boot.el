@@ -51,8 +51,14 @@
   (load bootstrap-file nil 'nomessage))
 (setq package-enable-at-startup nil)
 (straight-use-package 'use-package)
+
 (setq straight-use-package-by-default t
-      use-package-always-defer nil)
+      use-package-always-defer t)
+
+(use-package benchmark-init
+  :demand
+  :config
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
 (use-package exec-path-from-shell :demand)
 ;; add path to emacs
 (when (daemonp)

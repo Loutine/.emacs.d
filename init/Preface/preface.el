@@ -3,19 +3,17 @@
 ;;; Code:
 ;;(add-to-list 'default-frame-alist '(alpha-background . 0.7))
 (use-package page-break-lines
+  :hook (after-init . global-page-break-lines-mode)
   :config
   (set-fontset-font "fontset-default"
                     page-break-lines-char
                     (font-spec :family "Monacob"
 			       :size 17.1))
-  (global-page-break-lines-mode)
 )
 
 (use-package doom-modeline
   :hook
   (after-init . doom-modeline-mode)
-  :init
-  (defvar doom-modeline-icon t)
   )
 
 ;;for-indent-guides
@@ -30,11 +28,14 @@
   (org-mode . display-line-numbers-mode))
 
 (use-package fringe-scale
-  :straight (fringe-scale :type git :host github :repo "blahgeek/emacs-fringe-scale")
+  :straight (fringe-scale :type git :host github :repo "Loutine/emacs-fringe-scale")
+  :demand
   :config
   (set-fringe-mode 16)
   (fringe-scale-setup)
   )
-(global-hl-line-mode)
+
+(use-package emacs
+  :hook (after-init . global-hl-line-mode))
 (provide 'preface)
 ;;; preface.el ends here

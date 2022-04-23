@@ -1,5 +1,4 @@
 (use-package rime
-  :demand
   :custom
   (default-input-method "rime")
   (rime-show-candidate 'popup)

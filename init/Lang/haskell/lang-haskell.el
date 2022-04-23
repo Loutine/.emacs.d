@@ -42,15 +42,6 @@
 		 (modes quote (haskell-mode haskell-literate-mode)))))
 
 
-(use-package lsp-haskell
-  :config
-  (define-key haskell-mode-map (kbd "C-c C-f") 'restart-lsp-haskell)
-  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
-  )
-(defun restart-lsp-haskell ()
-  (interactive)
-  (save-buffer)
-  (lsp-restart-workspace))
 (provide 'lang-haskell)
 ;;; haskell-la.el ends here
   

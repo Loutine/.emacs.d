@@ -66,7 +66,7 @@
 ;;module: Application
 (require 'app-gnus)
 (require 'app-telega)
-(require 'app-matrix)
+;;(require 'app-matrix)
 (require 'app-calibre)
 ;(require 'app-EAF) EAF will take much resource ,so I suggest comment it and use a function to start it when you need it
 

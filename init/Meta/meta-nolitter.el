@@ -24,10 +24,12 @@
 
 ;;; Code:
 (use-package no-littering
+  :demand
   :config
   (setq auto-save-file-name-transforms
 	`((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
 (use-package recentf
+  :demand
   :after (no-littering)
   :config
     (add-to-list 'recentf-exclude no-littering-var-directory)

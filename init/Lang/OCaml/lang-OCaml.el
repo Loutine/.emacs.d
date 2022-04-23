@@ -28,12 +28,6 @@
   :custom (ocamlformat-enable 'enable-outside-detected-project)
   )
 
-(load-file"~/.opam/default/share/emacs/site-lisp/ocp-indent.el")
-
-;; (use-package merlin
-;;   :hook
-;;   (tuareg-mode . merlin-mode)
-;;   :config
-;;   (setq merlin-command "~/.opam/default/bin/ocamlmerlin"))
+(use-package ocp-indent)
 
 (provide 'lang-OCaml)

@@ -5,12 +5,10 @@
 (use-package yasnippet
   :hook
   ((prog-mode . yas-minor-mode)
-   (org-mode . yas-minor-mode)
-   (cc-mode . yas-minor-mode))
+   (org-mode . yas-minor-mode))
   )
-;; (use-package yas-jit
-;;   :ensure t)
-(use-package yasnippet-snippets)
+(use-package yasnippet-snippets
+  :after (yasnippet))
 (use-package company
   :bind
   ("M-/" . company-complete)
@@ -24,13 +22,7 @@
 	company-minimum-prefix-length 1
 	company-selection-wrap-around t)
   (push 'company-capf company-backends))
-(add-to-list 'load-path "/usr/share/icons-in-terminal/")
-(require 'icons-in-terminal)
-(use-package company-box
-  :hook
-  (lsp-mode . company-box-mode)
-  (emacs-lisp-mode . company-box-mode)
-	)
+
 (use-package company-coq
   :hook (coq-mode . company-coq-mode)
   :config
