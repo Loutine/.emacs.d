@@ -72,6 +72,9 @@
 
 
 ;;Load the welcome page and customize variable
-(require 'Loutine-splash)
 (load custom-file)
-(Loutine-splash)
+(use-package Loutine-splash
+  :straight (Loutine-splash :type git :host github :repo "Loutine/loutine-splash")
+  :demand
+  :init
+  (Loutine-splash))

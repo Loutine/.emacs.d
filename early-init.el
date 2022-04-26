@@ -4,9 +4,6 @@
       custom-file "~/.emacs.d/custom.el"
       )
 
-(push '(menu-bar-lines . 0) default-frame-alist)
-(push '(tool-bar-lines . 1) default-frame-alist)
-
 (defun gnus-fast-init ()
   (interactive)
   (eval-after-load 'socks

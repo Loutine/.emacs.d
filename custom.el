@@ -70,6 +70,7 @@
  '(posframe-mouse-banish t t)
  '(reb-re-syntax 'string)
  '(rime-show-candidate 'posframe)
+ '(scroll-bar-mode nil)
  '(truncate-lines nil)
  '(warning-suppress-log-types '((comp) (lsp-mode)))
  '(warning-suppress-types '((lsp-mode))))

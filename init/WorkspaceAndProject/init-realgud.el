@@ -23,8 +23,9 @@
 ;; 
 
 ;;; Code:
-(use-package realgud)
+(use-package realgud
+  :hook (prog-mode . (lambda () (require 'realgud))))
 
-
+(setq gdb-many-windows t)
 (provide 'init-realgud)
 ;;; init-realgud.el ends here
