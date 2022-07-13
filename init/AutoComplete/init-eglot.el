@@ -33,6 +33,7 @@
   :hook (
 	 (c-mode . eglot-ensure)
 	 (tuareg-mode . eglot-ensure)
+	 (elixir-mode . eglot-ensure)
 	 ))
 (use-package tree-sitter)
 (use-package tree-sitter-langs

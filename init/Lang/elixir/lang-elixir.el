@@ -1,8 +1,8 @@
-;;; meta-nolitter.el --- no-litter configure         -*- lexical-binding: t; -*-
+;;; lang-elixir.el --- configuration for elixir lang  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  uhuru
+;; Copyright (C) 2022  Uhuru
 
-;; Author: uhuru <Uhuru-loutine@outlook.com>
+;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,18 +23,8 @@
 ;; 
 
 ;;; Code:
-(use-package no-littering
-  :after (compat)
-  :config
-  (setq auto-save-file-name-transforms
-	`((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
-
-(use-package recentf
-  :after (no-littering)
-  :config
-    (add-to-list 'recentf-exclude no-littering-var-directory)
-    (add-to-list 'recentf-exclude no-littering-etc-directory)
-)
-
-(provide 'meta-nolitter)
-;;; meta-nolitter.el ends here
+(use-package alchemist)
+(require 'eglot)
+(add-to-list 'eglot-server-programs '(elixir-mode "~/.local/share/elixir-ls/release/language_server.sh"))
+(provide 'lang-elixir)
+;;; lang-elixir.el ends here

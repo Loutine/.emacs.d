@@ -2,13 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 ;;
-(use-package yasnippet
-  :hook
-  ((prog-mode . yas-minor-mode)
-   (org-mode . yas-minor-mode))
-  )
-(use-package yasnippet-snippets
-  :after (yasnippet))
 (use-package company
   :bind
   ("M-/" . company-complete)

@@ -23,7 +23,8 @@
 ;; 
 
 ;;; Code:
-
+(use-package pdf-tools
+  :straight (pdf-tools :type git :host github :repo "vedang/pdf-tools"))
 (use-package calibredb
   :config
   (setq calibredb-root-dir "~/Calibre Library"

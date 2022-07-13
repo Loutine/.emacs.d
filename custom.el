@@ -18,10 +18,6 @@
      (awk-mode . "awk")
      (other . "gnu")))
  '(comment-style 'extra-line)
- '(company-backends
-   '(company-capf company-files company-bbdb company-semantic company-cmake company-capf company-clang
-		  (company-dabbrev-code company-gtags company-etags company-keywords company-files)
-		  company-oddmuse company-dabbrev))
  '(company-box-icons-alist 'company-box-icons-icons-in-terminal)
  '(create-lockfiles nil)
  '(custom-raised-buttons t)
@@ -72,11 +68,15 @@
  '(rime-show-candidate 'posframe)
  '(scroll-bar-mode nil)
  '(truncate-lines nil)
+ '(user-full-name "Uhuru")
+ '(valign-fancy-bar nil)
  '(warning-suppress-log-types '((comp) (lsp-mode)))
- '(warning-suppress-types '((lsp-mode))))
+ '(warning-suppress-types '((use-package) (lsp-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(sml/global ((t nil)))
+ '(sml/minor-modes ((t (:inherit nil))))
+ '(sml/modes ((t nil))))

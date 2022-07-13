@@ -1,8 +1,10 @@
 ;;using ccls for lsp server
 (defun my-c-mode ()
   (c-toggle-auto-hungry-state 1))
-(use-package emacs
-  :hook (c-mode . my-c-mode))
+(use-package cc-mode
+  :hook (c-mode . my-c-mode)
+  :bind (:map c-mode-map
+	      ("C-c s" . quick-compile-c/cpp)))
 (use-package cmake-mode
   :mode "CMakeLists.txt"
   :hook
@@ -35,7 +37,8 @@
 		     " -Wall -g -o "
 		     (file-name-base (buffer-file-name))
 		     " "
-		     (buffer-file-name)))))
+		     (buffer-file-name))
+	     nil)))
 
 
  ;;================================================================================================================

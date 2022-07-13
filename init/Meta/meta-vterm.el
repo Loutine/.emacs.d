@@ -2,7 +2,7 @@
 (use-package vterm-toggle
   :bind
   ("C-<f2>" . vterm-toggle-cd)
-  ("C-<f1>" . vterm-toggle)
+  ("C-=" . vterm-toggle)
   (:map vterm-mode-map
 	("M-q" . vterm-toggle)
 	([(control return)] . vterm-toggle-insert-cd)

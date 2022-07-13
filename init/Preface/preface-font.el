@@ -25,12 +25,8 @@
   (set-face-attribute 'mode-line-inactive nil :font
 		      (format   "%s :size=%d"  "Monaco" Height)))
 
-(use-package unicode-fonts
-  :config
-  (unicode-fonts-setup))
-
 (defun font-config ()
-  (my-font-list 11.0 14.0 24))
+  (my-font-list 11.0 14.0 14))
 
 (add-to-list 'after-make-frame-functions
 	     (lambda (frame)

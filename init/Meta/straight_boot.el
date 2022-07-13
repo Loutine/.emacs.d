@@ -38,6 +38,7 @@
 		   'proxy-socks-toggle
 		   :help   "Toggle Proxy setting")
 (defvar bootstrap-version)
+(setq straight-check-for-modifications '(check-on-save find-when-checking))
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
@@ -53,9 +54,10 @@
 (straight-use-package 'use-package)
 
 (setq straight-use-package-by-default t
-      use-package-always-defer t)
+      use-package-always-defer nil)
 
 (use-package benchmark-init
+  :disabled t
   :demand
   :config
   (add-hook 'after-init-hook 'benchmark-init/deactivate))

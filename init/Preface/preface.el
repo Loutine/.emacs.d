@@ -11,11 +11,21 @@
 			       :size 17.1))
 )
 
-(use-package doom-modeline
-  :hook
-  (after-init . doom-modeline-mode)
+(use-package smart-mode-line
+  :init
+  (setq sml/theme nil)
+  (setq sml/no-confirm-load-theme nil)
+  (column-number-mode t)
+  (sml/setup)
+  (setq rm-base-text-properties '())
+  ;;inactivate the rich minority overwrite minor modes face in mode line
+  :config
+  (setq rm-blacklist
+      (format "^ \\(%s\\)$"
+              (mapconcat #'identity
+                         '("Projectile.*" "PgLn" "WK" "ElDoc" "h-i-g" "company" "yas" "Abbrev")
+                         "\\|")))
   )
-
 ;;for-indent-guides
 (use-package highlight-indent-guides
   :hook (prog-mode . highlight-indent-guides-mode)
@@ -28,6 +38,7 @@
   (org-mode . display-line-numbers-mode))
 
 (use-package fringe-scale
+  :disabled
   :straight (fringe-scale :type git :host github :repo "Loutine/emacs-fringe-scale")
   :demand
   :config
