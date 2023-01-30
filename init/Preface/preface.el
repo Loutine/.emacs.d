@@ -2,28 +2,21 @@
 ;;; Commentary:
 ;;; Code:
 ;;(add-to-list 'default-frame-alist '(alpha-background . 0.7))
-(use-package page-break-lines
-  :hook (after-init . global-page-break-lines-mode)
-  :config
-  (set-fontset-font "fontset-default"
-                    page-break-lines-char
-                    (font-spec :family "Monacob"
-			       :size 17.1))
-)
 
 (use-package smart-mode-line
   :init
-  (setq sml/theme nil)
-  (setq sml/no-confirm-load-theme nil)
+  (setq sml/theme 'light)
+  (setq sml/no-confirm-load-theme t)
   (column-number-mode t)
   (sml/setup)
   (setq rm-base-text-properties '())
   ;;inactivate the rich minority overwrite minor modes face in mode line
   :config
+  (setq sml/name-width 10)
   (setq rm-blacklist
       (format "^ \\(%s\\)$"
               (mapconcat #'identity
-                         '("Projectile.*" "PgLn" "WK" "ElDoc" "h-i-g" "company" "yas" "Abbrev")
+                         '("PgLn" "WK" "ElDoc" "h-i-g" "yas" "Abbrev" "citar-org-roam" "tree-sitter")
                          "\\|")))
   )
 ;;for-indent-guides
@@ -33,20 +26,19 @@
 ;;tabs
 ;;display-line-numbers
 (use-package display-line-numbers
+  :init
+  (setq display-line-numbers 'relative)
   :hook
   (prog-mode . display-line-numbers-mode)
-  (org-mode . display-line-numbers-mode))
+  (org-mode . display-line-numbers-mode)
+  )
 
 (use-package fringe-scale
-  :disabled
   :straight (fringe-scale :type git :host github :repo "Loutine/emacs-fringe-scale")
   :demand
   :config
   (set-fringe-mode 16)
   (fringe-scale-setup)
   )
-
-(use-package emacs
-  :hook (after-init . global-hl-line-mode))
 (provide 'preface)
 ;;; preface.el ends here

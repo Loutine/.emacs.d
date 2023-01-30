@@ -1,8 +1,8 @@
-;;; init-eglot.el --- eglot configuration            -*- lexical-binding: t; -*-
+;;; note-deft.el --- configuration for deft          -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  uhuru
+;; Copyright (C) 2022  Uhuru
 
-;; Author: uhuru <Uhuru-loutine@outlook.com>
+;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,19 +23,16 @@
 ;; 
 
 ;;; Code:
-(use-package emacs
-  :config
-  (electric-pair-mode 1)
-  (electric-quote-mode 1)
-  (electric-indent-mode 1)
-  (electric-layout-mode 1))
-(use-package eglot
-  :hook (
-	 ;;(c-ts-mode . eglot-ensure)
-	 (tuareg-mode . eglot-ensure)
-	 (elixir-mode . eglot-ensure)
-	 )
-  )
-;;always init manually
-(provide 'init-eglot)
-;;; init-eglot.el ends here
+(use-package deft
+  :straight (deft :type git :repo "jrblevin/deft")
+  :custom
+  (deft-extensions '("org"))
+  (deft-recursive t))
+
+(use-package zetteldeft
+  :straight (zetteldeft :type git :repo "EFLS/zetteldeft")
+  :after (deft)
+  :config (zetteldeft-set-classic-keybindings))
+
+(provide 'note-deft)
+;;; note-deft.el ends here

@@ -11,7 +11,6 @@
      (output-dvi "xdvi")
      (output-pdf "Zathura")
      (output-html "xdg-open")))
- '(browse-url-browser-function 'browse-url-vivaldi)
  '(c-default-style
    '((c-mode . "linux")
      (java-mode . "java")
@@ -29,6 +28,9 @@
  '(highlight-indent-guides-method 'bitmap)
  '(initial-buffer-choice nil)
  '(kept-old-versions 1)
+ '(kind-icon-default-style
+   '(:padding -0.8 :stroke 0 :margin 0 :radius 0 :height 0.6 :scale 0.9))
+ ;;'(kind-icon-use-icons t)
  '(latex-preview-pane-multifile-mode 'auctex)
  '(marginalia-annotator-registry
    '((command marginalia-annotate-command marginalia-annotate-binding builtin none)
@@ -55,23 +57,34 @@
      (tab marginalia-annotate-tab builtin none)
      (multi-category marginalia-annotate-multi-category builtin none)))
  '(max-mini-window-height 0.7)
- '(menu-bar-mode nil)
  '(org-agenda-file (list ("~/agenda/agenda.org")))
  '(org-agenda-files nil)
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.8 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-hide-emphasis-markers t)
+ '(org-noter-always-create-frame nil)
+ '(org-noter-auto-save-last-location t)
  '(pdf-latex-command "xelatex")
  '(posframe-mouse-banish t t)
  '(reb-re-syntax 'string)
  '(rime-show-candidate 'posframe)
  '(scroll-bar-mode nil)
+ '(tool-bar-mode nil)
+ '(menu-bar-mode nil)
+ '(sml/mode-width 75)
+ '(sml/shorten-modes t)
  '(truncate-lines nil)
  '(user-full-name "Uhuru")
  '(valign-fancy-bar nil)
  '(warning-suppress-log-types '((comp) (lsp-mode)))
- '(warning-suppress-types '((use-package) (lsp-mode))))
+ '(warning-suppress-types
+   '(((org-roam))
+     (use-package)
+     ((org-roam))
+     ((org-roam))
+     (use-package)
+     (lsp-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

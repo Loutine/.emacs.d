@@ -1,8 +1,8 @@
-;;; init-eglot.el --- eglot configuration            -*- lexical-binding: t; -*-
+;;; note-denote.el --- configuration for denote--a new note tool  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  uhuru
+;; Copyright (C) 2022  Uhuru
 
-;; Author: uhuru <Uhuru-loutine@outlook.com>
+;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,19 +23,11 @@
 ;; 
 
 ;;; Code:
-(use-package emacs
-  :config
-  (electric-pair-mode 1)
-  (electric-quote-mode 1)
-  (electric-indent-mode 1)
-  (electric-layout-mode 1))
-(use-package eglot
-  :hook (
-	 ;;(c-ts-mode . eglot-ensure)
-	 (tuareg-mode . eglot-ensure)
-	 (elixir-mode . eglot-ensure)
-	 )
+
+(use-package denote
+  :custom
+  (denote-directory (expand-file-name "~/.denote/"))
   )
-;;always init manually
-(provide 'init-eglot)
-;;; init-eglot.el ends here
+
+(provide 'note-denote)
+;;; note-denote.el ends here

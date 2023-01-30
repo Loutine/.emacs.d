@@ -1,7 +1,12 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(load-theme 'modus-vivendi t nil)
+(use-package cloud-theme
+  :straight t
+)
 
+(use-package modus-themes
+  :straight t
+  )
 (provide 'preface-theme)
 ;;; preface-theme.el ends here

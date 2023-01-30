@@ -1,8 +1,8 @@
-;;; init-eglot.el --- eglot configuration            -*- lexical-binding: t; -*-
+;;; init-treesit.el --- tree-sitter configuration    -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  uhuru
+;; Copyright (C) 2023  Uhuru
 
-;; Author: uhuru <Uhuru-loutine@outlook.com>
+;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,19 +23,11 @@
 ;; 
 
 ;;; Code:
-(use-package emacs
-  :config
-  (electric-pair-mode 1)
-  (electric-quote-mode 1)
-  (electric-indent-mode 1)
-  (electric-layout-mode 1))
-(use-package eglot
-  :hook (
-	 ;;(c-ts-mode . eglot-ensure)
-	 (tuareg-mode . eglot-ensure)
-	 (elixir-mode . eglot-ensure)
-	 )
-  )
-;;always init manually
-(provide 'init-eglot)
-;;; init-eglot.el ends here
+
+(use-package treesit
+  :straight nil
+  :init
+  (setq treesit-extra-load-path `(,(expand-file-name "~/.emacs.d/tree-sitter/dist/"))))
+
+(provide 'init-treesit)
+;;; init-treesit.el ends here

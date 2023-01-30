@@ -1,8 +1,8 @@
-;;; init-eglot.el --- eglot configuration            -*- lexical-binding: t; -*-
+;;; note-pdf.el ---                                  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  uhuru
+;; Copyright (C) 2022  Uhuru
 
-;; Author: uhuru <Uhuru-loutine@outlook.com>
+;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,19 +23,10 @@
 ;; 
 
 ;;; Code:
-(use-package emacs
-  :config
-  (electric-pair-mode 1)
-  (electric-quote-mode 1)
-  (electric-indent-mode 1)
-  (electric-layout-mode 1))
-(use-package eglot
-  :hook (
-	 ;;(c-ts-mode . eglot-ensure)
-	 (tuareg-mode . eglot-ensure)
-	 (elixir-mode . eglot-ensure)
-	 )
-  )
-;;always init manually
-(provide 'init-eglot)
-;;; init-eglot.el ends here
+(use-package pdf-tools
+  :straight (pdf-tools :type git :host github :repo "vedang/pdf-tools")
+  :init
+  (pdf-loader-install))
+
+(provide 'note-pdf)
+;;; note-pdf.el ends here

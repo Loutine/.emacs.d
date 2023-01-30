@@ -1,8 +1,4 @@
-(setq gc-cons-threshold most-positive-fixnum
-      file-name-handler-alist nil
-      read-process-output-max (* 2048 2048)
-      custom-file "~/.emacs.d/custom.el"
-      )
+(setq custom-file "~/.emacs.d/custom.el")
 
 (defun gnus-fast-init ()
   (interactive)

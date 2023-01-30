@@ -1,3 +1,4 @@
+(require 'socks)
 (defun proxy-socks-show ()
   "Show SOCKS proxy."
   (interactive)
@@ -11,10 +12,12 @@
   "Enable SOCKS proxy."
   (interactive)
   (require 'socks)
-  (setq url-gateway-method 'socks
-        socks-noproxy '("localhost")
-        socks-server '("Default server" "127.0.0.1" 1089 5))
-  (setenv "all_proxy" "socks5://127.0.0.1:1089")
+  (setq
+   url-gateway-method 'socks
+   socks-noproxy '("localhost")
+   socks-server '("Default server" "127.0.0.1" 7890 5)
+   socks-override-functions t)
+  (setenv "all_proxy" "socks5://127.0.0.1:7890")
   (proxy-socks-show))
 
 (defun proxy-socks-disable ()
@@ -22,7 +25,8 @@
   (interactive)
   (require 'socks)
   (setq url-gateway-method 'native
-        socks-noproxy nil)
+        socks-noproxy nil
+	socks-override-functions nil)
   (setenv "all_proxy" "")
   (proxy-socks-show))
 
@@ -38,7 +42,8 @@
 		   'proxy-socks-toggle
 		   :help   "Toggle Proxy setting")
 (defvar bootstrap-version)
-(setq straight-check-for-modifications '(check-on-save find-when-checking))
+(setq straight-check-for-modifications nil)
+(setq straight-build-dir (concat "build-" emacs-version))
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
@@ -50,7 +55,7 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup t)
 (straight-use-package 'use-package)
 
 (setq straight-use-package-by-default t

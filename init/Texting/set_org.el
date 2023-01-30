@@ -1,10 +1,10 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(use-package org
-  :demand
-  :straight t
+(use-package org-mode
   :bind ("C-c a" . org-agenda-today)
+  :init
+  (setq org-startup-indented t)
 )
 
 (use-package org-bullets
@@ -13,16 +13,6 @@
   ;;org bullets
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   )
-;; (use-package org-pdftools
-;;   :hook (org-mode . org-pdftools-setup-link)
-;;   (after-init . pdf-loader-install)
-;;   )
-
-;; (use-package org-noter-pdftools
-;;   :after org-noter
-;;   :config
-;;   (with-eval-after-load 'pdf-annot
-;;     (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
 
 
 (provide 'set_org)

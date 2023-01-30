@@ -1,5 +1,7 @@
 (use-package org-roam
   :after org
+  :straight (:host github :repo "org-roam/org-roam"
+		   :files (:defaults "extensions/*"))
   :custom
   (org-roam-directory (file-truename "~/org-roam/"))
   :bind (("C-c n l" . org-roam-buffer-toggle)
@@ -11,7 +13,11 @@
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag))
+	org-roam-mode-sections (list #'org-roam-backlinks-section
+				     #'org-roam-reflinks-section
+				     #'org-roam-unlinked-references-section
+				     ))
   (org-roam-db-autosync-mode)
   ;; If using org-roam-protocol
   (require 'org-roam-protocol))
@@ -29,5 +35,6 @@
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
+
+(use-package org-noter)
 (provide 'note-roam)
-      
