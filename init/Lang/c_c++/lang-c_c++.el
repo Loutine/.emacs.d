@@ -7,7 +7,7 @@
     :mode "CMakeLists.txt"
     :hook
     (c++-mode . rainbow-delimiters-mode))
-  
+
 ;; (use-package cmake-build
 ;;   :straight nil)
 ;; define some useful cmake command
@@ -40,5 +40,4 @@
 
 
  ;;================================================================================================================
-
 (provide 'lang-c_c++)

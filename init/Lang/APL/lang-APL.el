@@ -1,6 +1,6 @@
-;;; note-pdf.el ---                                  -*- lexical-binding: t; -*-
+;;; lang-APL.el --- configuration for apl or apl-like language  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  Uhuru
+;; Copyright (C) 2023  Uhuru
 
 ;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
@@ -23,11 +23,9 @@
 ;; 
 
 ;;; Code:
-(use-package pdf-tools
-  :straight `(pdf-tools :type git :host github :repo "vedang/pdf-tools"
-			:build (autoloads compile))
-  :init
-  (pdf-loader-install))
 
-(provide 'note-pdf)
-;;; note-pdf.el ends here
+(use-package dyalog-mode
+  :straight t)
+
+(provide 'lang-APL)
+;;; lang-APL.el ends here

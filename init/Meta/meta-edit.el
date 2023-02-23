@@ -1,6 +1,6 @@
-;;; note-pdf.el ---                                  -*- lexical-binding: t; -*-
+;;; meta-edit.el ---                                 -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  Uhuru
+;; Copyright (C) 2023  Uhuru
 
 ;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
@@ -23,11 +23,14 @@
 ;; 
 
 ;;; Code:
-(use-package pdf-tools
-  :straight `(pdf-tools :type git :host github :repo "vedang/pdf-tools"
-			:build (autoloads compile))
-  :init
-  (pdf-loader-install))
+(use-package hungry-delete
+  :straight t
+  :config
+  (global-hungry-delete-mode)
+  )
+(use-package emacs
+  :hook (prog-mode . electric-pair-mode))
 
-(provide 'note-pdf)
-;;; note-pdf.el ends here
+
+(provide 'meta-edit)
+;;; meta-edit.el ends here

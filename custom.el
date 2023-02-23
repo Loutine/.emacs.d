@@ -30,8 +30,8 @@
  '(kept-old-versions 1)
  '(kind-icon-default-style
    '(:padding -0.8 :stroke 0 :margin 0 :radius 0 :height 0.6 :scale 0.9))
- ;;'(kind-icon-use-icons t)
  '(latex-preview-pane-multifile-mode 'auctex)
+ '(lsp-bridge-enable-log t)
  '(marginalia-annotator-registry
    '((command marginalia-annotate-command marginalia-annotate-binding builtin none)
      (embark-keybinding marginalia-annotate-embark-keybinding builtin none)
@@ -57,6 +57,7 @@
      (tab marginalia-annotate-tab builtin none)
      (multi-category marginalia-annotate-multi-category builtin none)))
  '(max-mini-window-height 0.7)
+ '(menu-bar-mode nil)
  '(org-agenda-file (list ("~/agenda/agenda.org")))
  '(org-agenda-files nil)
  '(org-format-latex-options
@@ -70,10 +71,9 @@
  '(reb-re-syntax 'string)
  '(rime-show-candidate 'posframe)
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil)
- '(menu-bar-mode nil)
  '(sml/mode-width 75)
  '(sml/shorten-modes t)
+ '(tool-bar-mode nil)
  '(truncate-lines nil)
  '(user-full-name "Uhuru")
  '(valign-fancy-bar nil)

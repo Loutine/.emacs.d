@@ -26,6 +26,7 @@
   :after (citar embark)
   :config (citar-embark-mode))
 (use-package citar-org-roam
+  :after (org)
   :straight (citar-org-roam :type git :host github :repo "emacs-citar/citar-org-roam")
   :config
   (citar-org-roam-mode)

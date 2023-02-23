@@ -1,4 +1,4 @@
-;;; init-treesit.el --- tree-sitter configuration    -*- lexical-binding: t; -*-
+;;; init-lspbridge.el ---                            -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Uhuru
 
@@ -23,11 +23,20 @@
 ;; 
 
 ;;; Code:
+(use-package electric
+  :config
+  (electric-pair-mode t))
+(use-package lsp-bridge
+  :after (yasnippet)
+  :straight `(lsp-bridge
+	      :type git
+	      :host github
+	      :repo "manateelazycat/lsp-bridge"
+	      :build (:not compile)
+	      :files (:defaults "*"))
+  :config
+  (global-lsp-bridge-mode))
 
-(use-package treesit
-  :straight nil
-  :init
-  (setq treesit-extra-load-path `(,(expand-file-name "~/.emacs.d/tree-sitter/dist/"))))
 
-(provide 'init-treesit)
-;;; init-treesit.el ends here
+(provide 'init-lspbridge)
+;;; init-lspbridge.el ends here

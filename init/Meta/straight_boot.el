@@ -15,11 +15,9 @@
   (setq
    url-gateway-method 'socks
    socks-noproxy '("localhost")
-   socks-server '("Default server" "127.0.0.1" 7890 5)
+   socks-server '("Default server" "127.0.0.1" 1089 5)
    socks-override-functions t)
-  (setenv "all_proxy" "socks5://127.0.0.1:7890")
   (proxy-socks-show))
-
 (defun proxy-socks-disable ()
   "Disable SOCKS proxy."
   (interactive)
@@ -27,7 +25,6 @@
   (setq url-gateway-method 'native
         socks-noproxy nil
 	socks-override-functions nil)
-  (setenv "all_proxy" "")
   (proxy-socks-show))
 
 (defun proxy-socks-toggle ()

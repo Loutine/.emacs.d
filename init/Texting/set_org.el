@@ -1,12 +1,6 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(use-package org-mode
-  :bind ("C-c a" . org-agenda-today)
-  :init
-  (setq org-startup-indented t)
-)
-
 (use-package org-bullets
   :after (org)
   :init

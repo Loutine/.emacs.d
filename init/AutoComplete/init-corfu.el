@@ -71,6 +71,14 @@
 ;;   (define-key corfu-map (kbd "M-p") #'corfu-doc-scroll-down) ;; corfu-next
 ;;   (define-key corfu-map (kbd "M-n") #'corfu-doc-scroll-up)  ;; corfu-previous
 ;; )
+
+(use-package corfu-yasnippet
+  :straight `(corfu-yasnippet
+	      :type git
+	      :host github
+	      :repo "elken/cape-yasnippet")
+  :config
+  (add-to-list 'completion-at-point-functions #'cape-yasnippet))
 (use-package kind-icon
   :ensure t
   :after corfu

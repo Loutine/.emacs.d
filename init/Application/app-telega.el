@@ -1,4 +1,5 @@
 (use-package telega
+  :after (org)
   :init
   (add-hook 'telega-load-hook
 	    (lambda ()
