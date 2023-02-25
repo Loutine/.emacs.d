@@ -24,11 +24,11 @@
 
 ;;; Code:
 (use-package hungry-delete
-  :straight t
   :config
   (global-hungry-delete-mode)
   )
 (use-package emacs
+  :elpaca nil
   :hook (prog-mode . electric-pair-mode))
 
 

@@ -1,4 +1,4 @@
-(require 'straight_boot)
+(require 'elpaca_boot)
 
 ;;module: Meta -- for some necessary component
 
@@ -37,7 +37,7 @@
 (require 'init-consult)
 
 ;;And the language-server-protocol
-;;(require 'init-eglot)
+(require 'init-eglot)
 (require 'init-lsp)
 
 (require 'init-embark)
@@ -94,7 +94,7 @@
 (load custom-file)
 
 (use-package Loutine-splash
-  :straight (Loutine-splash :type git :host github :repo "Loutine/loutine-splash")
+  :elpaca (Loutine-splash :host github :repo "Loutine/loutine-splash")
   :config
   (if window-system
       (Loutine-splash)))

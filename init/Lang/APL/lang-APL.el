@@ -24,8 +24,7 @@
 
 ;;; Code:
 
-(use-package dyalog-mode
-  :straight t)
+(use-package dyalog-mode)
 
 (provide 'lang-APL)
 ;;; lang-APL.el ends here

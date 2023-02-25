@@ -8,7 +8,7 @@
   )
 
 (use-package ispell
-  :straight nil
+  :elpaca nil
   :init
   (setenv "DICPATH" "/usr/share/hunspell/")
   :config

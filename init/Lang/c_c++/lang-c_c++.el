@@ -1,5 +1,6 @@
 ;;using ccls for lsp server
-(use-package cc-mode
+(use-package c-mode
+  :elpaca nil
   :bind (:map c-mode-map
 	      ("C-c s" . quick-compile-c/cpp)))
 

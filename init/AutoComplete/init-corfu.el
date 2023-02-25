@@ -73,15 +73,13 @@
 ;; )
 
 (use-package corfu-yasnippet
-  :straight `(corfu-yasnippet
-	      :type git
+  :elpaca (corfu-yasnippet
 	      :host github
 	      :repo "elken/cape-yasnippet")
   :config
   (add-to-list 'completion-at-point-functions #'cape-yasnippet))
 (use-package kind-icon
-  :ensure t
-  :after corfu
+  :after (corfu)
   :custom
   (kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
   :config

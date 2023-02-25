@@ -24,8 +24,7 @@
 
 ;;; Code:
 (use-package pdf-tools
-  :straight `(pdf-tools :type git :host github :repo "vedang/pdf-tools"
-			:build (autoloads compile))
+  :elpaca (pdf-tools :host github :repo "vedang/pdf-tools")
   :init
   (pdf-loader-install))
 

@@ -24,9 +24,10 @@
 
 ;;; Code:
 
-(use-package hydra)
-(defhydra hydra-info-menu (:hint nil :exit t)
-  "
+(use-package hydra
+  :config
+  (defhydra hydra-info-menu (:hint nil :exit t)
+    "
 ^Search^              ^Navigation^          ^Inside Node^      ^Cross Ref^
 ^^^^^^---------------------------------------------------------------------
 _i_: Index             _u_: Up               _b_  : Begin       _f_: Follow
@@ -38,27 +39,27 @@ _m_: menu              _<_: Top Node
 ^ ^                    _T_: Toc
 ^ ^ ^ ^      \"Read, and be patient.\"
 "
-  ("i" Info-index)
-  ("," inf-index-next)
-  ("s" Info-search)
-  ("S" Info-search-case-sensitively)
-  ("u" Info-up)
-  ("T" Info-toc)
-  ("d" Info-directory)
-  ("n" Info-next)
-  ("p" Info-previos)
-  ("b" begining-of-buffer)
-  ("e" end-of-buffer)
-  ("SPC" Info-scroll-up)
-  ("DEL" Info-scrow-down)
-  ("<" Info-top-node)
-  (">" Info-final-node)
-  ("f" Info-follow-reference)
-  ("l" Info-history-back)
-  ("r" Info-history-forward)
-  ("L" Info-history)
-  ("m" Info-menu)
-  )
-(define-key Info-mode-map "a" 'hydra-info-menu/body)
+    ("i" Info-index)
+    ("," inf-index-next)
+    ("s" Info-search)
+    ("S" Info-search-case-sensitively)
+    ("u" Info-up)
+    ("T" Info-toc)
+    ("d" Info-directory)
+    ("n" Info-next)
+    ("p" Info-previos)
+    ("b" begining-of-buffer)
+    ("e" end-of-buffer)
+    ("SPC" Info-scroll-up)
+    ("DEL" Info-scrow-down)
+    ("<" Info-top-node)
+    (">" Info-final-node)
+    ("f" Info-follow-reference)
+    ("l" Info-history-back)
+    ("r" Info-history-forward)
+    ("L" Info-history)
+    ("m" Info-menu)
+    )
+  (define-key Info-mode-map "a" 'hydra-info-menu/body))
 (provide 'meta-hydra)
 ;;; meta-hydra.el ends here

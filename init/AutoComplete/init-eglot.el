@@ -23,19 +23,7 @@
 ;; 
 
 ;;; Code:
-(use-package emacs
-  :config
-  (electric-pair-mode 1)
-  (electric-quote-mode 1)
-  (electric-indent-mode 1)
-  (electric-layout-mode 1))
-(use-package eglot
-  :hook (
-	 ;;(c-ts-mode . eglot-ensure)
-	 (tuareg-mode . eglot-ensure)
-	 (elixir-mode . eglot-ensure)
-	 )
-  )
+(use-package eglot)
 ;;always init manually
 (provide 'init-eglot)
 ;;; init-eglot.el ends here

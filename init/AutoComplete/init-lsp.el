@@ -24,18 +24,21 @@
 
 ;;; Code:
 (use-package lsp-mode
-  :straight t
-  :after (which-key)
+  :after (which-key orderless)
   :custom
   (lsp-diagnostics-provider :flymake)
-  (lsp-completion-provider :none)
+  ;;(lsp-completion-provider :none)
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(orderless))) ;; Configure orderless
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (c-mode . lsp)
          ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
+         (lsp-mode . lsp-enable-which-key-integration)
+	 (lsp-completion-mode . my/lsp-mode-setup-completion))
   :commands lsp)
 
 ;; ;; optionally

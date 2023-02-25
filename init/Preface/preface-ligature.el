@@ -1,5 +1,5 @@
 (use-package ligature
-  :straight (ligature :type git :host github :repo "mickeynp/ligature.el")
+  :elpaca (ligature :host github :repo "mickeynp/ligature.el")
   :hook (after-init . global-ligature-mode)
   :config
   (ligature-set-ligatures 't '("www"))

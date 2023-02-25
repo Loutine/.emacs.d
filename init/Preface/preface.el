@@ -26,6 +26,7 @@
 ;;tabs
 ;;display-line-numbers
 (use-package display-line-numbers
+  :elpaca nil
   :init
   (setq display-line-numbers 'relative)
   :hook
@@ -34,11 +35,29 @@
   )
 
 (use-package fringe-scale
-  :straight (fringe-scale :type git :host github :repo "Loutine/emacs-fringe-scale")
+  :elpaca (fringe-scale :host github :repo "Loutine/emacs-fringe-scale")
   :demand
   :config
   (set-fringe-mode 16)
   (fringe-scale-setup)
+  (define-fringe-bitmap 'flymake-double-exclamation-mark
+    (vector #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b01100110
+            #b01100110
+            #b01100110
+            #b01100110
+            #b01100110
+            #b01100110
+            #b01100110
+            #b01100110
+            #b00000000
+            #b01100110
+            #b00000000
+            #b00000000
+            #b00000000))
   )
 (provide 'preface)
 ;;; preface.el ends here

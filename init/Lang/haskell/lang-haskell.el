@@ -21,8 +21,14 @@
   (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
   (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
   )
+
+;; (use-package lsp-haskell
+;;   :straight t
+;;   :hook ((haskell-mode . lsp)
+;; 	 (haskell-literate-mode . lsp)))
+
 (use-package align
-  :straight nil
+  :elpaca nil
   :config
   (add-to-list 'align-rules-list
                '(haskell-types

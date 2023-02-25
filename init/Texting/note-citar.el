@@ -15,19 +15,19 @@
 )
 
 (use-package citar-org
-  :straight nil
+  :elpaca nil
   :after oc
   :custom
   (org-cite-insert-processor 'citar)
   (org-cite-follow-processor 'citar)
   (org-cite-activate-processor 'citar))
 (use-package citar-embark
-  :straight nil
+  :elpaca nil
   :after (citar embark)
   :config (citar-embark-mode))
 (use-package citar-org-roam
   :after (org)
-  :straight (citar-org-roam :type git :host github :repo "emacs-citar/citar-org-roam")
+  :elpaca (citar-org-roam :host github :repo "emacs-citar/citar-org-roam")
   :config
   (citar-org-roam-mode)
   (defun citar-org-roam--create-capture-note (citekey entry)

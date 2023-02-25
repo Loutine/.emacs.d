@@ -5,6 +5,7 @@
   (add-hook 'css-mode-hook 'skewer-css-mode)
   (add-hook 'html-mode-hook 'skewer-html-mode))
 (use-package mhtml-mode
+  :elpaca nil
   :hook
   (mhtml-mode . flycheck-mode)
   )
@@ -22,6 +23,7 @@
   )
 
 (use-package css-mode
+  :elpaca nil
   :config
   (setq css-fontify-colors t))
 
@@ -30,5 +32,4 @@
   (interactive)
   (async-shell-command "browser-sync start --server --files \"**/*.css, **/*.html,**/*.js\""))
 
-
 (provide 'lang-web)

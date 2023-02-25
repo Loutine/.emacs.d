@@ -30,6 +30,7 @@
 	`((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
 
 (use-package recentf
+  :elpaca nil
   :after (no-littering)
   :config
     (add-to-list 'recentf-exclude no-littering-var-directory)

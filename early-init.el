@@ -1,14 +1,5 @@
+(setq package-enable-at-startup nil)
 (setq custom-file "~/.emacs.d/custom.el")
-
-(defun gnus-fast-init ()
-  (interactive)
-  (eval-after-load 'socks
-    (let ((socks-override-functions 1)
-	  (socks-noproxy '("localhost"))
-	  (socks-server '("Default server" "127.0.0.1" 1089 5)))
-      (gnus)
-      ))
-  )
 
 ;; (defconst add-subdirs-to-load-path-list
 ;;   '("~/.emacs.d/init/"
