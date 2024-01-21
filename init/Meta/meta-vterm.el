@@ -1,5 +1,7 @@
-(use-package vterm)
+(use-package vterm
+  :elpaca t)
 (use-package vterm-toggle
+  :elpaca t
   :bind
   ("C-<f2>" . vterm-toggle-cd)
   ("C-=" . vterm-toggle)

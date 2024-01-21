@@ -24,6 +24,7 @@
 
 ;;; Code:
 (use-package hungry-delete
+  :elpaca t
   :config
   (global-hungry-delete-mode)
   )

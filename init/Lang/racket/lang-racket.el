@@ -1,4 +1,5 @@
 (use-package racket-mode
-  :bind ("<F5>" . racket-run))
+  :elpaca t
+  )
 (provide 'lang-racket)
  

@@ -24,6 +24,7 @@
 
 ;;; Code:
 (use-package no-littering
+  :elpaca t
   :after (compat)
   :config
   (setq auto-save-file-name-transforms

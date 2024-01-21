@@ -1,9 +1,9 @@
-;;; lang-elixir.el --- configuration for elixir lang  -*- lexical-binding: t; -*-
+;;; app-wanderlust.el --- wanderlust configuration -- a email client  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  Uhuru
+;; Copyright (C) 2023  Uhuru
 
 ;; Author: Uhuru <uhuru@archlinux>
-;; Keywords: 
+;; Keywords: mail
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -23,10 +23,9 @@
 ;; 
 
 ;;; Code:
-(setq load-path (cons "/usr/lib/erlang/lib/tools-3.5.3/emacs" load-path))
-(setq erlang-root-dir "/usr/lib/erlang")
-(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang-start)
-(use-package alchemist)
-(provide 'lang-elixir)
-;;; lang-elixir.el ends here
+
+(use-package wanderlust
+  :elpaca t)
+
+(provide 'app-wanderlust)
+;;; app-wanderlust.el ends here

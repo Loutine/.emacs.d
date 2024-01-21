@@ -1,8 +1,10 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(defun my-font-list ()
-  (set-face-attribute 'default nil :font "JetBrains Mono")
+(defun my-font-list (font-size)
+  (set-face-attribute 'default nil :font (font-spec
+					  :family "JetBrains Mono"
+					  :size font-size))
   ;; Latin
   (set-fontset-font t 'latin "Noto Sans")
   
@@ -53,13 +55,15 @@
   
   )
 
+(setq my-font-size 13)
 (if window-system
-    (my-font-list))
+    (my-font-list my-font-size))
 (add-to-list 'after-make-frame-functions
 	     (lambda (frame)
 	       (select-frame frame)
 	       (if (window-system frame)
-		   (my-font-list))))
+		   (my-font-list my-font-size))))
 
+;;(set-my-font 13)
 (provide 'preface-font)
 ;;; preface-font.el ends here

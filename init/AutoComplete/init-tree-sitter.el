@@ -1,6 +1,6 @@
-;;; lang-elixir.el --- configuration for elixir lang  -*- lexical-binding: t; -*-
+;;; init-tree-sitter.el --- tree-sitter mode configuration  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  Uhuru
+;; Copyright (C) 2023  Uhuru
 
 ;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
@@ -23,10 +23,13 @@
 ;; 
 
 ;;; Code:
-(setq load-path (cons "/usr/lib/erlang/lib/tools-3.5.3/emacs" load-path))
-(setq erlang-root-dir "/usr/lib/erlang")
-(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang-start)
-(use-package alchemist)
-(provide 'lang-elixir)
-;;; lang-elixir.el ends here
+(use-package tree-sitter
+  :elpaca t
+  :config
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+(use-package tree-sitter-langs
+  :elpaca t)
+(provide 'init-tree-sitter)
+;;; init-tree-sitter.el ends here

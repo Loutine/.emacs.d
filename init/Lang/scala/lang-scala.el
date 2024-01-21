@@ -39,7 +39,5 @@
    ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
    (setq sbt:program-options '("-Dsbt.supershell=false"))
 )
-
-
 (provide 'lang-scala)
 ;;; scala-la.el ends here

@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package rainbow-delimiters
+  :elpaca t
   :hook
   (scheme-mode . rainbow-delimiters-mode)
   (emacs-lisp-mode . rainbow-delimiters-mode)

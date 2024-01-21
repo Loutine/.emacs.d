@@ -23,11 +23,13 @@
 ;; 
 
 ;;; Code:
+(use-package sideline-lsp)
+
 (use-package lsp-mode
   :after (which-key orderless)
   :custom
   (lsp-diagnostics-provider :flymake)
-  ;;(lsp-completion-provider :none)
+  (lsp-completion-provider :none)
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
@@ -38,11 +40,15 @@
          (c-mode . lsp)
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration)
+	 (lsp-mode . sideline-mode)
 	 (lsp-completion-mode . my/lsp-mode-setup-completion))
   :commands lsp)
 
 ;; ;; optionally
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :init (setq lsp-ui-sideline-enable nil)
+)
 ;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;; ;; optionally if you want to use debugger

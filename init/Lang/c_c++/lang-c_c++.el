@@ -4,15 +4,6 @@
   :bind (:map c-mode-map
 	      ("C-c s" . quick-compile-c/cpp)))
 
-(use-package cmake-mode
-    :mode "CMakeLists.txt"
-    :hook
-    (c++-mode . rainbow-delimiters-mode))
-
-;; (use-package cmake-build
-;;   :straight nil)
-;; define some useful cmake command
-
 (defun cmake-debug-dir (workspace)
   (concat workspace "/debug"))
 (defun cmake-debug ()

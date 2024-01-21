@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package haskell-mode
+  :elpaca t
   :config
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
@@ -22,11 +23,6 @@
   (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
   )
 
-;; (use-package lsp-haskell
-;;   :straight t
-;;   :hook ((haskell-mode . lsp)
-;; 	 (haskell-literate-mode . lsp)))
-
 (use-package align
   :elpaca nil
   :config
@@ -46,7 +42,10 @@
                '(haskell-left-arrows
 		 (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
 		 (modes quote (haskell-mode haskell-literate-mode)))))
-
+(use-package lsp-haskell
+  :elpaca t
+  :config
+  (setq lsp-haskell-server-path (expand-file-name "~/.ghcup/bin/haskell-language-server-wrapper")))
 
 (provide 'lang-haskell)
 ;;; haskell-la.el ends here

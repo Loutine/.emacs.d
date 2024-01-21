@@ -26,12 +26,13 @@
 ;; Install `plz' HTTP library (not on MELPA yet).
 (use-package plz
   :demand
-  :straight (plz :type git :host github :repo "alphapapa/plz.el"))
+  :elpaca (plz :type git :host github :repo "alphapapa/plz.el"))
 
 ;; Install Ement.
 (use-package ement
-  :straight (ement :type git :host github :repo "alphapapa/ement.el"))
-(use-package matrix-client
-  :straight (matrix-client :type git :host github :repo "alphapapa/matrix-client.el"))
+  :elpaca t
+
+  ;;(ement :type git :host github :repo "alphapapa/ement.el")
+  )
 (provide 'app-matrix)
 ;;; app-matrix.el ends here

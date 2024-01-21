@@ -25,37 +25,6 @@
   :elpaca nil
   :after (citar embark)
   :config (citar-embark-mode))
-(use-package citar-org-roam
-  :after (org)
-  :elpaca (citar-org-roam :host github :repo "emacs-citar/citar-org-roam")
-  :config
-  (citar-org-roam-mode)
-  (defun citar-org-roam--create-capture-note (citekey entry)
-    "Open or create org-roam node for CITEKEY and ENTRY."
-   ;; adapted from https://jethrokuan.github.io/org-roam-guide/#orgc48eb0d
-    (let ((title (citar-format--entry
-                   citar-org-roam-note-title-template entry)))
-     (org-roam-capture-
-      :templates
-      '(("r" "reference" plain "%?" :if-new
-         (file+head
-          ;; REVIEW not sure the file name shoud be citekey alone.
-          "%(concat
- (when citar-org-roam-subdir (concat citar-org-roam-subdir \"/\")) \"${citekey}.org\")"
-          ":PROPERTIES:
-:ROAM_REFS: @${citekey}
-:END:
- #+title: ${title}\n
-* Note
-:PROPERTIES:
-:NOTER_DOCUMENT: %(car (citar-get-files citekey))
-:END:"
-	  )
-         :immediate-finish t
-         :unnarrowed t))
-      :info (list :citekey citekey)
-      :node (org-roam-node-create :title title)
-      :props '(:finalize find-file)))))
 
 (provide 'note-citar)
 

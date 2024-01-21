@@ -23,6 +23,7 @@
 ;;; Code:
 ;; Enable vertico
 (use-package vertico
+  :elpaca t
   :bind
   ("C-RET" . vertico-exit-input)
   :init

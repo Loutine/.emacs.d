@@ -1,6 +1,6 @@
-;;; lang-elixir.el --- configuration for elixir lang  -*- lexical-binding: t; -*-
+;;; meta-evil.el --- evil keybind configuration      -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  Uhuru
+;; Copyright (C) 2023  Uhuru
 
 ;; Author: Uhuru <uhuru@archlinux>
 ;; Keywords: 
@@ -23,10 +23,31 @@
 ;; 
 
 ;;; Code:
-(setq load-path (cons "/usr/lib/erlang/lib/tools-3.5.3/emacs" load-path))
-(setq erlang-root-dir "/usr/lib/erlang")
-(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang-start)
-(use-package alchemist)
-(provide 'lang-elixir)
-;;; lang-elixir.el ends here
+
+(use-package evil
+  :elpaca t
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (defun evil-comment-paste ()
+    (interactive)
+    (let ((now-point (point)))
+      (evil-paste-after 1)
+      (comment-region now-point (+ (point) 1))))
+
+  (evil-global-set-key 'normal (kbd "gy") 'evil-comment-paste)
+  (evil-mode 1)
+)
+(use-package evil-mc
+  :elpaca t
+  :config
+  (global-evil-mc-mode 1))
+(use-package evil-collection
+  :after evil
+  :elpaca t
+  :config
+  (evil-collection-init)
+  )
+(provide 'meta-evil)
+;;; meta-evil.el ends here

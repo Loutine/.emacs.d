@@ -23,7 +23,19 @@
 ;; 
 
 ;;; Code:
-(use-package eglot)
+(use-package sideline-flymake
+  :elpaca t)
+(use-package sideline
+  :elpaca t
+  :hook
+  (sideline-mode . flymake-mode)
+  )
+(use-package eglot
+  :elpaca t
+  :custom
+  (eglot-autoshutdown t)  ;; shutdown language server after closing last file
+  (eglot-confirm-server-initiated-edits nil)  ;; allow edits without confirmation
+  )
 ;;always init manually
 (provide 'init-eglot)
 ;;; init-eglot.el ends here

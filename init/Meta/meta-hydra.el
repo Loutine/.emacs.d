@@ -25,7 +25,9 @@
 ;;; Code:
 
 (use-package hydra
-  :config
+  :elpaca t
+  :after info
+  :init
   (defhydra hydra-info-menu (:hint nil :exit t)
     "
 ^Search^              ^Navigation^          ^Inside Node^      ^Cross Ref^
@@ -60,6 +62,7 @@ _m_: menu              _<_: Top Node
     ("L" Info-history)
     ("m" Info-menu)
     )
+  :config
   (define-key Info-mode-map "a" 'hydra-info-menu/body))
 (provide 'meta-hydra)
 ;;; meta-hydra.el ends here

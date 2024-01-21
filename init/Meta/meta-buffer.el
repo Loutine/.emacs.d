@@ -1,6 +1,11 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
+(use-package exec-path-from-shell
+  :config
+  (when (daemonp)
+    (exec-path-from-shell-initialize))
+  )
 (use-package multiple-cursors
   :init
   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)

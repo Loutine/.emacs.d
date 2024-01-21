@@ -1,7 +1,6 @@
-(setq rust-analyzer-path "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rust-analyzer")
 (use-package rustic
+  :elpaca t
   :config
-  (setq lsp-rust-analyzer-store-path rust-analyzer-path
-	rustic-lsp-server 'rust-analyzer
-	))
+  (remove-hook 'rustic-mode-hook 'flycheck-mode)
+  (setq rustic-lsp-client 'eglot))
 (provide 'lang-rust)

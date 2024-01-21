@@ -1,4 +1,5 @@
 (use-package corfu
+             :elpaca t
 	     ;; Optional customizations
 	     :custom
 	     (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
@@ -22,10 +23,10 @@
 	     ;; This is recommended since dabbrev can be used globally (M-/).
 	     :bind
 	     (:map corfu-map
-		   ("TAB" . corfu-next)
-		   ([tab] . corfu-next)
-		   ("S-TAB" . corfu-previous)
-		   ([backtab] . corfu-previous))
+		   ("TAB"	.	corfu-next)
+		   ([tab]	.	corfu-next)
+		   ("S-TAB"	.	corfu-previous)
+		   ([backtab]	.	corfu-previous))
 	     :init
 	     (global-corfu-mode))
 
@@ -72,20 +73,14 @@
 ;;   (define-key corfu-map (kbd "M-n") #'corfu-doc-scroll-up)  ;; corfu-previous
 ;; )
 
-(use-package corfu-yasnippet
-  :elpaca (corfu-yasnippet
-	      :host github
-	      :repo "elken/cape-yasnippet")
-  :config
-  (add-to-list 'completion-at-point-functions #'cape-yasnippet))
 (use-package kind-icon
+  :elpaca t
   :after (corfu)
   :custom
   (kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
   :config
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
-;; (straight-use-package
-;;  '(corfu-terminal
-;;    :type git
-;;    :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
+
+(use-package corfu-terminal
+  :elpaca t)
 (provide 'init-corfu)
