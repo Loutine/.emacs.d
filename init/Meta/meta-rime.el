@@ -7,5 +7,5 @@
    '("C-f" "C-b" "C-n" "C-p" "C-g" "C-`"))
   :config
   (setq rime-user-data-dir "~/.emacs.d/rime-config/"))
-(setq pgtk-use-im-context-on-new-connection nil)
+;;(setq pgtk-use-im-context-on-new-connection nil)
 (provide 'meta-rime)  

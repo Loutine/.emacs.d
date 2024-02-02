@@ -26,7 +26,7 @@
 (defcustom project-root-markers
   '("^Cargo\\.toml$" "^compile_commands\\.json$" "^compile_flags\\.txt$"
     "^project\\.clj$" "^\\.project$" "^deps\\.edn$" "^shadow-cljs\\.edn$"
-    "^build\\.sbt$" "^.*\\.cabal$")		
+    "^build\\.sbt$" "^.*?\\.cabal$")		
   "Files or directories that indicate the root of a project."
   :type '(repeat string)
   :group 'project)
@@ -42,10 +42,16 @@
   "Search up the PATH for `project-root-markers'."
   (let ((path (expand-file-name path)))
     (catch 'found
-      (while (not (equal "/" path))
-        (if (not (project-root-p path))
-            (setq path (file-name-directory (directory-file-name path)))
-          (throw 'found (cons 'transient path)))))))
+      (while (let ((p (if (string-match-p tramp-file-name-regexp path)
+			  (tramp-file-local-name path)
+			path)))
+	       ;; for tramp file name like /sudo:user@host:/path/to
+	       ;; without the tramp-file-local-name the function may
+	       ;; get into a dead loop at /sudo:user@host:/ here
+	       (not (string= "/" p)))
+	(if (not (project-root-p path))
+	    (setq path (file-name-directory (directory-file-name path)))
+	  (throw 'found (cons 'transient path)))))))
 (defun my/project-override (dir)
   (let ((override (locate-dominating-file dir ".project")))
     (if override
@@ -55,7 +61,8 @@
   :elpaca nil
   :config
   (add-hook 'project-find-functions #'my/project-override)
-  (add-hook 'project-find-functions #'project-find-root))
+  (add-hook 'project-find-functions #'project-find-root)
+  )
 
 (cl-defmethod project-root ((project (head local)))
   (cdr project))

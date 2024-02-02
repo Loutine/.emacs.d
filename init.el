@@ -10,7 +10,8 @@
 (require 'meta-hydra)
 (require 'meta-edit)
 (require 'meta-evil)
-;; (require 'meta-meow)
+(require 'meta-nix)
+;;(require 'meta-meow)
 
 ;; ;;module: Preface -- prettify emacs
 (require 'preface)
@@ -52,7 +53,7 @@
 (require 'init-avy)
 (require 'init-which_key)
 
-;; ;;module: Workspace And Project -- for project managment and workspace manage
+;;module: Workspace And Project -- for project managment and workspace manage
 
 (require 'init-project)
 (require 'init-realgud)
@@ -77,13 +78,13 @@
 (require 'lang-rust)
 
 
-;; ;;module: Texting -- for text editing and note taking and dictionary
+;;module: Texting -- for text editing and note taking and dictionary
 ;;Text file type
 (require 'set_org)
 (require 'set_md)
 (require 'set_adoc)
 
-;;Notetaking
+;; ;;Notetaking
 
 (require 'note-pdf)
 ;; (require 'note-deft)
@@ -98,7 +99,7 @@
 ;;module: Application
 (require 'app-telega)
 (require 'app-gnus)
-(require 'app-wanderlust)
+;;(require 'app-wanderlust)
 ;;(require 'app-matrix)
 
 (use-package Loutine-splash
@@ -107,8 +108,8 @@
   (if window-system
       (Loutine-splash)))
 
-(load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "agda-mode locate")))
+;; (load-file (let ((coding-system-for-read 'utf-8))
+;;                 (shell-command-to-string "agda-mode locate")))
 
 ;;;;Load the welcome page and customize variable
 (load custom-file)

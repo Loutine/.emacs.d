@@ -1,8 +1,8 @@
-;;; init-eglot.el --- eglot configuration            -*- lexical-binding: t; -*-
+;;; meta-nix.el --- Nix & NixOS configuration        -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  uhuru
+;; Copyright (C) 2024  Uhuru
 
-;; Author: uhuru <Uhuru-loutine@outlook.com>
+;; Author: Uhuru <uhuru@nixos>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,19 +23,21 @@
 ;; 
 
 ;;; Code:
-(use-package sideline-flymake
-  :elpaca t)
-(use-package sideline
+
+(use-package nix-mode
   :elpaca t
-  :hook
-  (sideline-mode . flymake-mode)
-  )
-(use-package eglot
+  :mode ("\\.nix\\'" "\\.nix.in\\'"))
+(use-package nix-drv-mode
   :elpaca nil
-  :custom
-  (eglot-autoshutdown t)  ;; shutdown language server after closing last file
-  (eglot-confirm-server-initiated-edits nil)  ;; allow edits without confirmation
-  )
-;;always init manually
-(provide 'init-eglot)
-;;; init-eglot.el ends here
+  :after nix-mode
+  :mode "\\.drv\\'")
+(use-package nix-shell
+  :elpaca nil
+  :after nix-mode
+  :commands (nix-shell-unpack nix-shell-configure nix-shell-build))
+(use-package nix-repl
+  :elpaca nil
+  :after nix-mode
+  :commands (nix-repl))
+(provide 'meta-nix)
+;;; meta-nix.el ends here

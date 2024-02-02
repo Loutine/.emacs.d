@@ -55,7 +55,7 @@
   
   )
 
-(setq my-font-size 13)
+(setq my-font-size 19)
 (if window-system
     (my-font-list my-font-size))
 (add-to-list 'after-make-frame-functions
@@ -64,6 +64,5 @@
 	       (if (window-system frame)
 		   (my-font-list my-font-size))))
 
-;;(set-my-font 13)
 (provide 'preface-font)
 ;;; preface-font.el ends here
