@@ -25,7 +25,7 @@
 ;;; Code:
 
 (use-package wanderlust
-  :elpaca t)
+  :ensure t)
 
 (provide 'app-wanderlust)
 ;;; app-wanderlust.el ends here

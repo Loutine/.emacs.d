@@ -1,23 +1,48 @@
+;;; init.el --- Loutine's emacs configuration        -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2024  Uhuru
+
+;; Author: Uhuru(require 'elpaca_boot) <Uhuru-Loutine@outlook.com>
+;; Keywords: 
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
 (require 'elpaca_boot)
 
-;;module: Meta -- for some necessary component
-
+(require 'meta-network)
 (require 'meta-buffer)
 (require 'meta-nolitter)
 (require 'meta-vterm)
+;;(require 'meta-eshell)
 (require 'meta-rime)
 (require 'meta-magit)
 (require 'meta-hydra)
 (require 'meta-edit)
 (require 'meta-evil)
-(require 'meta-nix)
 ;;(require 'meta-meow)
+(require 'meta-nix)
 
 ;; ;;module: Preface -- prettify emacs
 (require 'preface)
 (require 'preface-modeline)
 (require 'preface-ligature)
-(require 'preface-rainbow)
+(require 'preface-parentheses)
 (require 'preface-theme)
 (require 'preface-font)
 
@@ -41,15 +66,16 @@
 (require 'init-consult)
 
 ;;And the language-server-protocol
-(require 'init-eglot)
-;;(require 'init-lsp)
+;;(require 'init-eglot)			  	
+(require 'init-lsp)
 
 ;; tree-sitter still not usable
-;;(require 'init-tree-sitter)
+(require 'init-tree-sitter)
 (require 'init-embark)
 ;; (require 'init-paredit)
 ;; alternative to paredit
-;; (require 'init-symex)
+(require 'init-symex)
+;; (require 'init-puni)
 (require 'init-avy)
 (require 'init-which_key)
 
@@ -65,21 +91,22 @@
 (require 'lang-racket)
 (require 'lang-scheme)
 (require 'lang-scala)
-;;(require 'lang-OCaml)
+(require 'lang-OCaml)
 (require 'lang-haskell)
 (require 'lang-c_c++)
 (require 'lang-coq)
 (require 'lang-web)
 (require 'lang-tex)
 (require 'lang-go)
-;;(require 'lang-elixir)
+(require 'lang-elixir)
 (require 'lang-APL)
 ;;(require 'lang-clojure)
 (require 'lang-rust)
+(require 'lang-lisp)
 
 
 ;;module: Texting -- for text editing and note taking and dictionary
-;;Text file type
+;; ;;Text file type
 (require 'set_org)
 (require 'set_md)
 (require 'set_adoc)
@@ -89,9 +116,9 @@
 (require 'note-pdf)
 ;; (require 'note-deft)
 ;; (require 'note-transclusion)
-
-(require 'note-citar)
-(require 'note-denote)
+(require 'note-typst)
+;; (require 'note-citar)
+;; (require 'note-denote)
 
 ;;Dictionary
 (require 'dict)
@@ -99,11 +126,12 @@
 ;;module: Application
 (require 'app-telega)
 (require 'app-gnus)
+(require 'app-mu4e)
 ;;(require 'app-wanderlust)
 ;;(require 'app-matrix)
 
 (use-package Loutine-splash
-  :elpaca (Loutine-splash :host github :repo "Loutine/loutine-splash")
+  :ensure (Loutine-splash :host github :repo "Loutine/loutine-splash")
   :config
   (if window-system
       (Loutine-splash)))
@@ -111,7 +139,7 @@
 ;; (load-file (let ((coding-system-for-read 'utf-8))
 ;;                 (shell-command-to-string "agda-mode locate")))
 
-;;;;Load the welcome page and customize variable
+;Load the welcome page and customize variable
 (load custom-file)
-
+(elpaca-wait)
 

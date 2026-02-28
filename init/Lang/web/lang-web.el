@@ -1,14 +1,10 @@
 ;;(setq browse-url-browser-function 'browse-url-chromium)
-(use-package skewer-mode
-  :config
-  (add-hook 'js2-mode-hook 'skewer-mode)
-  (add-hook 'css-mode-hook 'skewer-css-mode)
-  (add-hook 'html-mode-hook 'skewer-html-mode))
 (use-package mhtml-mode
-  :elpaca nil
+  :ensure nil
   :hook
   (mhtml-mode . flycheck-mode)
   )
+
 (use-package emmet-mode
   :hook
   (mhtml-mode . emmet-mode)
@@ -23,7 +19,7 @@
   )
 
 (use-package css-mode
-  :elpaca nil
+  :ensure nil
   :config
   (setq css-fontify-colors t))
 

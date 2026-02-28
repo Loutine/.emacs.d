@@ -2,9 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 (use-package proof-general
+  :ensure t
   :config
   (setq proof-three-window-mode-policy 'hybrid
-	coq-compile-before-require t)
+	coq-compile-before-require t
+	proof-splash-enable nil)
   )
 
 (provide 'lang-coq)

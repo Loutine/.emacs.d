@@ -1,4 +1,5 @@
-(use-package lua-mode)
+(use-package lua-mode
+  :ensure t)
 
 (provide 'lang-lua)
   

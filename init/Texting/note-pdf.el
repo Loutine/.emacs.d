@@ -23,10 +23,15 @@
 ;; 
 
 ;;; Code:
+(use-package org-noter
+  :ensure t
+  :demand t)
 (use-package pdf-tools
-  :elpaca (pdf-tools :host github :repo "vedang/pdf-tools")
+  :ensure (pdf-tools :host github :repo "vedang/pdf-tools")
   :init
   (pdf-loader-install))
-
+(use-package org-pdftools
+  :ensure t
+  :hook (org-mode . org-pdftools-setup-link))
 (provide 'note-pdf)
 ;;; note-pdf.el ends here

@@ -23,7 +23,7 @@
 ;;; Code:
 ;; Enable vertico
 (use-package vertico
-  :elpaca t
+  :ensure t
   :bind
   ("C-RET" . vertico-exit-input)
   :init
@@ -49,6 +49,7 @@
 ;; Multiple files can be opened at once with `find-file' if you enter a
 ;; wildcard. You may also give the `initials' completion style a try.
 (use-package orderless
+  :ensure t
   :init
   ;; Configure a custom style dispatcher (see the Consult wiki)
   ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
@@ -59,13 +60,13 @@
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
-  :elpaca nil
+  :ensure nil
   :init
   (savehist-mode))
 
 ;; A few more useful configurations...
 (use-package emacs
-  :elpaca nil
+  :ensure nil
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; Alternatively try `consult-completing-read-multiple'.
@@ -88,6 +89,7 @@
 ;;Enable richer annotations using the Marginalia package
 (use-package marginalia
   ;; Either bind `marginalia-cycle` globally or only in the minibuffer
+  :ensure t
   :after vertico
   :bind (("M-A" . marginalia-cycle)
          :map minibuffer-local-map

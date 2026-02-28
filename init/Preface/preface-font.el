@@ -1,9 +1,10 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(defun my-font-list (font-size)
+(defun my-font-list (font-size modeline-size)
+  "Set my font size with FONT-SIZE and MODELINE-SIZE."
   (set-face-attribute 'default nil :font (font-spec
-					  :family "JetBrains Mono"
+					  :family "Iosevka"
 					  :size font-size))
   ;; Latin
   (set-fontset-font t 'latin "Noto Sans")
@@ -55,14 +56,15 @@
   
   )
 
-(setq my-font-size 19)
+(setq my-font-size 19
+	  my-modeline-size 7)
 (if window-system
-    (my-font-list my-font-size))
+    (my-font-list my-font-size my-modeline-size))
 (add-to-list 'after-make-frame-functions
 	     (lambda (frame)
 	       (select-frame frame)
 	       (if (window-system frame)
-		   (my-font-list my-font-size))))
+		   (my-font-list my-font-size my-modeline-size))))
 
 (provide 'preface-font)
 ;;; preface-font.el ends here

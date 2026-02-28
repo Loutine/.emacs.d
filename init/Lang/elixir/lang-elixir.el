@@ -26,7 +26,7 @@
 (setq load-path (cons "/usr/lib/erlang/lib/tools-3.5.3/emacs" load-path))
 (setq erlang-root-dir "/usr/lib/erlang")
 (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang-start)
-(use-package alchemist)
+(use-package alchemist
+  :ensure t)
 (provide 'lang-elixir)
 ;;; lang-elixir.el ends here

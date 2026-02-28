@@ -4,7 +4,7 @@
 ;;tabs
 ;;display-line-numbers
 (use-package display-line-numbers
-  :elpaca nil
+  :ensure nil
   :config
   (setq display-line-numbers-type 'relative)
   :hook

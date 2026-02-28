@@ -1,4 +1,5 @@
 (use-package rime
+  :ensure t
   :after (no-littering) ;value of the user-data-dir will be changed after require the no-littering package, so be sure init the rime after no-littering (or I can configure no-littering to avoid the changing of this variable? WIP)
   :custom
   (default-input-method "rime")

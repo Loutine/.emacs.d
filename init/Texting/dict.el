@@ -1,4 +1,5 @@
 (use-package bing-dict
+  :ensure t
   :bind
   ("C-c c" . bing-dict-brief)
   :config
@@ -8,7 +9,7 @@
   )
 
 (use-package ispell
-  :elpaca nil
+  :ensure nil
   :init
   (setenv "DICPATH" "/usr/share/hunspell/")
   :config

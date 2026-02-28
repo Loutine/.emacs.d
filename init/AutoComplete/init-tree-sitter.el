@@ -23,13 +23,21 @@
 ;; 
 
 ;;; Code:
-(use-package tree-sitter
-  :elpaca t
-  :config
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+;; (use-package tree-sitter
+;;   :ensure t
+;;   :config
+;;   (global-tree-sitter-mode)
+;;   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-(use-package tree-sitter-langs
-  :elpaca t)
+;; (use-package tree-sitter-langs
+;;   :ensure t)
+;; use native builtin tree-sit interface
+(use-package treesit-auto
+  :ensure t
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 (provide 'init-tree-sitter)
 ;;; init-tree-sitter.el ends here

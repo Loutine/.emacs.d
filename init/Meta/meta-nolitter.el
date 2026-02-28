@@ -24,14 +24,14 @@
 
 ;;; Code:
 (use-package no-littering
-  :elpaca t
+  :ensure t
   :after (compat)
   :config
   (setq auto-save-file-name-transforms
-	`((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
-
+	`((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+  (no-littering-theme-backups))
 (use-package recentf
-  :elpaca nil
+  :ensure nil
   :after (no-littering)
   :config
     (add-to-list 'recentf-exclude no-littering-var-directory)

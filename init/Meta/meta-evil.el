@@ -23,9 +23,12 @@
 ;; 
 
 ;;; Code:
-
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1))
 (use-package evil
-  :elpaca t
+  :ensure t
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
@@ -40,14 +43,17 @@
   (evil-mode 1)
 )
 (use-package evil-mc
-  :elpaca t
+  :ensure t
   :config
   (global-evil-mc-mode 1))
 (use-package evil-collection
-  :after evil
-  :elpaca t
+  :ensure t
   :config
   (evil-collection-init)
   )
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 (provide 'meta-evil)
 ;;; meta-evil.el ends here

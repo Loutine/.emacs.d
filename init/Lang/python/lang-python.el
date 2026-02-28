@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package ein
+  :ensure t
   :config
   (setq ein:output-area-inlined-images t))
 
@@ -16,6 +17,7 @@
 ;;   :hook ((shell-mode inferior-python-mode) . comint-mime-setup))
 
 (use-package pyvenv
+  :ensure t
   :init
   (setenv "WORKON_HOME" "~/.pyenv/versions")
   ;https://lists.gnu.org/archive/html/help-gnu-emacs/2021-09/msg00535.html

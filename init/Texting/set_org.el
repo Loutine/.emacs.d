@@ -2,13 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 (use-package org-bullets
+  :ensure t
   :after (org)
   :init
   ;;org bullets
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   )
 (use-package valign
-  :elpaca t
+  :ensure t
   :config
   (setq valign-fancy-bar t)
   (add-hook 'org-mode-hook #'valign-mode))

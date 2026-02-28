@@ -24,14 +24,14 @@
 
 ;;; Code:
 (use-package sideline-flymake
-  :elpaca t)
+  :ensure t)
 (use-package sideline
-  :elpaca t
+  :ensure t
   :hook
   (sideline-mode . flymake-mode)
   )
 (use-package eglot
-  :elpaca nil
+  :ensure nil
   :custom
   (eglot-autoshutdown t)  ;; shutdown language server after closing last file
   (eglot-confirm-server-initiated-edits nil)  ;; allow edits without confirmation

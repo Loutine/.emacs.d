@@ -2,11 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 (use-package exec-path-from-shell
+  :ensure t
   :config
   (when (daemonp)
     (exec-path-from-shell-initialize))
   )
+(use-package olivetti :ensure t)
+
 (use-package multiple-cursors
+  :ensure t
   :init
   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -37,9 +41,22 @@ Assumes that the frame is only split into two."
 ;; I don't use the default binding of 'C-x 5', so use toggle-frame-split instead
 (global-set-key (kbd "C-x 9") 'toggle-frame-split)
 
+(setq select-enable-clipboard t
+      select-enable-primary t
+      save-interprogram-paste-before-kill t
+      evil-want-Y-yank-to-clipboard t
+	  interprogram-paste-function
+	  (lambda ()
+		(shell-command-to-string "wl-paste -n | tr -d '\r'")))
+
 (use-package ace-window
+  :ensure t
   :bind ("M-o" . ace-window)
   :config (ace-window-display-mode 1))
-(use-package sudo-edit)
+(use-package sudo-edit
+  :ensure t)
+(use-package envrc
+  :ensure t
+  :config (envrc-global-mode))
 (provide 'meta-buffer)
 ;;; meta-buffer.el ends here

@@ -58,7 +58,7 @@
 	(cons 'local override) nil)))
 
 (use-package project
-  :elpaca nil
+  :ensure nil
   :config
   (add-hook 'project-find-functions #'my/project-override)
   (add-hook 'project-find-functions #'project-find-root)

@@ -1,8 +1,8 @@
-;;; lang-go.el --- for gopl                          -*- lexical-binding: t; -*-
+;;; app-mu4e.el --- mu4e -- emacs mu front end       -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  
+;; Copyright (C) 2024  Uhuru
 
-;; Author:  <uhuru@archlinux>
+;; Author: Uhuru <uhuru@nixos>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,10 +24,18 @@
 
 ;;; Code:
 
-(use-package go-ts-mode
-  :ensure nil
-  :custom
-  (go-ts-mode-indent-offset 4))
 
-(provide 'lang-go)
-;;; lang-go.el ends here
+(use-package mu4e
+  :ensure nil
+  :config
+  (setq mu4e-get-mail-command "mbsync -a"
+	mu4e-update-interval nil
+	mu4e-use-fancy-chars t)
+  (setq mail-personal-alias-file (expand-file-name "~/.mailrc")
+	mail-specify-envelope-from t
+	message-sendmail-envelope-from 'header
+	mail-envelope-from 'header)
+)
+
+(provide 'app-mu4e)
+;;; app-mu4e.el ends here

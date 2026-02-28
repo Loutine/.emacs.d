@@ -24,9 +24,9 @@
 
 ;;; Code:
 (use-package geiser-guile
-  :elpaca t)
+  :ensure t)
 (use-package geiser-mit
-  :elpaca t)
+  :ensure t)
 
 (provide 'lang-scheme)
 ;;; lang-scheme.el ends here

@@ -1,8 +1,8 @@
-;;; lang-go.el --- for gopl                          -*- lexical-binding: t; -*-
+;;; meta-eshell.el --- eshell configuration          -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  
+;; Copyright (C) 2024  Uhuru
 
-;; Author:  <uhuru@archlinux>
+;; Author: Uhuru <uhuru@nixos>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,10 +24,14 @@
 
 ;;; Code:
 
-(use-package go-ts-mode
-  :ensure nil
-  :custom
-  (go-ts-mode-indent-offset 4))
 
-(provide 'lang-go)
-;;; lang-go.el ends here
+(use-package eshell-toggle
+  :ensure t
+  :custom
+  (eshell-toggle-size-fraction 3)
+  (eshell-toggle-find-project-root-package t)
+  (eshell-toggle-run-command nil)
+  :bind
+  ("C-=" . eshell-toggle))
+(provide 'meta-eshell)
+;;; meta-eshell.el ends here

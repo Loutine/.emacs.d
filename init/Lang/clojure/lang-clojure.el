@@ -24,9 +24,9 @@
 
 ;;; Code:
 (use-package clojure-mode
-  :elpaca t)
+  :ensure t)
 (use-package cider
-  :elpaca t
+  :ensure t
   :hook ((clojure-mode . rainbow-delimiters-mode)
 	 (clojure-mode . enable-paredit-mode)))
 (provide 'lang-clojure)

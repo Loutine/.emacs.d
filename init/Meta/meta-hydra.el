@@ -25,7 +25,7 @@
 ;;; Code:
 
 (use-package hydra
-  :elpaca t
+  :ensure t
   :after info
   :init
   (defhydra hydra-info-menu (:hint nil :exit t)

@@ -26,7 +26,7 @@
 
 ;; Example configuration for Consult
 (use-package consult
-  :elpaca t
+  :ensure t
   ;; Replace bindings. Lazily loaded due by `use-package'.
   :bind (;; C-c bindings in `mode-specific-map'
          ("C-c M-x" . consult-mode-command)

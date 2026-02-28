@@ -1,8 +1,8 @@
-;;; lang-go.el --- for gopl                          -*- lexical-binding: t; -*-
+;;; app-notmuch.el ---                               -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  
+;; Copyright (C) 2024  Uhuru
 
-;; Author:  <uhuru@archlinux>
+;; Author: Uhuru <uhuru@nixos>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,10 +24,7 @@
 
 ;;; Code:
 
-(use-package go-ts-mode
-  :ensure nil
-  :custom
-  (go-ts-mode-indent-offset 4))
-
-(provide 'lang-go)
-;;; lang-go.el ends here
+(use-package notmuch
+  :ensure nil)
+(provide 'app-notmuch)
+;;; app-notmuch.el ends here

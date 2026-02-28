@@ -25,7 +25,7 @@
 ;;; Code:
 
 (use-package doom-modeline
-  :elpaca t
+  :ensure t
   :init (doom-modeline-mode 1)
   :config
   ;; If non-nil, cause imenu to see `doom-modeline' declarations.
@@ -109,7 +109,7 @@
   (setq doom-modeline-highlight-modified-buffer-name t)
 
   ;; Whether display the minor modes in the mode-line.
-  (setq doom-modeline-minor-modes t)
+  (setq doom-modeline-minor-modes nil)
 
   ;; If non-nil, a word count will be added to the selection-info modeline segment.
   (setq doom-modeline-enable-word-count nil)
@@ -124,7 +124,7 @@
   (setq doom-modeline-buffer-encoding t)
 
   ;; Whether display the indentation information.
-  (setq doom-modeline-indent-info nil)
+  (setq doom-modeline-indent-info t)
 
   ;; If non-nil, only display one number for checker information if applicable.
   (setq doom-modeline-checker-simple-format t)
@@ -158,7 +158,7 @@
 
   ;; Whether display the modal state.
   ;; Including `evil', `overwrite', `god', `ryo' and `xah-fly-keys', etc.
-  (setq doom-modeline-modal t)
+  (setq doom-modeline-modal 'evil)
 
   ;; Whether display the modal state icon.
   ;; Including `evil', `overwrite', `god', `ryo' and `xah-fly-keys', etc.
@@ -222,7 +222,7 @@
   ;; Hooks that run before/after the modeline version string is updated
   (setq doom-modeline-before-update-env-hook nil)
   (setq doom-modeline-after-update-env-hook nil)
-  (setq nerd-icons-scale-factor 1.2)
+  (setq nerd-icons-scale-factor 1.1)
   )
 (provide 'preface-modeline)
 ;;; preface-modeline.el ends here

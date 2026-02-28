@@ -1,9 +1,9 @@
-;;; lang-go.el --- for gopl                          -*- lexical-binding: t; -*-
+;;; lang-lisp.el --- lisp configuration              -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  
+;; Copyright (C) 2025  Uhuru
 
-;; Author:  <uhuru@archlinux>
-;; Keywords: 
+;; Author: Uhuru <uhuru@nixos>
+;; Keywords: lisp
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,10 +24,10 @@
 
 ;;; Code:
 
-(use-package go-ts-mode
-  :ensure nil
-  :custom
-  (go-ts-mode-indent-offset 4))
+(use-package slime
+  :ensure t
+  :config
+  (setq inferior-lisp-program "sbcl"))
 
-(provide 'lang-go)
-;;; lang-go.el ends here
+(provide 'lang-lisp)
+;;; lang-lisp.el ends here

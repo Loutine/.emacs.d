@@ -1,8 +1,8 @@
-;;; lang-go.el --- for gopl                          -*- lexical-binding: t; -*-
+;;; init-puni.el --- configuration for puni          -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  
+;; Copyright (C) 2024  Uhuru
 
-;; Author:  <uhuru@archlinux>
+;; Author: Uhuru <uhuru@nixos>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,11 +23,16 @@
 ;; 
 
 ;;; Code:
+(use-package puni
+  :ensure t
+  :defer t
+  :init
+  ;; The autoloads of Puni are set up so you can enable `puni-mode` or
+  ;; `puni-global-mode` before `puni` is actually loaded. Only after you press
+  ;; any key that calls Puni commands, it's loaded.
+  (puni-global-mode)
+  (add-hook 'term-mode-hook #'puni-disable-puni-mode))
 
-(use-package go-ts-mode
-  :ensure nil
-  :custom
-  (go-ts-mode-indent-offset 4))
 
-(provide 'lang-go)
-;;; lang-go.el ends here
+(provide 'init-puni)
+;;; init-puni.el ends here

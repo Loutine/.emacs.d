@@ -30,7 +30,7 @@
 
 ;; Install Ement.
 (use-package ement
-  :elpaca t
+  :ensure t
 
   ;;(ement :type git :host github :repo "alphapapa/ement.el")
   )

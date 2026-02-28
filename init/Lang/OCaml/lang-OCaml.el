@@ -2,15 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 (use-package utop
+  :ensure t
   :hook
   (tuareg-mode . utop-minor-mode)
 
   :config
-  (setq utop-command "opam config exec -- utop -emacs")
-  ;;(setq utop-command "opam config exec -- dune utop . -- -emacs")
+  (setq utop-command "dune utop -- ./ -emacs")
 )
    
 (use-package tuareg
+  :ensure t
   :mode
   ("\\.ml[il]?\\'" . tuareg-mode)
   ("\\.mly\\'" . tuareg-menhir-mode)
@@ -21,13 +22,15 @@
 
 
 (use-package dune
+  :ensure t
   :mode
   ("\\dune\\'" . dune-mode))
 
 (use-package ocamlformat
+  :ensure t
   :custom (ocamlformat-enable 'enable-outside-detected-project)
   )
 
-(use-package ocp-indent)
-
+(use-package ocp-indent
+  :ensure t)
 (provide 'lang-OCaml)

@@ -24,12 +24,12 @@
 
 ;;; Code:
 (use-package hungry-delete
-  :elpaca t
+  :ensure t
   :config
   (global-hungry-delete-mode)
   )
 (use-package emacs
-  :elpaca nil
+  :ensure nil
   :hook (prog-mode . electric-pair-mode))
 
 

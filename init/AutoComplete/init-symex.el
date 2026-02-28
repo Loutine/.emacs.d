@@ -23,19 +23,44 @@
 ;; 
 
 ;;; Code:
+(use-package symex-core
+  :ensure
+  (symex-core
+   :host github
+   :repo "drym-org/symex.el"
+   :files ("symex-core/symex*.el")))
 
 (use-package symex
-  :elpaca t
-  :custom (symex-modal-backend 'evil)
+  :after (symex-core)
+  :ensure
+  (symex
+   :host github
+   :repo "drym-org/symex.el"
+   :files ("symex/symex*.el" "symex/doc/*.texi" "symex/doc/figures"))
   :config
-  (setq symex--user-evil-keyspec
-	'(("j" . symex-go-up)
-	  ("k" . symex-go-down)
-	  ("C-j" . symex-climb-branch)
-	  ("C-k" . symex-descend-branch)
-	  ("M-j" . symex-goto-highest)
-	  ("M-k" . symex-goto-lowest)))
-  (symex-initialize)
-  (evil-global-set-key 'normal (kbd "s-'") 'symex-mode-interface))
+  (symex-mode 1)
+  (global-set-key (kbd "s-;") #'symex-mode-interface))  ; or whatever keybinding you like
+
+  ;; and any other customizations you like
+(use-package symex-ide
+  :after (symex)
+  :ensure
+  (symex-ide
+   :host github
+   :repo "drym-org/symex.el"
+   :files ("symex-ide/symex*.el"))
+  :config
+  (symex-ide-mode 1))
+
+(use-package symex-evil
+  :after (symex evil)
+  :ensure
+  (symex-evil
+   :host github
+   :repo "drym-org/symex.el"
+   :files ("symex-evil/symex*.el"))
+  :config
+  (symex-evil-mode 1))
+
 (provide 'init-symex)
 ;;; init-symex.el ends here

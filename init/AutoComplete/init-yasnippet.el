@@ -1,10 +1,10 @@
 (use-package yasnippet
-  :elpaca t
+  :ensure t
   :hook
   ((prog-mode . yas-minor-mode)
    (org-mode . yas-minor-mode))
   )
 (use-package yasnippet-snippets
-  :elpaca t
+  :ensure t
   :after (yasnippet))
 (provide 'init-yasnippet)

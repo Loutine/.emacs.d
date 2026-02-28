@@ -1,5 +1,5 @@
 (use-package ligature
-  :elpaca (ligature :host github :repo "mickeynp/ligature.el")
+  :ensure (ligature :host github :repo "mickeynp/ligature.el")
   :hook (after-init . global-ligature-mode)
   :config
   (ligature-set-ligatures 't '("www"))
@@ -21,7 +21,7 @@
                                      "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
                                      "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
                                      "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
-                                     "\\\\" "://"))
+                                     "\\\\" "://" "=="))
   ;; Enables ligature checks globally in all buffers. You can also do it
   ;; per mode with `ligature-mode'.
 )

@@ -1,5 +1,5 @@
 (use-package racket-mode
-  :elpaca t
+  :ensure t
   )
 (provide 'lang-racket)
  

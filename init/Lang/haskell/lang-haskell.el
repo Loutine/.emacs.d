@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package haskell-mode
-  :elpaca t
+  :ensure t
   :config
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
@@ -24,7 +24,7 @@
   )
 
 (use-package align
-  :elpaca nil
+  :ensure nil
   :config
   (add-to-list 'align-rules-list
                '(haskell-types
@@ -43,9 +43,7 @@
 		 (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
 		 (modes quote (haskell-mode haskell-literate-mode)))))
 (use-package lsp-haskell
-  :elpaca t
-  :config
-  (setq lsp-haskell-server-path (expand-file-name "~/.ghcup/bin/haskell-language-server-wrapper")))
+  :ensure t)
 
 (provide 'lang-haskell)
 ;;; haskell-la.el ends here

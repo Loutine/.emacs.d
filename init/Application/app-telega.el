@@ -1,6 +1,9 @@
+(add-to-list 'elpaca-ignored-dependencies 'compat)
+(add-to-list 'elpaca-ignored-dependencies 'cond-let)
+(add-to-list 'elpaca-ignored-dependencies 'transient)
+
 (use-package telega
-  :elpaca t 
-  :after (org)
+  :ensure nil
   :init
   (add-hook 'telega-load-hook
 	    (lambda ()
@@ -9,18 +12,12 @@
 	    'telega-msg-ignore-predicates #'telega-msg-from-blocked-sender-p)
   (add-hook 'telega-load-hook 'telega-mode-line-mode)
   (add-hook 'telega-load-hook 'telega-appindicator-mode)
-  (setq telega-proxies (list
-			'(:server "127.0.0.1" :port 7890 :enable t :type (:@type "proxyTypeHttp"))
-			'(:server "127.0.0.1" :port 7890 :enable t :type (:@type "proxyTypeSocks5"))
-			)
-	telega-server-libs-prefix "/usr"
-	telega-filter-button-width 0.3
+  (setq telega-filter-button-width 0.3
 	telega-filter-custom-one-liners nil
 	telega-use-images t
 	telega-emoji-use-images nil
 	telega-completing-read-function completing-read-function
 	telega-chat-show-deleted-messages-for '(return t)
-	)
-  )
+	))
 
 (provide 'app-telega)

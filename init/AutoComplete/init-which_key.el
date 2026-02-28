@@ -1,5 +1,5 @@
 (use-package which-key
-  :elpaca t
+  :ensure t
   ;;:bind ("C-x c" . which-key-show-major-mode)
   :config
   (require 'which-key)
