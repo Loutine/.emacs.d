@@ -1,8 +1,8 @@
-;;; init-lspbridge.el ---                            -*- lexical-binding: t; -*-
+;;; app-gptel.el --- llm config                      -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2023  Uhuru
+;; Copyright (C) 2026  Uhuru
 
-;; Author: Uhuru <uhuru@archlinux>
+;; Author: Uhuru <uhuru@nixos>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,20 +23,14 @@
 ;; 
 
 ;;; Code:
-(use-package electric
-  :config
-  (electric-pair-mode t))
-(use-package lsp-bridge
-  :after (yasnippet)
-  :straight `(lsp-bridge
-	      :type git
-	      :host github
-	      :repo "manateelazycat/lsp-bridge"
-	      :build (:not compile)
-	      :files (:defaults "*"))
-  :config
-  (global-lsp-bridge-mode))
 
+(use-package gptel
+  :ensure t
+  :init
+  (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
+  (setq gptel-model 'deepseek-reasoner
+		gptel-backend (gptel-make-deepseek "DeepSeek" :stream t :key (shell-command-to-string "secret-tool lookup Title \"deepseek-api-key\""))
+))
 
-(provide 'init-lspbridge)
-;;; init-lspbridge.el ends here
+(provide 'app-gptel)
+;;; app-gptel.el ends here

@@ -27,6 +27,7 @@
 
 (use-package mu4e
   :ensure nil
+  :defer t
   :config
   (setq mu4e-get-mail-command "mbsync -a"
 	mu4e-update-interval nil

@@ -25,7 +25,7 @@
 ;;; Code:
 
 (use-package typst-ts-mode
-  :after (lsp-mode)
+  ;;:after (lsp-mode)
   :ensure (:type git :host codeberg :repo "meow_king/typst-ts-mode"
                  :files (:defaults "*.el"))
   :custom

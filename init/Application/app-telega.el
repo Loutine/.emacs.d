@@ -4,6 +4,7 @@
 
 (use-package telega
   :ensure nil
+  :defer t
   :init
   (add-hook 'telega-load-hook
 	    (lambda ()

@@ -1,6 +1,7 @@
 (add-to-list 'elpaca-ignored-dependencies 'vterm)
 (use-package vterm
   :ensure nil
+  :defer t
 )
 (use-package vterm-toggle
   :ensure t

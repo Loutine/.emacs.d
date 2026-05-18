@@ -14,6 +14,8 @@
  '(global-auto-revert-mode t)
  '(highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line)
  '(highlight-indent-guides-method 'bitmap)
+ '(ignored-local-variable-values
+   '((lsp-rust-analyzer-cargo-target . riscv64gc-unknow-linux-gnu)))
  '(initial-buffer-choice nil)
  '(kept-old-versions 1)
  '(latex-preview-pane-multifile-mode 'auctex)
@@ -60,6 +62,8 @@
  '(plz-connect-timeout 15)
  '(posframe-mouse-banish t t)
  '(reb-re-syntax 'string)
+ '(safe-local-variable-values
+   '((lsp-rust-analyzer-cargo-target . "riscv64gc-unknown-linux-gnu")))
  '(scroll-bar-mode nil)
  '(select-active-regions nil)
  '(send-mail-function 'sendmail-send-it)

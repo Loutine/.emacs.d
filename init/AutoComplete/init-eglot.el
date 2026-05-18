@@ -23,13 +23,39 @@
 ;; 
 
 ;;; Code:
+(add-to-list 'elpaca-ignored-dependencies 'eglot)
 (use-package sideline-flymake
-  :ensure t)
+  :ensure t
+  :hook (flymake-mode . sideline-mode)
+  :init
+  (setq sideline-flymake-display-mode 'point) ; 'point to show errors only on point)
+  )
+(use-package sideline-eglot
+  :ensure t
+  :hook (eglot-mode . sideline-mode)
+  :init
+  (setq sideline-backends-right '(sideline-eglot)))
+  
+(use-package eglot :hook (eglot-mode . sideline-mode))  ; enable it when eglot is on
 (use-package sideline
   :ensure t
   :hook
   (sideline-mode . flymake-mode)
-  )
+  :init
+  (setq sideline-backends-left-skip-current-line t   ; don't display on current line (left)
+        sideline-backends-right-skip-current-line t  ; don't display on current line (right)
+        sideline-order-left 'down                    ; or 'up
+        sideline-order-right 'up                     ; or 'down
+        sideline-format-left "%s   "                 ; format for left aligment
+        sideline-format-right "   %s"                ; format for right aligment
+        sideline-priority 100                        ; overlays' priority
+        sideline-display-backend-name t)
+  (setq sideline-backends-right '(sideline-eglot     ; `eglot'
+                                  sideline-flymake   ; `eglot' uses `flymake' by default
+										;sideline-blame     ; For `blamer'
+										;sideline-eros
+								  ))   ; For `eros'
+)            ; display the backend name
 (use-package eglot
   :ensure nil
   :custom

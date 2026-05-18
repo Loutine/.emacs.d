@@ -1,9 +1,9 @@
-;;; meta-eshell.el --- eshell configuration          -*- lexical-binding: t; -*-
+;;; note-zk.el --- zk configuration                  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2024  Uhuru
+;; Copyright (C) 2026  Uhuru
 
 ;; Author: Uhuru <uhuru@nixos>
-;; Keywords: 
+;; Keywords: text
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,14 +24,17 @@
 
 ;;; Code:
 
+(use-package zk4e
+  :ensure ( :url "https://codeberg.org/mcookly/zk4e"
+			:branch "main"
+			;; You may want to pin a commit until the first 0.x version
+			;; is released (hopefully soon).
+			:rev :newest)
+  :custom (zk4e-notebook-directories '(("Note" . "~/Note")))
+  :config
+  (zk4e-select-notebook "Note"))
 
-(use-package eshell-toggle
-  :ensure t
-  :custom
-  (eshell-toggle-size-fraction 3)
-  (eshell-toggle-find-project-root-package t)
-  (eshell-toggle-run-command nil)
-  :bind
-  ("C-=" . eshell-toggle))
-(provide 'meta-eshell)
-;;; meta-eshell.el ends here
+(with-eval-after-load 'lsp-mode
+  (require 'zk-lsp))
+(provide 'note-zk)
+;;; note-zk.el ends here

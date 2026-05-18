@@ -42,8 +42,6 @@
                '(haskell-left-arrows
 		 (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
 		 (modes quote (haskell-mode haskell-literate-mode)))))
-(use-package lsp-haskell
-  :ensure t)
 
 (provide 'lang-haskell)
 ;;; haskell-la.el ends here

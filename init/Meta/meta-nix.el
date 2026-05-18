@@ -25,7 +25,7 @@
 ;;; Code:
 
 (use-package nix-mode
-  :after lsp-mode
+  ;;:after lsp-mode
   :ensure t
   :mode ("\\.nix\\'" "\\.nix.in\\'")
   :hook

@@ -23,16 +23,16 @@
 
 ;;; Code:
 (use-package corfu
-  :after lsp-mode
+  ;;:after lsp-mode
   :ensure t
   ;; Optional customizations
   :custom
   (corfu-auto t)
-  (corfu-auto-delay 0)
+  (corfu-auto-delay 0.1)
   (corfu-auto-prefix 1)
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
-  (corfu-quit-no-match 'separator)      ;; Never quit, even if there is no match
+  (corfu-quit-no-match t)      ;; Never quit, even if there is no match
   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
   (corfu-preselect 'prompt)      ;; Preselect the prompt
   (corfu-on-exact-match nil)     ;; Configure handling of exact matches
@@ -66,6 +66,7 @@
 )
 
 (use-package yasnippet-capf
+  :disabled t
   :ensure t
   :init
   (defun my/lsp-completion-at-point ()

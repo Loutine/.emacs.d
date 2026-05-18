@@ -1,5 +1,5 @@
 (use-package transient
-  :ensure nil)
+  :ensure t)
 ;; magit need the latest transient
 (use-package magit
   :ensure t

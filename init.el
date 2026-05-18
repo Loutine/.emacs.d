@@ -29,13 +29,12 @@
 (require 'meta-buffer)
 (require 'meta-nolitter)
 (require 'meta-vterm)
-;;(require 'meta-eshell)
+(require 'meta-ghostel)
 (require 'meta-rime)
 (require 'meta-magit)
 (require 'meta-hydra)
 (require 'meta-edit)
 (require 'meta-evil)
-;;(require 'meta-meow)
 (require 'meta-nix)
 
 ;; ;;module: Preface -- prettify emacs
@@ -56,32 +55,26 @@
 ;;the newest one, with the emacs builtin function, light, beautiful, but flawed
 (require 'init-corfu)
 
-;;3. acm
-;;which is a part of lsp-bridge, hope it can be seperated from its parent project
-;;(require 'init-lspbridge)
-
 ;;(require 'init-citre)
 (require 'init-yasnippet)
 (require 'init-vertico)
 (require 'init-consult)
 
 ;;And the language-server-protocol
-;;(require 'init-eglot)			  	
-(require 'init-lsp)
+(require 'init-eglot)			  	
+;;(require 'init-lsp)
 
 ;; tree-sitter still not usable
 (require 'init-tree-sitter)
 (require 'init-embark)
-;; (require 'init-paredit)
-;; alternative to paredit
 (require 'init-symex)
-;; (require 'init-puni)
 (require 'init-avy)
 (require 'init-which_key)
 
 ;;module: Workspace And Project -- for project managment and workspace manage
 
 (require 'init-project)
+(require 'init-treemacs)
 (require 'init-realgud)
 
 ;;module: Lang -- for programming language
@@ -100,7 +93,7 @@
 (require 'lang-go)
 (require 'lang-elixir)
 (require 'lang-APL)
-;;(require 'lang-clojure)
+(require 'lang-clojure)
 (require 'lang-rust)
 (require 'lang-lisp)
 
@@ -114,8 +107,7 @@
 ;; ;;Notetaking
 
 (require 'note-pdf)
-;; (require 'note-deft)
-;; (require 'note-transclusion)
+(require 'note-zk)
 (require 'note-typst)
 ;; (require 'note-citar)
 ;; (require 'note-denote)
@@ -127,17 +119,13 @@
 (require 'app-telega)
 (require 'app-gnus)
 (require 'app-mu4e)
-;;(require 'app-wanderlust)
-;;(require 'app-matrix)
+(require 'app-gptel)
 
 (use-package Loutine-splash
   :ensure (Loutine-splash :host github :repo "Loutine/loutine-splash")
   :config
   (if window-system
       (Loutine-splash)))
-
-;; (load-file (let ((coding-system-for-read 'utf-8))
-;;                 (shell-command-to-string "agda-mode locate")))
 
 ;Load the welcome page and customize variable
 (load custom-file)

@@ -1,9 +1,9 @@
-;;; app-matrix.el --- matrix client configuragion    -*- lexical-binding: t; -*-
+;;; meta-ghostel.el --- ghostel a term emulator use libghostty-vt  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  
+;; Copyright (C) 2026  Uhuru
 
-;; Author:
-;; Keywords: 
+;; Author: Uhuru <uhuru@nixos>
+;; Keywords: terminals
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -23,16 +23,7 @@
 ;; 
 
 ;;; Code:
-;; Install `plz' HTTP library (not on MELPA yet).
-(use-package plz
-  :demand
-  :elpaca (plz :type git :host github :repo "alphapapa/plz.el"))
 
-;; Install Ement.
-(use-package ement
-  :ensure t
 
-  ;;(ement :type git :host github :repo "alphapapa/ement.el")
-  )
-(provide 'app-matrix)
-;;; app-matrix.el ends here
+(provide 'meta-ghostel)
+;;; meta-ghostel.el ends here
